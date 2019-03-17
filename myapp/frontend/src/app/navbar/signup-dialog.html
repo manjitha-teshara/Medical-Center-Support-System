@@ -1,0 +1,50 @@
+<div class=login-dialog>
+    <h1 mat-dialog-title>Register</h1>
+    <div mat-dialog-content>
+        <form #signUpForm="ngForm"  (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">       
+             <div class="email-container">
+            <mat-form-field >
+            <input matInput placeholder="Name" #userName="ngModel" name="userName" [(ngModel)]="usersevice.selectedUser.userName" required>
+            </mat-form-field>
+                              
+            <mat-form-field>
+            <input matInput placeholder="Enter your email" #email="ngModel" name="email" [(ngModel)]="usersevice.selectedUser.email"  required [pattern]="emailRegex">
+            <div *ngIf="signUpForm.submitted && !email.valid">
+            <mat-error *ngIf="email.errors.pattern">Invalid Email Address.</mat-error>
+            </div>
+
+        </mat-form-field>
+            <mat-form-field>
+                <input matInput  placeholder="Phone No" #phonenumber="ngModel" name="phonenumber" [(ngModel)]="usersevice.selectedUser.phonenumber" required [pattern]="phone">
+                <div *ngIf="signUpForm.submitted && !phonenumber.valid">
+                    <mat-error *ngIf="phonenumber.errors.pattern">Invalid Phone Number.</mat-error>
+                </div>
+                </mat-form-field>
+                <mat-form-field appearance="standard">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" #password="ngModel" [(ngModel)]="usersevice.selectedUser.password"
+                      name="password" matTooltip="Password must include at least 8 characters including one number, one
+                      upper case letter and one lower case letter" minlength="8" required  >
+                  </mat-form-field>
+                  <div *ngIf="signUpForm.submitted && password.errors">
+                    <mat-error *ngIf="password.errors.minlength">Enter atleast 8 characters.<br></mat-error>
+                  </div>
+            
+              <mat-form-field appearance="standard">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" appConfirmEqualValidator="password" #cpassword="ngModel"
+                  [(ngModel)]="usersevice.selectedUser.cpassword" name="cpassword" minlength="8" required >
+              </mat-form-field>
+              <div *ngIf="signUpForm.submitted && cpassword.errors">
+                <mat-error *ngIf="cpassword.errors.notEqual">Password and confirm password doesn't match</mat-error>
+                <mat-error *ngIf="cpassword.errors.minlength">Enter at least 8 characters.<br></mat-error>
+              </div>
+        </div>
+        <button mat-button  type="submit">Sign Up</button> 
+        </form>  
+    </div>
+    <div mat-dialog-actions>
+        <p><font color="blue">Already have an account</font></p>
+        <a mat-button (click)="onNoClickSignIn()">Sign In</a>
+    </div>  
+</div>
