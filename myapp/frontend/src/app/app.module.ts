@@ -17,6 +17,10 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { DocterViewComponent } from './component/docter-view/docter-view.component';
+import { DocterComponent } from './users/docter/docter.component';
+import { PatientComponent } from './users/patient/patient.component';
+import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
+
 
 
 @NgModule({
@@ -29,7 +33,10 @@ import { DocterViewComponent } from './component/docter-view/docter-view.compone
     FooterComponent,
     SliderpanelComponent,
     ContactComponent,
-    DocterViewComponent
+    DocterViewComponent,
+    DocterComponent,
+    PatientComponent,
+    PharmacistComponent
   ],
   imports: [
     HttpClientModule, 
