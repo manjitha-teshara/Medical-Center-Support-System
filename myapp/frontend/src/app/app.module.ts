@@ -15,8 +15,8 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
-import { OurskillComponent } from './component/ourskill/ourskill.component';
 import { ContactComponent } from './component/contact/contact.component';
+import { DocterViewComponent } from './component/docter-view/docter-view.component';
 
 
 @NgModule({
@@ -28,8 +28,8 @@ import { ContactComponent } from './component/contact/contact.component';
     NavbarComponent,
     FooterComponent,
     SliderpanelComponent,
-    OurskillComponent,
-    ContactComponent
+    ContactComponent,
+    DocterViewComponent
   ],
   imports: [
     HttpClientModule, 

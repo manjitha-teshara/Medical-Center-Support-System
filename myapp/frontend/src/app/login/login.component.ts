@@ -13,6 +13,8 @@ export interface DialogData {
   name: string;
 }
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -45,6 +47,10 @@ usr =new User();
     });
   }
 }
+
+
+
+//get loging loalog box
 @Component({
   selector: 'login-dialog',
   templateUrl: 'login-dialog.html',
@@ -73,6 +79,9 @@ export class LoginDialog {
   hide = true;
 }
 
+
+
+//get sign up dialog box
 @Component({
   selector: 'signup-dialog',
   templateUrl: 'signup-dialog.html',
