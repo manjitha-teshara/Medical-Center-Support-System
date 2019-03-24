@@ -11,7 +11,6 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 
 
 const routes: Routes = [
-{ path:'login',component:LoginComponent},
 { path:'',component:SliderpanelComponent},
 { path:'docter',component:DocterComponent},
 { path:'patient',component:PatientComponent},
