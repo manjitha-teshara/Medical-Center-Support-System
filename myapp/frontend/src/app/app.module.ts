@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent, LoginDialog, SignupDialog} from './login/login.component';
+import {LoginDialogInBox,SignupDialogInBox,BookingDialog} from './component/sliderpanel/sliderpanel.component';
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
@@ -28,7 +29,9 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
     AppComponent,
     LoginComponent,
     LoginDialog,
+    LoginDialogInBox,
     SignupDialog,
+    SignupDialogInBox,
     NavbarComponent,
     FooterComponent,
     SliderpanelComponent,
@@ -36,7 +39,8 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
     DocterViewComponent,
     DocterComponent,
     PatientComponent,
-    PharmacistComponent
+    PharmacistComponent,
+    BookingDialog
   ],
   imports: [
     HttpClientModule, 
@@ -56,7 +60,7 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialog, SignupDialog]
+  entryComponents: [LoginDialog, SignupDialog,LoginDialogInBox,SignupDialogInBox,BookingDialog]
 })
 export class AppModule {}
 enableProdMode();
