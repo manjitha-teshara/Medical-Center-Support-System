@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent, LoginDialog, SignupDialog} from './login/login.component';
-import {LoginDialogInBox,SignupDialogInBox,BookingDialog} from './component/sliderpanel/sliderpanel.component';
+import {LoginDialogInBox,SignupDialogInBox,BookingDialog,ViewMoreDialog} from './component/sliderpanel/sliderpanel.component';
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
@@ -40,7 +40,8 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
     DocterComponent,
     PatientComponent,
     PharmacistComponent,
-    BookingDialog
+    BookingDialog,
+    ViewMoreDialog
   ],
   imports: [
     HttpClientModule, 
@@ -60,7 +61,7 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialog, SignupDialog,LoginDialogInBox,SignupDialogInBox,BookingDialog]
+  entryComponents: [LoginDialog, SignupDialog,LoginDialogInBox,SignupDialogInBox,BookingDialog,ViewMoreDialog]
 })
 export class AppModule {}
 enableProdMode();

@@ -50,7 +50,13 @@ usr =new User();
 
   openDialogBooking(): void {
     const dialogRef = this.dialog.open(BookingDialog, {
-      width: '500px',
+      width: '800px',
+    });
+  }
+
+  openViewMore(): void {
+    const dialogRef = this.dialog.open(ViewMoreDialog, {
+      width: '800px',
     });
   }
 
@@ -162,6 +168,27 @@ export class BookingDialog {
 
   constructor(
     public dialogRef: MatDialogRef<BookingDialog>,
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+   
+   
+  hide = true;
+}
+
+
+
+//view more button
+
+@Component({
+  selector: 'viewMore-dialog',
+  templateUrl: 'viewMore-dialog.html',
+  styleUrls: ['./sliderpanel.component.css'],
+})
+export class ViewMoreDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<ViewMoreDialog>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
