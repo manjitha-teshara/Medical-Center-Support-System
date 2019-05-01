@@ -12,8 +12,8 @@ export class UserService {
     userName:'',
     email:'',
     phonenumber:'',
-    password:'',
-    cpassword:''
+    password:''
+   
 
   }
   constructor(private http :HttpClient) { }

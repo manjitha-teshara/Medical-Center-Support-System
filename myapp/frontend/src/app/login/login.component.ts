@@ -76,6 +76,11 @@ export class LoginDialog {
         this.email.hasError('email') ? 'Not a valid email' :
             '';
   }
+  /****/
+  signInFunction(){
+    console.log("cked");
+  }
+  /*****/
   hide = true;
 }
 
@@ -94,6 +99,8 @@ export class SignupDialog {
 usr =new User();
 emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 phone =/^(\+94)[0-9]{9,9}$/;
+showSucessMessage:boolean;
+serverErrorMessages:string;
   constructor(
     public dialogRef: MatDialogRef<LoginDialog>,
     public dialog: MatDialog,
@@ -104,6 +111,8 @@ phone =/^(\+94)[0-9]{9,9}$/;
     onSubmit(form: NgForm){
       this.usersevice.postuser(form.value).subscribe(
         res=>{
+          this.resetForm(form);
+
           Swal({
             title: "Good job!",
             text: "You Have Sussefully registered!",
@@ -112,7 +121,7 @@ phone =/^(\+94)[0-9]{9,9}$/;
         },
         err=>{
          
-          swal ( "Oops" ,"",  "error" )
+          swal ( "Oops " ,"",  "error" )
         }
       )
     }
@@ -132,9 +141,43 @@ phone =/^(\+94)[0-9]{9,9}$/;
   }
   hide = true;
 
- 
+  signUpFunction(form:NgForm){
+    console.log("ck sign up");
+    return this.usersevice.postuser(form.value).subscribe(
+        res=>{
+          this.showSucessMessage=true;
+          setTimeout(()=>this.showSucessMessage=false,4000);
+          this.resetForm(form);
+        },
+        err=>{
+          if(err.status==422){
+            this.serverErrorMessages=err.error.join('<br/>');
+          }
+          else
+            this.serverErrorMessages="Something went wrong.Please contact admin. ";
 
+        }
+    );
+    }
+
+    resetForm(form: NgForm) {
+      this.usersevice.selectedUser = {
+        userName:'',
+      email:'',
+      phonenumber:'',
+      password:''
+      };
+      form.resetForm();
+      this.serverErrorMessages = '';
+
+    
+  }
+
+ 
 }
+
+
+
 
 
 
