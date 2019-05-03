@@ -16,9 +16,26 @@ export class UserService {
    
 
   }
+
+  noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
+  
   constructor(private http :HttpClient) { }
 
-  
+  login(authCredentials) {
+    return this.http.post(environment.apiBaseUrl + '/authenticate', authCredentials,this.noAuthHeader);
+  }
+ 
+ setToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+ 
+  getToken() {
+    return localStorage.getItem('token');
+  }
+ 
+  deleteToken() {
+    localStorage.removeItem('token');
+  }
 
   postuser(user:User){
     return this.http.post(environment.apiBaseUrl+'/register',user);

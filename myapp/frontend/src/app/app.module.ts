@@ -21,6 +21,8 @@ import { DocterViewComponent } from './component/docter-view/docter-view.compone
 import { DocterComponent } from './users/docter/docter.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserService } from './shared/user.service';
 
 
 
@@ -41,7 +43,8 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
     PatientComponent,
     PharmacistComponent,
     BookingDialog,
-    ViewMoreDialog
+    ViewMoreDialog,
+    UserProfileComponent
   ],
   imports: [
     HttpClientModule, 
@@ -59,7 +62,7 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
     MatIconModule,
     MDBBootstrapModule,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
   entryComponents: [LoginDialog, SignupDialog,LoginDialogInBox,SignupDialogInBox,BookingDialog,ViewMoreDialog]
 })

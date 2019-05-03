@@ -6,7 +6,8 @@ import {UserService} from '../shared/user.service';
 import {User} from '../shared/user.model';
 import { NgForm } from '@angular/forms';
 import { error } from '@angular/compiler/src/util';
-import Swal from 'sweetalert'
+import Swal from 'sweetalert';
+import { Router } from "@angular/router";
 
 export interface DialogData {
   animal: string;
@@ -57,11 +58,22 @@ usr =new User();
   styleUrls: ['./login.component.css'],
 })
 export class LoginDialog {
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  serverErrorMessages:string;
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialog>,
     public dialog: MatDialog,
+    private userService:UserService,
+    private router : Router,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+    /**constructor(private userService: UserService,private router : Router) { } */
+
+  model={
+    email:'',
+    password:''
+  };
 
   onNoClickSignUp(): void {
     this.dialogRef.close();
@@ -77,9 +89,18 @@ export class LoginDialog {
             '';
   }
   /****/
-  signInFunction(){
-    console.log("cked");
+  onSubmit(form : NgForm){
+    this.userService.login(form.value).subscribe(
+      res => {
+        this.userService.setToken(res['token']);
+        this.router.navigateByUrl('/userprofile');
+      },
+      err => {
+        this.serverErrorMessages = err.error.message;
+      }
+    );
   }
+  
   /*****/
   hide = true;
 }
