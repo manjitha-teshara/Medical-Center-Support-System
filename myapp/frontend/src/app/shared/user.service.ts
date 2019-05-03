@@ -18,7 +18,7 @@ export class UserService {
   }
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
-  
+
   constructor(private http :HttpClient) { }
 
   login(authCredentials) {
@@ -35,6 +35,24 @@ export class UserService {
  
   deleteToken() {
     localStorage.removeItem('token');
+  }
+
+  getUserPayload(){
+    var token=localStorage.getItem('token');
+    if(token){
+      var getUserPayload=atob(token.split('.')[1]);
+      return JSON.parse(getUserPayload);
+    }
+    else
+      return null;
+  }
+
+  isLoggedIn(){
+    var userPayload=this.getUserPayload();
+    if(userPayload)
+      return userPayload.exp > Date.now()/1000;
+    else
+      return  null;
   }
 
   postuser(user:User){

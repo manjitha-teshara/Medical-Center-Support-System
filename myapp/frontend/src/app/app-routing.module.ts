@@ -7,7 +7,8 @@ import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.compon
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { AuthGuard } from '../auth.guard';
+import { AuthGuard } from './auth.guard';
+
 
 
 

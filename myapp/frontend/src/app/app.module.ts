@@ -24,6 +24,7 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
 
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import { UserService } from './shared/user.service';
     MatIconModule,
     MDBBootstrapModule,
   ],
-  providers: [UserService],
+  providers: [AuthGuard,UserService],
   bootstrap: [AppComponent],
   entryComponents: [LoginDialog, SignupDialog,LoginDialogInBox,SignupDialogInBox,BookingDialog,ViewMoreDialog]
 })
