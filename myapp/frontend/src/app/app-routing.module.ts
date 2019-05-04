@@ -6,16 +6,19 @@ import { LoginComponent, LoginDialog, SignupDialog} from './login/login.componen
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AuthGuard } from './auth.guard';
+
 
 
 
 
 const routes: Routes = [
-{ path:'login',component:LoginComponent},
 { path:'',component:SliderpanelComponent},
 { path:'docter',component:DocterComponent},
 { path:'patient',component:PatientComponent},
-{ path:'pha',component:PharmacistComponent}
+{ path:'pha',component:PharmacistComponent},
+{path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];
 

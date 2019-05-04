@@ -47,3 +47,36 @@
   .logoBack{
     background: white;
   }
+
+
+/*//for docter image*/
+
+.docterImage {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+.docterImage:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.panel1{
+    
+    padding: 5px;
+    padding-top: 5px;
+    border-radius: 4px;
+}
+
+.panel2{
+    padding: 5px;
+    font-size: 15px;
+    color: rebeccapurple;
+    font-weight: 500;
+}
+
+.panel3{
+    padding-bottom: 2px;
+}
+
+/*//for docter image end*/

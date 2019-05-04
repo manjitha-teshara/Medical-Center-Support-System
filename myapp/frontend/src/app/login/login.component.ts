@@ -6,7 +6,8 @@ import {UserService} from '../shared/user.service';
 import {User} from '../shared/user.model';
 import { NgForm } from '@angular/forms';
 import { error } from '@angular/compiler/src/util';
-import Swal from 'sweetalert'
+import Swal from 'sweetalert';
+import { Router } from "@angular/router";
 
 export interface DialogData {
   animal: string;
@@ -57,11 +58,22 @@ usr =new User();
   styleUrls: ['./login.component.css'],
 })
 export class LoginDialog {
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  serverErrorMessages:string;
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialog>,
     public dialog: MatDialog,
+    private userService:UserService,
+    private router : Router,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+    /**constructor(private userService: UserService,private router : Router) { } */
+
+  model={
+    email:'',
+    password:''
+  };
 
   onNoClickSignUp(): void {
     this.dialogRef.close();
@@ -76,6 +88,20 @@ export class LoginDialog {
         this.email.hasError('email') ? 'Not a valid email' :
             '';
   }
+  /****/
+  onSubmit(form : NgForm){
+    this.userService.login(form.value).subscribe(
+      res => {
+        this.userService.setToken(res['token']);
+        this.router.navigateByUrl('/docter');/**set naviagation to doctor dash board mailnly */
+      },
+      err => {
+        this.serverErrorMessages = err.error.message;
+      }
+    );
+  }
+  
+  /*****/
   hide = true;
 }
 
@@ -94,6 +120,8 @@ export class SignupDialog {
 usr =new User();
 emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 phone =/^(\+94)[0-9]{9,9}$/;
+showSucessMessage:boolean;
+serverErrorMessages:string;
   constructor(
     public dialogRef: MatDialogRef<LoginDialog>,
     public dialog: MatDialog,
@@ -104,6 +132,8 @@ phone =/^(\+94)[0-9]{9,9}$/;
     onSubmit(form: NgForm){
       this.usersevice.postuser(form.value).subscribe(
         res=>{
+          this.resetForm(form);
+
           Swal({
             title: "Good job!",
             text: "You Have Sussefully registered!",
@@ -112,7 +142,7 @@ phone =/^(\+94)[0-9]{9,9}$/;
         },
         err=>{
          
-          swal ( "Oops" ,"",  "error" )
+          swal ( "Oops " ,"",  "error" )
         }
       )
     }
@@ -132,9 +162,43 @@ phone =/^(\+94)[0-9]{9,9}$/;
   }
   hide = true;
 
- 
+  signUpFunction(form:NgForm){
+    console.log("ck sign up");
+    return this.usersevice.postuser(form.value).subscribe(
+        res=>{
+          this.showSucessMessage=true;
+          setTimeout(()=>this.showSucessMessage=false,4000);
+          this.resetForm(form);
+        },
+        err=>{
+          if(err.status==422){
+            this.serverErrorMessages=err.error.join('<br/>');
+          }
+          else
+            this.serverErrorMessages="Something went wrong.Please contact admin. ";
 
+        }
+    );
+    }
+
+    resetForm(form: NgForm) {
+      this.usersevice.selectedUser = {
+        userName:'',
+      email:'',
+      phonenumber:'',
+      password:''
+      };
+      form.resetForm();
+      this.serverErrorMessages = '';
+
+    
+  }
+
+ 
 }
+
+
+
 
 
 

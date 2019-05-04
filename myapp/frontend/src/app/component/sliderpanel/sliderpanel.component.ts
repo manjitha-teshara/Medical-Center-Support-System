@@ -33,7 +33,7 @@ usr =new User();
  
 
   openDialogSignIn(): void {
-    const dialogRef = this.dialog.open(LoginDialog, {
+    const dialogRef = this.dialog.open(LoginDialogInBox, {
       width: '500px',
     });
   }
@@ -43,10 +43,26 @@ usr =new User();
     //   this.animal = result;
     // });
   openDialogSignUp(): void {
-    const dialogRef = this.dialog.open(SignupDialog, {
+    const dialogRef = this.dialog.open(SignupDialogInBox, {
       width: '500px',
     });
   }
+
+  openDialogBooking(): void {
+    const dialogRef = this.dialog.open(BookingDialog, {
+      width: '800px',
+    });
+  }
+
+  openViewMore(): void {
+    const dialogRef = this.dialog.open(ViewMoreDialog, {
+      width: '800px',
+    });
+  }
+
+
+
+  
 }
 
 
@@ -57,16 +73,16 @@ usr =new User();
   templateUrl: 'login-dialog.html',
   styleUrls: ['./sliderpanel.component.css'],
 })
-export class LoginDialog {
+export class LoginDialogInBox {
 
   constructor(
-    public dialogRef: MatDialogRef<LoginDialog>,
+    public dialogRef: MatDialogRef<LoginDialogInBox>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClickSignUp(): void {
     this.dialogRef.close();
-    const dialogRef = this.dialog.open(SignupDialog, {
+    const dialogRef = this.dialog.open(SignupDialogInBox, {
       width: '500px',
     });
   }
@@ -91,12 +107,12 @@ export class LoginDialog {
 })
 
 
-export class SignupDialog {
+export class SignupDialogInBox {
 usr =new User();
 emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 phone =/^(\+94)[0-9]{9,9}$/;
   constructor(
-    public dialogRef: MatDialogRef<LoginDialog>,
+    public dialogRef: MatDialogRef<LoginDialogInBox>,
     public dialog: MatDialog,
     private usersevice:UserService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
@@ -119,8 +135,9 @@ phone =/^(\+94)[0-9]{9,9}$/;
     }
   
   onNoClickSignIn(): void {
+
     this.dialogRef.close();
-    const dialogRef = this.dialog.open(LoginDialog, {
+    const dialogRef = this.dialog.open(LoginDialogInBox, {
       width: '500px',
     });
   }
@@ -135,6 +152,49 @@ phone =/^(\+94)[0-9]{9,9}$/;
 
  
 
+}
+
+
+
+
+//booking button
+
+@Component({
+  selector: 'booking-dialog',
+  templateUrl: 'booking-dialog.html',
+  styleUrls: ['./sliderpanel.component.css','./booking-dialog.css'],
+})
+export class BookingDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<BookingDialog>,
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+   
+   
+  hide = true;
+}
+
+
+
+//view more button
+
+@Component({
+  selector: 'viewMore-dialog',
+  templateUrl: 'viewMore-dialog.html',
+  styleUrls: ['./sliderpanel.component.css'],
+})
+export class ViewMoreDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<ViewMoreDialog>,
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+   
+   
+  hide = true;
 }
 
 
