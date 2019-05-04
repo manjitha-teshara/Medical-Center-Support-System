@@ -93,7 +93,7 @@ export class LoginDialog {
     this.userService.login(form.value).subscribe(
       res => {
         this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/userprofile');
+        this.router.navigateByUrl('/docter');/**set naviagation to doctor dash board mailnly */
       },
       err => {
         this.serverErrorMessages = err.error.message;

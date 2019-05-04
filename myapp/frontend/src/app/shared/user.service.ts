@@ -13,9 +13,8 @@ export class UserService {
     email:'',
     phonenumber:'',
     password:''
-   
+     }
 
-  }
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
 
@@ -38,13 +37,18 @@ export class UserService {
   }
 
   getUserPayload(){
-    var token=localStorage.getItem('token');
+    // var token=localStorage.getItem('token');
+    var token=this.getToken();
     if(token){
       var getUserPayload=atob(token.split('.')[1]);
       return JSON.parse(getUserPayload);
     }
     else
       return null;
+  }
+
+  getUserProfile(){
+    return this.http.get(environment.apiBaseUrl+'/userProfile');
   }
 
   isLoggedIn(){
@@ -56,7 +60,7 @@ export class UserService {
   }
 
   postuser(user:User){
-    return this.http.post(environment.apiBaseUrl+'/register',user);
+    return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
 
 

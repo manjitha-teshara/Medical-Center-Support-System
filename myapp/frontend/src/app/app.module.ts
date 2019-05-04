@@ -25,7 +25,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
 
 import { AuthGuard } from './auth.guard';
-
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,7 @@ import { AuthGuard } from './auth.guard';
     MatIconModule,
     MDBBootstrapModule,
   ],
-  providers: [AuthGuard,UserService],
+  providers: [AuthGuard,UserService,AuthInterceptor],
   bootstrap: [AppComponent],
   entryComponents: [LoginDialog, SignupDialog,LoginDialogInBox,SignupDialogInBox,BookingDialog,ViewMoreDialog]
 })
