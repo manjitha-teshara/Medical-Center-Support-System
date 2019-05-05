@@ -10,4 +10,7 @@ mongoose.connect(process.env.MONGODB_URI,(err)=>{
 });
 require('./user.model');
 require('./doctor.model');
+require('./patientRecord.model');
 
+
+module.export=mongoose;
