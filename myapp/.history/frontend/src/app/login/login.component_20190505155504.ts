@@ -7,7 +7,7 @@ import {User} from '../shared/user.model';
 import { NgForm } from '@angular/forms';
 import { error } from '@angular/compiler/src/util';
 import Swal from 'sweetalert';
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
 export interface DialogData {
   animal: string;
@@ -23,9 +23,9 @@ export interface DialogData {
 })
 export class LoginComponent implements OnInit {
 
-usr = new User();
+usr =new User();
   ngOnInit() {
-
+ 
 
   }
 
@@ -93,7 +93,7 @@ export class LoginDialog {
     this.userService.login(form.value).subscribe(
       res => {
         this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/docter');/**set naviagation to doctor dash board mailnly */
+        this.router.navigateByUrl('/userprofile');/**set naviagation to doctor dash board mailnly */
       },
       err => {
         this.serverErrorMessages = err.error.message;

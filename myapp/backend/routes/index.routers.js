@@ -11,6 +11,8 @@ router.post('/authenticate',ctrlUser.authenticate);
 router.get('/userProfile',jwtHelper.verifyJwtToken,ctrlUser.userProfile);
 
 router.post('/patientRecord',ctrlPatientRecord.regRecord);
+router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
+
 
 router.post('/doctorRegister',ctrlDocter.doctorRegister);
 

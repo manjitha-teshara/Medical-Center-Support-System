@@ -48,6 +48,7 @@ export class UserService {
   }
 
   getUserProfile(){
+    console.log("get user profile");
     return this.http.get(environment.apiBaseUrl+'/userProfile');
   }
 

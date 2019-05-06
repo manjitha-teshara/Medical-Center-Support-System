@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
+import { ContactComponent } from './component/contact/contact.component';
 import { DocterViewComponent } from './component/docter-view/docter-view.component';
 import { DocterComponent, CheckPatient, CheckEarn } from './users/docter/docter.component';
 import { PatientComponent } from './users/patient/patient.component';
@@ -38,6 +39,7 @@ import { AuthInterceptor } from './auth.interceptor';
     SignupDialogInBox,
     FooterComponent,
     SliderpanelComponent,
+    ContactComponent,
     DocterViewComponent,
     DocterComponent,
     PatientComponent,

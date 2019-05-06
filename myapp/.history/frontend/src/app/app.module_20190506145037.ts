@@ -11,12 +11,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
 import {enableProdMode} from '@angular/core';
 import {MatDialogModule} from '@angular/material/dialog';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
+import { ContactComponent } from './component/contact/contact.component';
 import { DocterViewComponent } from './component/docter-view/docter-view.component';
-import { DocterComponent, CheckPatient, CheckEarn } from './users/docter/docter.component';
+import { DocterComponent } from './users/docter/docter.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -26,7 +28,8 @@ import { AuthGuard } from './auth.guard';
 import { AuthInterceptor } from './auth.interceptor';
 
 // for docter dash board
-// import { CheckPatient } from './users/docter/checkPatient';
+
+import { CheckPatientBox } from './users/docter/dialog-box/checkPatient';
 
 @NgModule({
   declarations: [
@@ -36,8 +39,10 @@ import { AuthInterceptor } from './auth.interceptor';
     LoginDialogInBox,
     SignupDialog,
     SignupDialogInBox,
+    NavbarComponent,
     FooterComponent,
     SliderpanelComponent,
+    ContactComponent,
     DocterViewComponent,
     DocterComponent,
     PatientComponent,
@@ -45,12 +50,10 @@ import { AuthInterceptor } from './auth.interceptor';
     BookingDialog,
     ViewMoreDialog,
     UserProfileComponent,
-    CheckPatient,
-    CheckEarn
-
+    CheckPatientBox
   ],
   imports: [
-    HttpClientModule,
+    HttpClientModule, 
     BrowserModule,
     AppRoutingModule,
     MatFormFieldModule,
@@ -65,9 +68,9 @@ import { AuthInterceptor } from './auth.interceptor';
     MatIconModule,
     MDBBootstrapModule,
   ],
-  providers: [AuthGuard, UserService, AuthInterceptor],
+  providers: [AuthGuard,UserService,AuthInterceptor],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn]
+  entryComponents: [LoginDialog, SignupDialog,LoginDialogInBox,SignupDialogInBox,BookingDialog,ViewMoreDialog,CheckPatientBox]
 })
 export class AppModule {}
 enableProdMode();
