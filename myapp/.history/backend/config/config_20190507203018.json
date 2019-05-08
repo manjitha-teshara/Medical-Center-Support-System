@@ -1,7 +1,7 @@
 {
     "development":{
         "PORT":3000,
-        "MONGODB_URI":"mongodb+srv://manjitha:1995Manjitha@cluster0-fchfi.mongodb.net/test",
+        "MONGODB_URI":"mongodb+srv://Lahi:1995Manjitha@cluster0-fchfi.mongodb.net/test?retryWrites=true",
         "JWT_SECRET":"SECRET#123",
         "JWT_EXP":"10m"
     },
