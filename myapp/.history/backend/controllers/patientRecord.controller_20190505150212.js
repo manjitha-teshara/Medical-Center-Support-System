@@ -45,9 +45,6 @@ module.exports.regRecord=(req,res,next)=>{
     precord.id=req.body.id;
     precord.name=req.body.name;
     precord.age=req.body.age;
-    precord.cost=req.body.cost;
-    precord.description=req.body.description;
-    precord.date=req.body.date;
     
     precord.save((err,doc)=>{
         if(!err){

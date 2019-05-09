@@ -77,7 +77,7 @@ deleteFieldValue(index) {
 }
 
 onSubmitPrecord(form: NgForm) {
- console.log("inonSubmitPrecord");
+ console.log("in onSubmitPrecord");
 }
 
 }

@@ -52,7 +52,7 @@ userSchema.methods.verifyPassword=function(password){
 userSchema.methods.generateJwt=function(){
     return jwt.sign({
         _id:this._id,
-        type:this.type        
+        userType:this.userType        
     },
     process.env.JWT_SECRET,
     {

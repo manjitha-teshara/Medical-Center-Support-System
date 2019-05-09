@@ -5,8 +5,6 @@ import{User} from './user.model';
 @Injectable({
   providedIn: 'root'
 })
- 
-
 export class UserService {
  
   selectedUser:User={
@@ -38,70 +36,32 @@ export class UserService {
     localStorage.removeItem('token');
   }
 
-  getUserPayload() {
+  getUserPayload(){
     // var token=localStorage.getItem('token');
-    // tslint:disable-next-line:prefer-const
-    var token = this.getToken();
-    if (token) {
-      var getUserPayload = atob(token.split('.')[1]);
+    var token=this.getToken();
+    if(token){
+      var getUserPayload=atob(token.split('.')[1]);
       return JSON.parse(getUserPayload);
-    } else {
-      return null ;
     }
+    else
+      return null;
   }
 
-  getUserProfile()
-  {
+  getUserProfile(){
     console.log("get user profile");
-    return this.http.get(environment.apiBaseUrl + '/userProfile');
+    return this.http.get(environment.apiBaseUrl+'/userProfile');
   }
 
   isLoggedIn(){
-    var userPayload = this.getUserPayload();
-    if( userPayload )
+    var userPayload=this.getUserPayload();
+    if(userPayload)
       return userPayload.exp > Date.now()/1000;
     else
       return  null;
   }
-  isDoctor(){
-    var payload = this.getUserPayload()
-    if(payload){
-      if(payload.type=="doctor"){
-        return true
-      }
-    }
-    else{
-      return false
-    }
-  }
-
-  isPatient(){
-    var payload = this.getUserPayload()
-    if(payload){
-      if( payload.type == "patient" ) {
-        return true
-      }
-    }
-    else{
-      return false
-    }
-  }
-
-  isAdmin(){
-    var payload = this.getUserPayload()
-    if(payload){
-      if(payload.type=="admin"){
-        return true
-      }
-    }
-    else{
-      return false
-    }
-  }
-
 
   postuser(user:User){
-  return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
 
 

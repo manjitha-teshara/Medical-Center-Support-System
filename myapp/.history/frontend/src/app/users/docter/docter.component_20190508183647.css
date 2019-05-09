@@ -1,9 +1,9 @@
-.pdetail-container {
+.example-container {
     display: flex;
     flex-direction: column;
   }
   
-  .pdetail-container > * {
+  .example-container > * {
     width: 100%;
   }
   

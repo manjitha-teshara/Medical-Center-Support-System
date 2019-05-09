@@ -1,6 +1,5 @@
 import { Component, OnInit , Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { NgForm } from '@angular/forms';
 
 
 export interface DialogData {
@@ -44,10 +43,6 @@ export class DocterComponent {
 
 }
 
-
-
-
-
 // checkPatient dialog
 
 @Component({
@@ -68,16 +63,12 @@ export class CheckPatient {
   }
 
   addFieldValue() {
-    this.fieldArray.push(this.newAttribute);
+    this.fieldArray.push(this.newAttribute)
     this.newAttribute = {};
 }
 
 deleteFieldValue(index) {
     this.fieldArray.splice(index, 1);
-}
-
-onSubmitPrecord(form: NgForm) {
- console.log("inonSubmitPrecord");
 }
 
 }

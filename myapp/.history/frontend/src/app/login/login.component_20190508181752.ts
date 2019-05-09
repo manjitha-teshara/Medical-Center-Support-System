@@ -100,20 +100,7 @@ export class LoginDialog {
     this.userService.login(form.value).subscribe(
       res => {
         this.userService.setToken(res['token']);
-        console.log(this.userService.isDoctor());
-       if(this.userService.isDoctor()){
-        this.router.navigateByUrl('/doctor'); /**set naviagation to doctor dash board mailnly */
-       }
-       else if(this.userService.isPatient()){
-        this.router.navigateByUrl('/patient');
-       }
-       else if(this.userService.isAdmin()){
-        this.router.navigateByUrl('/admin');
-       }
-       else{
-         this.router.navigateByUrl('');
-       }
-
+        this.router.navigateByUrl('/docter'); /**set naviagation to doctor dash board mailnly */
       },
       err => {
         this.serverErrorMessages = err.error.message;

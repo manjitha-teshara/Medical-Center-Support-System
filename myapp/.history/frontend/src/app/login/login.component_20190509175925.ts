@@ -102,13 +102,13 @@ export class LoginDialog {
         this.userService.setToken(res['token']);
         console.log(this.userService.isDoctor());
        if(this.userService.isDoctor()){
-        this.router.navigateByUrl('/doctor'); /**set naviagation to doctor dash board mailnly */
+        this.router.navigateByUrl('/docter'); /**set naviagation to doctor dash board mailnly */
        }
        else if(this.userService.isPatient()){
         this.router.navigateByUrl('/patient');
        }
-       else if(this.userService.isAdmin()){
-        this.router.navigateByUrl('/admin');
+       else if(this.userService.isPatient()){
+        this.router.navigateByUrl('/pha');
        }
        else{
          this.router.navigateByUrl('');

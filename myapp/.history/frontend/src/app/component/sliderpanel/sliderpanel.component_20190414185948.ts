@@ -6,9 +6,7 @@ import {UserService} from '../../shared/user.service';
 import {User} from '../../shared/user.model';
 import { NgForm } from '@angular/forms';
 import { error } from '@angular/compiler/src/util';
-import Swal from 'sweetalert';
-import { Router } from '@angular/router';
-
+import Swal from 'sweetalert'
 
 export interface DialogData {
   animal: string;
@@ -71,26 +69,16 @@ usr =new User();
 
 //get loging loalog box
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'login-dialog',
   templateUrl: 'login-dialog.html',
   styleUrls: ['./sliderpanel.component.css'],
 })
-// tslint:disable-next-line:component-class-suffix
 export class LoginDialogInBox {
-  
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialogInBox>,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private userService: UserService,
-    private router: Router) {}
-
-
-  // tslint:disable-next-line:max-line-length
-  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  serverErrorMessages: string;
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClickSignUp(): void {
     this.dialogRef.close();
@@ -105,20 +93,6 @@ export class LoginDialogInBox {
         this.email.hasError('email') ? 'Not a valid email' :
             '';
   }
-
-  onSubmit(form: NgForm) {
-    this.userService.login(form.value).subscribe(
-      res => {
-        this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/docter'); /**set naviagation to doctor dash board mailnly */
-      },
-      err => {
-        this.serverErrorMessages = err.error.message;
-      }
-    );
-  }
-
-
   hide = true;
 }
 

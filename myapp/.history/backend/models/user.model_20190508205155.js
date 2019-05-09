@@ -18,9 +18,9 @@ var userSchema = new mongoose.Schema({
         required:'Password can\'t be empty',
         minlength:[4,'Password must be atleast 4 character long']
     },
-    type:{
+    userType:{
         type:String,
-        default:"doctor"
+        default:"admin"
         
     },
     saltSecret:String
@@ -52,7 +52,7 @@ userSchema.methods.verifyPassword=function(password){
 userSchema.methods.generateJwt=function(){
     return jwt.sign({
         _id:this._id,
-        type:this.type        
+        userType:this.userType        
     },
     process.env.JWT_SECRET,
     {

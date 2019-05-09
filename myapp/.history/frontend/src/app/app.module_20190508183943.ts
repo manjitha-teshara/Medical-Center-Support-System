@@ -21,10 +21,8 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
 
-
 import { AuthGuard } from './auth.guard';
 import { AuthInterceptor } from './auth.interceptor';
-import { AdminComponent } from './users/admin/admin.component';
 
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
@@ -46,8 +44,7 @@ import { AdminComponent } from './users/admin/admin.component';
     ViewMoreDialog,
     UserProfileComponent,
     CheckPatient,
-    CheckEarn,
-    AdminComponent
+    CheckEarn
 
   ],
   imports: [

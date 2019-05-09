@@ -1,6 +1,5 @@
 import { Component, OnInit , Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { NgForm } from '@angular/forms';
 
 
 export interface DialogData {
@@ -21,6 +20,7 @@ export class DocterComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CheckPatient, {
+      width: '250px',
       data: {name: this.name, animal: this.animal}
     });
 
@@ -44,10 +44,6 @@ export class DocterComponent {
 
 }
 
-
-
-
-
 // checkPatient dialog
 
 @Component({
@@ -56,8 +52,6 @@ export class DocterComponent {
 })
 // tslint:disable-next-line:component-class-suffix
 export class CheckPatient {
-  private fieldArray: Array<any> = [];
-  private newAttribute: any = {};
 
   constructor(
     public dialogRef: MatDialogRef<CheckPatient>,
@@ -66,19 +60,6 @@ export class CheckPatient {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
-  addFieldValue() {
-    this.fieldArray.push(this.newAttribute);
-    this.newAttribute = {};
-}
-
-deleteFieldValue(index) {
-    this.fieldArray.splice(index, 1);
-}
-
-onSubmitPrecord(form: NgForm) {
- console.log("inonSubmitPrecord");
-}
 
 }
 

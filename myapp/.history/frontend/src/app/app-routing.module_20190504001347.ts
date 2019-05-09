@@ -8,7 +8,6 @@ import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth.guard';
-import { AdminComponent } from './users/admin/admin.component';
 
 
 
@@ -16,10 +15,9 @@ import { AdminComponent } from './users/admin/admin.component';
 
 const routes: Routes = [
 { path:'',component:SliderpanelComponent},
-{ path:'doctor',component:DocterComponent},
+{ path:'docter',component:DocterComponent},
 { path:'patient',component:PatientComponent},
 { path:'pha',component:PharmacistComponent},
-{ path: 'admin' , component:AdminComponent},
 {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];

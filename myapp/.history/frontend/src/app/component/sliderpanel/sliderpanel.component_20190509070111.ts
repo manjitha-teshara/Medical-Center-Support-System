@@ -83,14 +83,9 @@ export class LoginDialogInBox {
   constructor(
     public dialogRef: MatDialogRef<LoginDialogInBox>,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
     private userService: UserService,
-    private router: Router) {}
-
-
-  // tslint:disable-next-line:max-line-length
-  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  serverErrorMessages: string;
+    private router: Router,) {}
 
   onNoClickSignUp(): void {
     this.dialogRef.close();

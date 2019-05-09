@@ -90,7 +90,7 @@ export class UserService {
   isAdmin(){
     var payload = this.getUserPayload()
     if(payload){
-      if(payload.type=="admin"){
+      if(payload.type=="pha"){
         return true
       }
     }

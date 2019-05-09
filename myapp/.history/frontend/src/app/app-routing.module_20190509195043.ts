@@ -16,7 +16,7 @@ import { AdminComponent } from './users/admin/admin.component';
 
 const routes: Routes = [
 { path:'',component:SliderpanelComponent},
-{ path:'doctor',component:DocterComponent},
+{ path:'docter',component:DocterComponent},
 { path:'patient',component:PatientComponent},
 { path:'pha',component:PharmacistComponent},
 { path: 'admin' , component:AdminComponent},

@@ -5,8 +5,6 @@ import{User} from './user.model';
 @Injectable({
   providedIn: 'root'
 })
- 
-
 export class UserService {
  
   selectedUser:User={
@@ -50,58 +48,21 @@ export class UserService {
     }
   }
 
-  getUserProfile()
-  {
+  getUserProfile(){
     console.log("get user profile");
     return this.http.get(environment.apiBaseUrl + '/userProfile');
   }
 
   isLoggedIn(){
-    var userPayload = this.getUserPayload();
-    if( userPayload )
+    var userPayload=this.getUserPayload();
+    if(userPayload)
       return userPayload.exp > Date.now()/1000;
     else
       return  null;
   }
-  isDoctor(){
-    var payload = this.getUserPayload()
-    if(payload){
-      if(payload.type=="doctor"){
-        return true
-      }
-    }
-    else{
-      return false
-    }
-  }
-
-  isPatient(){
-    var payload = this.getUserPayload()
-    if(payload){
-      if( payload.type == "patient" ) {
-        return true
-      }
-    }
-    else{
-      return false
-    }
-  }
-
-  isAdmin(){
-    var payload = this.getUserPayload()
-    if(payload){
-      if(payload.type=="admin"){
-        return true
-      }
-    }
-    else{
-      return false
-    }
-  }
-
 
   postuser(user:User){
-  return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
+    return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
   }
 
 
