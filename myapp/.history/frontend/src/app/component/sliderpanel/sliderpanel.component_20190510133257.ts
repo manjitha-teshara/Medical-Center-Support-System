@@ -69,7 +69,7 @@ usr = new User();
 
 
 
-// get loging loalog box
+//get loging loalog box
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'login-dialog',
@@ -78,7 +78,7 @@ usr = new User();
 })
 // tslint:disable-next-line:component-class-suffix
 export class LoginDialogInBox {
-
+  
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialogInBox>,
@@ -92,19 +92,12 @@ export class LoginDialogInBox {
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   serverErrorMessages: string;
 
-  
-  model = {
-    email: '',
-    password: ''
-  };
-
   onNoClickSignUp(): void {
     this.dialogRef.close();
     const dialogRef = this.dialog.open(SignupDialogInBox, {
       width: '500px',
     });
   }
-  // tslint:disable-next-line:member-ordering
   email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
@@ -118,13 +111,16 @@ export class LoginDialogInBox {
       res => {
         this.userService.setToken(res['token']);
         console.log(this.userService.isDoctor());
-       if (this.userService.isDoctor()) {
+       if(this.userService.isDoctor()){
         this.router.navigateByUrl('/doctor'); /**set naviagation to doctor dash board mailnly */
-       } else if (this.userService.isPatient()) {
+       }
+       else if(this.userService.isPatient()){
         this.router.navigateByUrl('/patient');
-       } else if (this.userService.isAdmin()) {
+       }
+       else if(this.userService.isAdmin()){
         this.router.navigateByUrl('/admin');
-       } else {
+       }
+       else{
          this.router.navigateByUrl('');
        }
 

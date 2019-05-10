@@ -92,12 +92,6 @@ export class LoginDialogInBox {
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   serverErrorMessages: string;
 
-  
-  model = {
-    email: '',
-    password: ''
-  };
-
   onNoClickSignUp(): void {
     this.dialogRef.close();
     const dialogRef = this.dialog.open(SignupDialogInBox, {
@@ -114,25 +108,26 @@ export class LoginDialogInBox {
   }
 
   onSubmit(form: NgForm) {
-    this.userService.login(form.value).subscribe(
-      res => {
-        this.userService.setToken(res['token']);
-        console.log(this.userService.isDoctor());
-       if (this.userService.isDoctor()) {
-        this.router.navigateByUrl('/doctor'); /**set naviagation to doctor dash board mailnly */
-       } else if (this.userService.isPatient()) {
-        this.router.navigateByUrl('/patient');
-       } else if (this.userService.isAdmin()) {
-        this.router.navigateByUrl('/admin');
-       } else {
-         this.router.navigateByUrl('');
-       }
+    console.log("in onSubmit signin lialog");
+    // this.userService.login(form.value).subscribe(
+    //   res => {
+    //     this.userService.setToken(res['token']);
+    //     console.log(this.userService.isDoctor());
+    //    if (this.userService.isDoctor()) {
+    //     this.router.navigateByUrl('/doctor'); /**set naviagation to doctor dash board mailnly */
+    //    } else if (this.userService.isPatient()) {
+    //     this.router.navigateByUrl('/patient');
+    //    } else if (this.userService.isAdmin()) {
+    //     this.router.navigateByUrl('/admin');
+    //    } else {
+    //      this.router.navigateByUrl('');
+    //    }
 
-      },
-      err => {
-        this.serverErrorMessages = err.error.message;
-      }
-    );
+    //   },
+    //   err => {
+    //     this.serverErrorMessages = err.error.message;
+    //   }
+    // );
   }
 
 

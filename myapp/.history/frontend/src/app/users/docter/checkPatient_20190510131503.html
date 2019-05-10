@@ -14,7 +14,7 @@
       </div>
       <div class="col-md-4">
           <mat-form-field>
-              <input matInput type="text" name="age" #age="ngModel" [(ngModel)]="model.age" placeholder="Age">
+              <!-- <input matInput type="text" name="age" #age="ngModel" [(ngModel)]="model.age" placeholder="Age"> -->
             </mat-form-field>
       </div>
     </div>
@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-md-4">
         <mat-form-field>
-          <textarea matInput type="text" name="description" #description="ngModel" [(ngModel)]="model.description" placeholder="Description"></textarea>
+          <!-- <textarea matInput type="text" name="description" #description="ngModel" [(ngModel)]="model.description" placeholder="Description"></textarea> -->
         </mat-form-field>
     </div>
     <div class="col-md-4">
@@ -30,7 +30,7 @@
     </div>
     <div class="col-md-4">
         <mat-form-field>
-          <input matInput type="text" name="cost" #cost="ngModel" [(ngModel)]="model.cost" placeholder="Cost">
+          <!-- <input matInput type="text" name="cost" #cost="ngModel" [(ngModel)]="model.cost" placeholder="Cost"> -->
         </mat-form-field>
     </div>
   </div>
@@ -42,7 +42,7 @@
               <th>Code</th>
               <th>Name</th>
               <th>Quantity</th>
-              <th>Action</th>
+              <th>Times</th>
           </tr>
       </thead>
       <tbody>
@@ -54,7 +54,7 @@
                   <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
               </td>
               <td>
-                  <input [(ngModel)]="field.quantity" class="form-control" type="text" name="{{field.price}}" />
+                  <input [(ngModel)]="field.price" class="form-control" type="text" name="{{field.price}}" />
               </td>
               <td>
                   <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
@@ -68,7 +68,7 @@
                   <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.name" name="newAttributeName" />
               </td>
               <td>
-                  <input class="form-control" type="text" id="newAttributeQuantity" [(ngModel)]="newAttribute.quantity" name="newAttributeQuantity" />
+                  <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.price" name="newAttributePrice" />
               </td>
               <td>
                   <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>

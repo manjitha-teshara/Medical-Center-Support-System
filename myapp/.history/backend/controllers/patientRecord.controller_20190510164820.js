@@ -16,7 +16,7 @@ var { PatientRecord }=require('../models/patientRecord.model');
 
 module.exports.getRegRecord=(req,res)=>{
     console.log("in side getReg REcords");
-    Precord.find((err,docs)=>{
+    PatientRecord.find((err,docs)=>{
                 if(!err){res.send(docs);}
                 else{ console.log('Error in Retriving Patients Records :' + JSON.stringify(err,undefined,2));}
             });

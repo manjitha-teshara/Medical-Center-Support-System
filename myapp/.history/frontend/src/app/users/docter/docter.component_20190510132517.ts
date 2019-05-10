@@ -68,15 +68,6 @@ export class CheckPatient {
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private patientRecordsService: PatientRecordsService) {}
 
-    model = {
-      id: '',
-      name: '',
-      age: '',
-      cost: '',
-      date: '',
-      description: ''
-    };
-
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -92,13 +83,13 @@ deleteFieldValue(index) {
 
 onSubmitPrecord(form: NgForm) {
  console.log("inonSubmitPrecord");
- this.patientRecordsService.postPatientRecord(form.value).subscribe(
+ this.patientRecordsService.postPatientRecord().subscribe(
    res=> {
      this.resetForm(form);
      swal({
        title: 'checked !',
        text: 'You have Sussefully submit report !',
-       icon: 'success',
+       icon: 'sucess',
      });
    },
    err => {

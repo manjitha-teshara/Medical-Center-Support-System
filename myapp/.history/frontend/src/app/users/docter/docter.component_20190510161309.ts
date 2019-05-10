@@ -98,7 +98,7 @@ onSubmitPrecord(form: NgForm) {
      swal({
        title: 'checked !',
        text: 'You have Sussefully submit report !',
-       icon: 'success',
+       icon: 'sucess',
      });
    },
    err => {

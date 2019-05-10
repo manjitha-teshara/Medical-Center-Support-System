@@ -92,13 +92,13 @@ deleteFieldValue(index) {
 
 onSubmitPrecord(form: NgForm) {
  console.log("inonSubmitPrecord");
- this.patientRecordsService.postPatientRecord(form.value).subscribe(
+ this.patientRecordsService.postPatientRecord().subscribe(
    res=> {
      this.resetForm(form);
      swal({
        title: 'checked !',
        text: 'You have Sussefully submit report !',
-       icon: 'success',
+       icon: 'sucess',
      });
    },
    err => {
