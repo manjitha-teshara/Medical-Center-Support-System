@@ -73,8 +73,7 @@ export class CheckPatient {
       name: '',
       age: '',
       cost: '',
-      date: '',
-      description: ''
+      date: ''
     };
 
   onNoClick(): void {
@@ -92,7 +91,7 @@ deleteFieldValue(index) {
 
 onSubmitPrecord(form: NgForm) {
  console.log("inonSubmitPrecord");
- this.patientRecordsService.postPatientRecord(form.value).subscribe(
+ this.patientRecordsService.postPatientRecord().subscribe(
    res=> {
      this.resetForm(form);
      swal({
