@@ -9,7 +9,7 @@ module.exports.register=(req,res,next)=>{
     user.email=req.body.email;
     user.password=req.body.password;
     
-    user.save((err,doc)=>{
+    user.save((err,doc)=>{ 
         if(!err)
             res.send(doc);
         else{
@@ -41,9 +41,13 @@ module.exports.userProfile=(req,res,next)=>{
     console.log("in in side userprofile");
     User.findOne({_id:req._id},
         (err,user)=>{
-            if(!user)
-                return res.status(404).json({status:false,message:'User record not found. '});
-            else
-                return res.status(200).json({status:true,user:_.pick(user,['userName','email'])});
+            console.log("in in side userprofile findone");
+
+            if(!user){
+                console.log("not found");
+                return res.status(404).json({status:false,message:'User record not found. '});}
+            else{
+                console.log("found");
+                return res.status(200).json({status:true,user:_.pick(user,['userName','email'])});}
         });
 }

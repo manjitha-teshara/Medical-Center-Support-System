@@ -7,16 +7,22 @@ const bodyParser=require('body-parser');
 const cors=require('cors');
 const passport=require('passport');
 
+const { mongoose } = require('./models/db');
+
 const rtsIndex=require('./routes/index.routers');
 
 
 var app=express();
+
+var patientRecord=require('./controllers/patientRecord.controller');
 
 //middlewair
 app.use(bodyParser.json());
 app.use(cors());
 app.use(passport.initialize());
 app.use('/api',rtsIndex);
+
+// app.use('/patientRecord',patientRecord);
 //start server
 app.listen(process.env.PORT,()=>console.log('Server started at port : ${process.env.PORT}'));
 
