@@ -4,7 +4,7 @@ const Doctor=mongoose.model('Doctor');
 module.exports.doctorRegister=(req,res,next)=>{
     var doctor=new Doctor();
     doctor.fullname=req.body.fullname;
-    doctor.checkuptype=req.body.checkuptype;
+    doctor.email=req.body.email;
     doctor.price=req.body.price;
     
     doctor.save((err,doc)=>{

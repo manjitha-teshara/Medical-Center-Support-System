@@ -2,6 +2,7 @@ const mongoose=require('mongoose');
 const Doctor=mongoose.model('Doctor');
 
 module.exports.doctorRegister=(req,res,next)=>{
+    console.log(' in side doctorRegister');
     var doctor=new Doctor();
     doctor.fullname=req.body.fullname;
     doctor.checkuptype=req.body.checkuptype;

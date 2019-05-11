@@ -2,22 +2,23 @@ const mongoose = require('mongoose');
 const bcrypt=require('bcryptjs');
 
 var userSchema = new mongoose.Schema({
-    fullname:{
+    userName:{
         type:String,
         required:'Full name can\'t be empty'
     },
-    checkuptype:{
+    email:{
         type:String,
-        required:'cheked type  can\'t be empty'
-       
+        required:'Email can\'t be empty',
+        
     },
-    price:{
+    password:{
         type:String,
-        required:'Price can\'t be empty'
+        required:'Password can\'t be empty',
         
     },
     saltSecret:String
 });
+
 
 
 mongoose.model('Doctor',userSchema);

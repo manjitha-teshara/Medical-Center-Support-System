@@ -6,7 +6,7 @@ var userSchema = new mongoose.Schema({
         type:String,
         required:'Full name can\'t be empty'
     },
-    checkuptype:{
+    email:{
         type:String,
         required:'cheked type  can\'t be empty'
        

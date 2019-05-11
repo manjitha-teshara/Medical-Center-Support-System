@@ -1,11 +1,12 @@
 const mongoose=require('mongoose');
-const Doctor=mongoose.model('Doctor');
+const Doctor=mongoose.model('doctors');
 
 module.exports.doctorRegister=(req,res,next)=>{
     var doctor=new Doctor();
-    doctor.fullname=req.body.fullname;
-    doctor.checkuptype=req.body.checkuptype;
+    doctor.fullName=req.body.fullName;
+    doctor.checkUpType=req.body.checkUpType;
     doctor.price=req.body.price;
+    doctor.availableSlots=req.body.availableSlots;
     
     doctor.save((err,doc)=>{
         if(!err)
@@ -21,3 +22,4 @@ module.exports.doctorRegister=(req,res,next)=>{
     });
    console.log('inside doctorRegister fn.');
 }
+

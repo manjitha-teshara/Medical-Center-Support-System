@@ -16,6 +16,7 @@ router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
 router.post('/doctor',ctrlDocter.doctorRegister);
 
 
+router.post('/doctorRegister',ctrlDocter.doctorRegister);
 
 
 module.exports=router;

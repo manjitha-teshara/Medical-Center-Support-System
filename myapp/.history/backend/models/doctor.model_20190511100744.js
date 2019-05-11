@@ -1,15 +1,14 @@
 const mongoose = require('mongoose');
-const bcrypt=require('bcryptjs');
 
-var userSchema = new mongoose.Schema({
+var doctorSchema = new mongoose.Schema({
     fullname:{
         type:String,
         required:'Full name can\'t be empty'
     },
     checkuptype:{
         type:String,
-        required:'cheked type  can\'t be empty'
-       
+        required:'Check up type can\'t be empty'
+        
     },
     price:{
         type:String,
@@ -19,5 +18,6 @@ var userSchema = new mongoose.Schema({
     saltSecret:String
 });
 
+mongoose.model('Doctor',doctorSchema);
 
-mongoose.model('Doctor',userSchema);
+

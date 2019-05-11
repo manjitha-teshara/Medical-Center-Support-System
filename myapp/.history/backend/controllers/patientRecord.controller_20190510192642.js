@@ -54,7 +54,7 @@ module.exports.regRecord=(req,res,next)=>{
             console.log("not errrrr");
             res.send(doc);}
         else{
-          console.log("submit error in precord controller ");
+          console.log("submit in precord controller ");
           
         }
     });

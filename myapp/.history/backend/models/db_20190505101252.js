@@ -13,5 +13,4 @@ require('./doctor.model');
 require('./patientRecord.model');
 
 
-
 module.export=mongoose;

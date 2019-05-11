@@ -13,9 +13,8 @@ router.get('/userProfile',jwtHelper.verifyJwtToken,ctrlUser.userProfile);
 router.post('/patientRecord',ctrlPatientRecord.regRecord);
 router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
 
-router.post('/doctor',ctrlDocter.doctorRegister);
 
-
+router.post('/doctorRegister',ctrlDocter.doctorRegister);
 
 
 module.exports=router;

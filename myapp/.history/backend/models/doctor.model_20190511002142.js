@@ -8,16 +8,15 @@ var userSchema = new mongoose.Schema({
     },
     checkuptype:{
         type:String,
-        required:'cheked type  can\'t be empty'
-       
+        required:'Email can\'t be empty',
+        unique:true
     },
     price:{
         type:String,
-        required:'Price can\'t be empty'
-        
+        required:'Password can\'t be empty',
+        minlength:[4,'Password must be atleast 4 character long']
     },
     saltSecret:String
 });
-
 
 mongoose.model('Doctor',userSchema);
