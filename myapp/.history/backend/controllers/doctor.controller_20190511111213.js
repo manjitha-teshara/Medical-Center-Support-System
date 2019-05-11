@@ -22,12 +22,3 @@ module.exports.doctorRegister=(req,res,next)=>{
     });
    console.log('inside doctorRegister fn.');
 }
-
-/**get function */
-module.exports.getDoctorDetail=(req,res)=>{
-    console.log("in side getDoctorDetail ");
-    Doctor.find((err,docs)=>{
-                if(!err){res.send(docs);}
-                else{ console.log('Error in Retriving Patients Records :' + JSON.stringify(err,undefined,2));}
-            });
-}

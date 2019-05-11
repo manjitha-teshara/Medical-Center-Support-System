@@ -12,7 +12,7 @@ var userSchema = new mongoose.Schema({
        
     },
     price:{
-        type:Number,
+        type:String,
         required:'Price can\'t be empty'
         
     },
