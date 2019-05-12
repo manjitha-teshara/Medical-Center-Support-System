@@ -17,8 +17,7 @@ router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
 router.post('/doctor',ctrlDocter.doctorRegister);
 router.get('/doctor',ctrlDocter.getDoctorDetail);
 
-router.post('/booking',ctrlBooking.postBooking);
-router.get('/booking',ctrlBooking.getBooking);
+router.post('/booking',ctrlBooking.)
 
 
 

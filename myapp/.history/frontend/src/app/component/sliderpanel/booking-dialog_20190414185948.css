@@ -5,7 +5,7 @@ h3{
   font-weight: bold; 
   color:rgb(16, 6, 75);
   text-align: center; 
-  /* text-decoration: underline */
+  text-decoration: underline
 }
 
 table{
@@ -16,8 +16,8 @@ table{
   font-weight: bold;
   text-align:center; 
   background-color: rgb(252, 250, 250); 
-  /* border-collapse: collapse;  */
-  /* border: 2px solid navy */
+  border-collapse: collapse; 
+  border: 2px solid navy
 }
 table.inner{
   border: 0px
