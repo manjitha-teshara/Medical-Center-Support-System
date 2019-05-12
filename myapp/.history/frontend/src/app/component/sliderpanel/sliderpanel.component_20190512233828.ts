@@ -238,23 +238,19 @@ export class BookingDialog {
   selector: 'viewMore-dialog',
   templateUrl: 'viewMore-dialog.html',
   styleUrls: ['./sliderpanel.component.css'],
-  providers: [DoctorService]
 })
 export class ViewMoreDialog {
 
   constructor(
     public dialogRef: MatDialogRef<ViewMoreDialog>,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private doctorservice: DoctorService) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-
-    ngOnInit() {
     this.doctorservice.getDoctorsList().subscribe((res ) => {
       this.Doctors = res as Doctor[];
       console.log(res);
 
-    });}
+    });
 
    
    

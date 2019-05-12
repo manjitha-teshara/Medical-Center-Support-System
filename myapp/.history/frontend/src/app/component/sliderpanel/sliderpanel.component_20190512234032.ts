@@ -245,8 +245,7 @@ export class ViewMoreDialog {
   constructor(
     public dialogRef: MatDialogRef<ViewMoreDialog>,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private doctorservice: DoctorService) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
 
     ngOnInit() {

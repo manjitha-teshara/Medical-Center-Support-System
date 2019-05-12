@@ -1,5 +1,5 @@
 <h1>Doctor Clinic Times</h1>
-<div class="container">
+
 <table>
     <thead>
         <tr>
@@ -7,12 +7,8 @@
         </tr>
     </thead>
     <tr *ngFor="let  doctor of Doctors">
-        <div class="row">
+    
         <td>{{doctor.fullname}}</td>
-        </div>
-        <div class="row">
         <td>{{doctor.doctorshedule}}</td>
-        </div>
     </tr>
 </table>
-</div>
