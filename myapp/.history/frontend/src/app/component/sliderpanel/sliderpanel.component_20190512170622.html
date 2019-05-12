@@ -40,7 +40,6 @@
         <table class="responsive-table highlight">
           <thead>
             <tr>
-              <th></th>
               <th>Name</th>
               <th>CheckUp Type</th>
               <th>Price</th>
@@ -48,7 +47,6 @@
           </thead>
           <!-- {{Doctors[0].fullname}} -->
           <tr *ngFor="let  doctor of Doctors">
-            <td><img src={{doctor.image}}></td>
             <td>{{doctor.fullname}}</td>
             <td>{{doctor.checkuptype}}</td>
             <td>{{doctor.price}}</td>
@@ -56,6 +54,7 @@
 
           <tr>
             <div class="row">
+              <mat-card>Simple card</mat-card>
 
             </div>
           </tr>
