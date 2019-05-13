@@ -20,8 +20,6 @@ export interface DialogData {
 
 
 
-
-
 @Component({
   selector: 'app-sliderpanel',
   templateUrl: './sliderpanel.component.html',

@@ -19,9 +19,6 @@ export interface DialogData {
 
 
 
-
-
-
 @Component({
   selector: 'app-sliderpanel',
   templateUrl: './sliderpanel.component.html',
@@ -62,9 +59,11 @@ usr = new User();
     });
   }
 
-  openViewMore(dname): void {
-    console.log(dname);
-    const dialogRef = this.dialog.open(ViewMoreDialog);
+  openViewMore(ck): void {
+    console.log(ck);
+    const dialogRef = this.dialog.open(ViewMoreDialog, {
+      // width: '800px',
+    });
   }
 
   refreshDoctors() {
@@ -244,7 +243,6 @@ export class BookingDialog {
 })
 export class ViewMoreDialog {
 
-  Doctors: Doctor[];
   constructor(
     public dialogRef: MatDialogRef<ViewMoreDialog>,
     public dialog: MatDialog,
@@ -253,7 +251,6 @@ export class ViewMoreDialog {
 
 
     ngOnInit() {
-      
     this.doctorservice.getDoctorsList().subscribe((res ) => {
       this.Doctors = res as Doctor[];
       console.log(res);

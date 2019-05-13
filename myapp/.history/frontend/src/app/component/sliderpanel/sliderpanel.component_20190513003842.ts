@@ -20,8 +20,6 @@ export interface DialogData {
 
 
 
-
-
 @Component({
   selector: 'app-sliderpanel',
   templateUrl: './sliderpanel.component.html',
@@ -244,7 +242,6 @@ export class BookingDialog {
 })
 export class ViewMoreDialog {
 
-  Doctors: Doctor[];
   constructor(
     public dialogRef: MatDialogRef<ViewMoreDialog>,
     public dialog: MatDialog,
