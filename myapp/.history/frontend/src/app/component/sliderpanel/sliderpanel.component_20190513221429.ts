@@ -39,7 +39,7 @@ usr = new User();
   }
 
   constructor(public dialog: MatDialog, private userservce: UserService, private doctorservice: DoctorService) {}
-
+ 
 
   openDialogSignIn(): void {
     const dialogRef = this.dialog.open(LoginDialogInBox, {
@@ -106,16 +106,11 @@ export class LoginDialogInBox {
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   serverErrorMessages: string;
 
-
+  
   model = {
     email: '',
     password: ''
   };
-  // tslint:disable-next-line:member-ordering
-  email = new FormControl('', [Validators.required, Validators.email]);
-
-
-  hide = true;
 
   onNoClickSignUp(): void {
     this.dialogRef.close();
@@ -123,6 +118,8 @@ export class LoginDialogInBox {
       width: '500px',
     });
   }
+  // tslint:disable-next-line:member-ordering
+  email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
@@ -151,48 +148,49 @@ export class LoginDialogInBox {
       }
     );
   }
+
+
+  hide = true;
 }
 
 
 
-// get sign up dialog box
+//get sign up dialog box
 @Component({
   selector: 'signup-dialog',
   templateUrl: 'signup-dialog.html',
   styleUrls: ['./sliderpanel.component.css'],
-  providers: [UserService]
+  providers:[UserService]
 })
 
 
 export class SignupDialogInBox {
+usr =new User();
+emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+phone =/^(\+94)[0-9]{9,9}$/;
   constructor(
     public dialogRef: MatDialogRef<LoginDialogInBox>,
     public dialog: MatDialog,
-    private usersevice: UserService,
+    private usersevice:UserService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-usr = new User();
-emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-phone = /^(\+94)[0-9]{9,9}$/;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  hide = true;
 
 
-    onSubmit(form: NgForm) {
+    onSubmit(form: NgForm){
       this.usersevice.postuser(form.value).subscribe(
-        res => {
+        res=>{
           Swal({
-            title: 'Good job!',
-            text: 'You Have Sussefully registered!',
-            icon: 'success',
+            title: "Good job!",
+            text: "You Have Sussefully registered!",
+            icon: "success",
           });
         },
-        err => {
-
-          swal ( 'Oops' , '',  'error' );
+        err=>{
+         
+          swal ( "Oops" ,"",  "error" )
         }
-      );
+      )
     }
-
+  
   onNoClickSignIn(): void {
 
     this.dialogRef.close();
@@ -200,26 +198,28 @@ phone = /^(\+94)[0-9]{9,9}$/;
       width: '500px',
     });
   }
+  email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
         this.email.hasError('email') ? 'Not a valid email' :
             '';
   }
+  hide = true;
 
-
+ 
 
 }
 
 
 
 
-// booking button
+//booking button
 
 @Component({
   selector: 'booking-dialog',
   templateUrl: 'booking-dialog.html',
-  styleUrls: ['./sliderpanel.component.css', './booking-dialog.css'],
+  styleUrls: ['./sliderpanel.component.css','./booking-dialog.css'],
 })
 export class BookingDialog {
 
@@ -228,14 +228,14 @@ export class BookingDialog {
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-
-
+   
+   
   hide = true;
 }
 
 
 
-// view more button
+//view more button
 
 @Component({
   selector: 'viewMore-dialog',
@@ -244,17 +244,13 @@ export class BookingDialog {
   providers: [DoctorService]
 })
 export class ViewMoreDialog {
+
+  Doctors: Doctor[];
   constructor(
     public dialogRef: MatDialogRef<ViewMoreDialog>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private doctorservice: DoctorService) {}
-
-  Doctors: Doctor[];
-
-
-
-  hide = true;
 
 
     ngOnInit() {
@@ -268,7 +264,11 @@ export class ViewMoreDialog {
       this.Doctors = res as Doctor[];
       console.log(res);
 
-    }); }
+    });}
+
+   
+   
+  hide = true;
 }
 
 
