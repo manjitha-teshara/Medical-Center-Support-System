@@ -1,0 +1,70 @@
+<mdb-carousel [isControls]="true" class="carousel slide" [animation]="'slide'">
+  <mdb-carousel-item>
+    <div class="view">
+      <video class="video-fluid" autoplay loop>
+          <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
+      </video>
+      <div class="mask rgba-indigo-light waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h1 style="font-family: 'Times New Roman', Times, serif;">Be Healthy Be Happy</h1>
+      <br><br>
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <div style="border-style:solid; border-radius:5px;background:ghostwhite;">
+            <img src="assets/img/logo.png">
+            <br><br>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+      <br>
+      <ul>
+          <li class="btn">
+            <button mat-raised-button color="primary" (click)="openDialogSignIn()">Sign in</button>
+          </li>
+          <li class="btn">
+            <button mat-raised-button color="primary" (click)="openDialogSignUp()">Sign Up</button>
+          </li>
+      </ul>
+    </div>
+  </mdb-carousel-item>
+</mdb-carousel>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="card col-md-6">
+        <table class="responsive-table highlight">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>CheckUp Type</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <!-- {{Doctors[0].fullname}} -->
+          <tr *ngFor="let  doctor of Doctors">
+            <td><img src={{doctor.image}}></td>
+            <td>{{doctor.fullname}}</td>
+            <td>{{doctor.checkuptype}}</td>
+            <td>{{doctor.price}}</td>
+          </tr>
+
+          <tr>
+            <div class="row">
+
+            </div>
+          </tr>
+        </table>
+
+      </div>
+      <div class="col-md-3"></div>        
+
+
+
+    </div>        
+</div>
