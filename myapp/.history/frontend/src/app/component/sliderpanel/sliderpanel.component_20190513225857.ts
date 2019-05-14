@@ -260,7 +260,7 @@ export class ViewMoreDialog {
     ngOnInit() {
       console.log('**********');
       console.log(this.data.name);
-      // console.log(this.data.shedule);
+      console.log(this.data.shedule);
 
       console.log('**********');
 

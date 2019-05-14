@@ -55,13 +55,3 @@ module.exports.getSelectedDoctorDetail=(req,res)=>{
                 return res.status(200).json({status:true,doctor:_.pick(doctor,['fullname','doctorshedule'])});}
         });
 }
-
-
-module.exports.getNewSelect=(req,res)=>{
-    console.log("in side getNewSelect ");
-    console.log(req.params._id);
-    Doctor.findById(req.params._id,(err,docs)=>{
-                if(!err){res.send(docs);}
-                else{ console.log('Error in Retriving Patients Records :' + JSON.stringify(err,undefined,2));}
-            });
-}
