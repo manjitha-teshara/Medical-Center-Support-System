@@ -39,7 +39,9 @@ module.exports.authenticate=(req,res,next)=>{
 
 module.exports.userProfile=(req,res,next)=>{
     console.log("in in side userprofile");
-    
+    console.log("********");
+    console.log(req._id);
+    console.log("**********");
     User.findOne({_id:req._id},
         (err,user)=>{
             console.log("in in side userprofile findone");

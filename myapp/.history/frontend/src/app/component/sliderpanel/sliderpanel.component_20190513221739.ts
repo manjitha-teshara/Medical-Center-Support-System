@@ -63,9 +63,9 @@ usr = new User();
     });
   }
 
-  openViewMore(dname): void {
+  openViewMore(dname, dshedule): void {
     console.log(dname);
-    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {name : dname}}); // , {data: {'dname': 'dname'}}
+    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {name : dname, shedule: dshedule}}); // , {data: {'dname': 'dname'}}
   }
 
   refreshDoctors() {
@@ -260,7 +260,7 @@ export class ViewMoreDialog {
     ngOnInit() {
       console.log('**********');
       console.log(this.data.name);
-      // console.log(this.data.shedule);
+      console.log(this.data.shedule);
 
       console.log('**********');
 

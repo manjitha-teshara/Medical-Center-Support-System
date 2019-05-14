@@ -37,13 +37,10 @@ module.exports.getDoctorDetail=(req,res)=>{
 module.exports.getSelectedDoctorDetail=(req,res)=>{
     console.log("in side get selected DoctorDetail ");
     console.log("********");
-    console.log(req.fullname);
+    console.log(req._id);
     console.log("**********");
-    Doctor.findOne({_id:req._id},
+    Doctor.findOne({_id:'5cd662917acb8ba308e628c1'},
         (err,doctor)=>{
-        console.log("******########****");
-        console.log(doctor);
-        console.log("******########****");
             console.log("in in side usdoctorerprofile findone");
 
             if(!doctor){
@@ -54,14 +51,4 @@ module.exports.getSelectedDoctorDetail=(req,res)=>{
                 console.log("found");
                 return res.status(200).json({status:true,doctor:_.pick(doctor,['fullname','doctorshedule'])});}
         });
-}
-
-
-module.exports.getNewSelect=(req,res)=>{
-    console.log("in side getNewSelect ");
-    console.log(req.params._id);
-    Doctor.findById(req.params._id,(err,docs)=>{
-                if(!err){res.send(docs);}
-                else{ console.log('Error in Retriving Patients Records :' + JSON.stringify(err,undefined,2));}
-            });
 }

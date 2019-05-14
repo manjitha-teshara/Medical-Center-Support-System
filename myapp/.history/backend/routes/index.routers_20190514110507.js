@@ -16,8 +16,7 @@ router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
 
 router.post('/doctor',ctrlDocter.doctorRegister);
 router.get('/doctor',ctrlDocter.getDoctorDetail);
-router.get('/selectedDoctor/:_id',ctrlDocter.getSelectedDoctorDetail);
-router.get('/getNewSelect/:_id',ctrlDocter.getNewSelect);
+router.get('/selectedDoctor/:fullname',ctrlDocter.getSelectedDoctorDetail);
 
 router.post('/booking',ctrlBooking.postBooking);
 router.get('/booking',ctrlBooking.getBooking);
