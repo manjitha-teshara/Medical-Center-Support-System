@@ -262,7 +262,7 @@ export class ViewMoreDialog {
       console.log(this.data.name);
 
       console.log('**********vm');
-      // this.Doctors = this.data as Doctor[];
+      this.Doctors = this.data as Doctor[];
 
     this.doctorservice.getDoctorsList().subscribe((res ) => {
       this.Doctors = res as Doctor[];
