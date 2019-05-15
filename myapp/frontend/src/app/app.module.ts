@@ -21,11 +21,13 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
 
-
+import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
 import { AuthGuard } from './auth.guard';
 import { AuthInterceptor } from './auth.interceptor';
 import { AdminComponent } from './users/admin/admin.component';
-
+import { PatientRecordsService } from './shared/patientRecords/patient-records.service';
+import {MatTabsModule} from '@angular/material/tabs';
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
 
@@ -67,9 +69,11 @@ import { AdminComponent } from './users/admin/admin.component';
     MatIconModule,
     MDBBootstrapModule,
     MatSelectModule,
-
+    MatTableModule,
+    MatTabsModule,
+    MatCardModule
   ],
-  providers: [AuthGuard, UserService, AuthInterceptor],
+  providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],
   entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn]
 })
