@@ -259,16 +259,15 @@ export class ViewMoreDialog {
 
     ngOnInit() {
       console.log('**********vm');
-      console.log(this.data.name.fullname);
+      console.log(this.data.name.doctor);
 
       console.log('**********vm');
-      this.Doctors = this.data.name as Doctor[];
 
-    // this.doctorservice.getDoctorsList().subscribe((res ) => {
-    //   this.Doctors = res as Doctor[];
-    //   console.log(res);
+    this.doctorservice.getDoctorsList().subscribe((res ) => {
+      this.Doctors = res as Doctor[];
+      console.log(res);
 
-    // });
+    });
    }
 }
 

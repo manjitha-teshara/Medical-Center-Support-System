@@ -15,7 +15,7 @@ import { Doctor } from '../../shared/doctor/doctor.model';
 export interface DialogData {
   animal: string;
   name: string;
-  doctor: Doctor;
+  Doctor: Doctor;
 }
 
 
@@ -63,9 +63,9 @@ usr = new User();
     });
   }
 
-  openViewMore(dname: Doctor): void {
+  openViewMore(dname): void {
     console.log(dname);
-    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {name : dname}}); // , {data: {'dname': 'dname'}}
+    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {doctor : dname}}); // , {data: {'dname': 'dname'}}
   }
 
   refreshDoctors() {
@@ -248,7 +248,8 @@ export class ViewMoreDialog {
     public dialogRef: MatDialogRef<ViewMoreDialog>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private doctorservice: DoctorService) {}
+    private doctorservice: DoctorService,
+    public doctor: Doctor) {}
 
   Doctors: Doctor[];
 
@@ -259,17 +260,27 @@ export class ViewMoreDialog {
 
     ngOnInit() {
       console.log('**********vm');
-      console.log(this.data.name.fullname);
-
+      console.log(this.data);
+      
       console.log('**********vm');
-      this.Doctors = this.data.name as Doctor[];
+    this.doctorservice.getSelectDoctor(this.data.doctor).subscribe((res)=>{
+      this.Doctors = res as Doctor[];
+      console.log(res);
+    })
 
     // this.doctorservice.getDoctorsList().subscribe((res ) => {
     //   this.Doctors = res as Doctor[];
     //   console.log(res);
-
     // });
-   }
+    // this.onDoctorSelect(this.data);
+  }
+
+    onDoctorSelect(doctors: Doctor) {
+      this.doctorservice.selectedDoctor = doctors;
+      console.log('**********onDoctorSelect');
+      console.log(doctors);
+      console.log('**********onDoctorSelect');
+    }
 }
 
 

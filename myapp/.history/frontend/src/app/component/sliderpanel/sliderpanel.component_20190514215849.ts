@@ -15,7 +15,6 @@ import { Doctor } from '../../shared/doctor/doctor.model';
 export interface DialogData {
   animal: string;
   name: string;
-  doctor: Doctor;
 }
 
 
@@ -63,9 +62,9 @@ usr = new User();
     });
   }
 
-  openViewMore(dname: Doctor): void {
+  openViewMore(dname): void {
     console.log(dname);
-    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {name : dname}}); // , {data: {'dname': 'dname'}}
+    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {doctor : dname}}); // , {data: {'dname': 'dname'}}
   }
 
   refreshDoctors() {
@@ -259,17 +258,26 @@ export class ViewMoreDialog {
 
     ngOnInit() {
       console.log('**********vm');
-      console.log(this.data.name.fullname);
+      console.log(this.data.name);
+      // console.log(this.data.shedule);
 
       console.log('**********vm');
-      this.Doctors = this.data.name as Doctor[];
 
-    // this.doctorservice.getDoctorsList().subscribe((res ) => {
-    //   this.Doctors = res as Doctor[];
-    //   console.log(res);
+    this.doctorservice.getDoctorsList().subscribe((res ) => {
+      this.Doctors = res as Doctor[];
+      console.log(res);
+    });
+    this.onDoctorSelect(this.data);
+  }
 
-    // });
-   }
+    onDoctorSelect(doctor: Doctor) {
+      this.doctorservice.selectedDoctor = doctor;
+      console.log('**********onDoctorSelect');
+      console.log(doctor.doctor);
+      // console.log(this.data.shedule);
+
+      console.log('**********onDoctorSelect');
+    }
 }
 
 
