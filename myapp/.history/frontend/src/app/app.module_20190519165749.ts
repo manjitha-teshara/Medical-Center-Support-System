@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
-import { DocterComponent, CheckPatient, CheckEarn, ManageDoctorView} from './users/docter/docter.component';
+import { DocterComponent, CheckPatient, CheckEarn, manageDoctorView} from './users/docter/docter.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -50,8 +50,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     CheckPatient,
     CheckEarn,
     AdminComponent,
-    ManageDoctorView
-
+    manageDoctorView
+    
 
   ],
   imports: [
@@ -76,7 +76,7 @@ import {MatTabsModule} from '@angular/material/tabs';
   ],
   providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn, ManageDoctorView]
+  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn]
 })
 export class AppModule {}
 enableProdMode();

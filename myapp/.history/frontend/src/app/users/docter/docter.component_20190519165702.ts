@@ -46,8 +46,8 @@ export class DocterComponent {
   }
 
   manageDoctorView(): void {
-    const dialogRef = this.dialog.open(ManageDoctorView, {
-      // width: '250px',
+    const dialogRef = this.dialog.open(manageDoctorView, {
+      width: '250px',
       data: {name: this.name, animal: this.animal}
     });
 
@@ -59,7 +59,7 @@ export class DocterComponent {
 
 }
 
-
+}
 
 
 
@@ -167,34 +167,15 @@ export class CheckEarn {
   templateUrl: './manageDoctorView.html',
 })
 // tslint:disable-next-line:component-class-suffix
-export class ManageDoctorView {
-
-  private fieldArray: Array<any> = [];
-  private newAttribute: any = {};
+export class manageDoctorView {
 
   constructor(
-    public dialogRef: MatDialogRef<ManageDoctorView>,
+    public dialogRef: MatDialogRef<manageDoctorView>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-    model = {
-      name: '',
-      checkuptype: '',
-      price: '',
-      image: '',
-    };
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-
-  addFieldValue() {
-    this.fieldArray.push(this.newAttribute);
-    this.newAttribute = {};
-}
-
-deleteFieldValue(index) {
-    this.fieldArray.splice(index, 1);
-}
 
 }
 

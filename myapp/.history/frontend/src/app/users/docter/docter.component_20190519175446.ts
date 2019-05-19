@@ -59,7 +59,7 @@ export class DocterComponent {
 
 }
 
-
+}
 
 
 
@@ -82,14 +82,14 @@ export class CheckPatient {
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private patientRecordsService: PatientRecordsService) {}
 
-    model = {
-      id: '',
-      name: '',
-      age: '',
-      cost: '',
-      date: '',
-      description: ''
-    };
+    // model = {
+    //   id: '',
+    //   name: '',
+    //   age: '',
+    //   cost: '',
+    //   date: '',
+    //   description: ''
+    // };
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -175,13 +175,6 @@ export class ManageDoctorView {
   constructor(
     public dialogRef: MatDialogRef<ManageDoctorView>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-
-    model = {
-      name: '',
-      checkuptype: '',
-      price: '',
-      image: '',
-    };
 
   onNoClick(): void {
     this.dialogRef.close();

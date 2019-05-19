@@ -59,7 +59,7 @@ export class DocterComponent {
 
 }
 
-
+}
 
 
 
@@ -169,32 +169,13 @@ export class CheckEarn {
 // tslint:disable-next-line:component-class-suffix
 export class ManageDoctorView {
 
-  private fieldArray: Array<any> = [];
-  private newAttribute: any = {};
-
   constructor(
     public dialogRef: MatDialogRef<ManageDoctorView>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-    model = {
-      name: '',
-      checkuptype: '',
-      price: '',
-      image: '',
-    };
-
   onNoClick(): void {
     this.dialogRef.close();
   }
-
-  addFieldValue() {
-    this.fieldArray.push(this.newAttribute);
-    this.newAttribute = {};
-}
-
-deleteFieldValue(index) {
-    this.fieldArray.splice(index, 1);
-}
 
 }
 
