@@ -276,9 +276,9 @@ export class ViewMoreDialog {
 
     this.doctorservice.getSelectDoctor(this.data.name).subscribe((res) => {
       this.Doctors = res as Doctor;
-      console.log('*************getselect');
+      console.log("*************getselect");
       console.log(res);
-      console.log('*************getselect');
+      console.log("*************getselect");
     });
    }
 }

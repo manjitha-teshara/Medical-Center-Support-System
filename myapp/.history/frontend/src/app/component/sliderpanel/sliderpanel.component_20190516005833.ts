@@ -66,7 +66,7 @@ usr = new User();
 
   openViewMore(dname: Doctor): void {
     console.log(dname);
-    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {name : dname},width: '500px'}); // , {data: {'dname': 'dname'}}
+    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {name : dname}}); // , {data: {'dname': 'dname'}}
   }
 
   refreshDoctors() {
@@ -276,9 +276,9 @@ export class ViewMoreDialog {
 
     this.doctorservice.getSelectDoctor(this.data.name).subscribe((res) => {
       this.Doctors = res as Doctor;
-      console.log('*************getselect');
+      console.log("*************getselect");
       console.log(res);
-      console.log('*************getselect');
+      console.log("*************getselect");
     });
    }
 }

@@ -37,7 +37,7 @@ export class DoctorService {
     return this.http.get(environment.apiBaseUrl + '/doctor');
   }
 
-  getSelectDoctor(doctores: Doctor) {
+  getSelectDoctor(doctores: Doctor[]) {
     console.log(' get selected doctor ');
     // console.log(doctores._id);
     console.log(environment.apiBaseUrl + '/getNewSelect' + `/${doctores._id}`);

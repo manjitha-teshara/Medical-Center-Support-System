@@ -9,7 +9,7 @@ import { PatientRecordClass } from './patient-record-class.model';
 })
 export class PatientRecordsService {
 
-  
+  var curTime=$moment().format('MM/DD/YYYY');
   selectedPatientRecordClass: PatientRecordClass = {
 
     id: '',
