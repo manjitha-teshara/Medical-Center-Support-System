@@ -1,0 +1,17 @@
+<div class="login-dialog">
+    <h3>Doctor Clinic Times</h3>
+<div class="">
+    <h3>{{Doctors.fullname}}</h3>
+    <!-- <li>{{Doctors.doctorshedule}}</li> -->
+
+    <table>
+        <thead>
+            <tr></tr>
+        </thead>
+        <tr  *ngFor="let  dsh of Doctors.doctorshedule">
+            <h5>{{dsh}}</h5>
+        </tr>
+    </table>
+
+</div>
+</div>
