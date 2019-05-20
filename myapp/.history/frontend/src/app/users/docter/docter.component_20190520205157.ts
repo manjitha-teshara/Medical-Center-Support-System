@@ -181,7 +181,7 @@ export class ManageDoctorView {
     private doctorService: DoctorService) {}
 
     model = {
-      fullname: '',
+      name: '',
       checkuptype: '',
       price: '',
       image: '',

@@ -172,8 +172,6 @@ export class ManageDoctorView {
 
   private fieldArray: Array<any> = [];
   private newAttribute: any = {};
-  showSucessMessage: boolean;
-  serverErrorMessages: string;
 
   constructor(
     public dialogRef: MatDialogRef<ManageDoctorView>,
@@ -181,7 +179,7 @@ export class ManageDoctorView {
     private doctorService: DoctorService) {}
 
     model = {
-      fullname: '',
+      name: '',
       checkuptype: '',
       price: '',
       image: '',
@@ -204,7 +202,7 @@ deleteFieldValue(index) {
 onSubmitDoctorView(form: NgForm) {
   console.log('in onSubmitDoctorView');
   this.doctorService.postDoctor(form.value).subscribe(
-    res => {
+    res=> {
       this.resetForm(form);
       swal({
         title: 'checked !',
@@ -217,22 +215,6 @@ onSubmitDoctorView(form: NgForm) {
     }
   );
  }
-
- resetForm(form: NgForm) {
-  this.doctorService.selectedDoctor = {
-    _id: '',
-    fullname: '',
-    checkuptype: '',
-    price: '',
-    image: '',
-    doctorshedule: '',
-
-  };
-  form.resetForm();
-  this.serverErrorMessages = '';
-
-
-}
 
 }
 

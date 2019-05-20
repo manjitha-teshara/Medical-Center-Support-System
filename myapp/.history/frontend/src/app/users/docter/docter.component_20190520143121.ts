@@ -181,7 +181,7 @@ export class ManageDoctorView {
     private doctorService: DoctorService) {}
 
     model = {
-      fullname: '',
+      name: '',
       checkuptype: '',
       price: '',
       image: '',
@@ -204,7 +204,7 @@ deleteFieldValue(index) {
 onSubmitDoctorView(form: NgForm) {
   console.log('in onSubmitDoctorView');
   this.doctorService.postDoctor(form.value).subscribe(
-    res => {
+    res=> {
       this.resetForm(form);
       swal({
         title: 'checked !',

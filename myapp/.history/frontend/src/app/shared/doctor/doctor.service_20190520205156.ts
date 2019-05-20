@@ -31,11 +31,11 @@ export class DoctorService {
 
   postDoctor(doctor: Doctor) {
     console.log(' in post doctor');
-    // console.log('*********************PostDoctor');
-    // console.log(doctor);
-    // console.log('*********************PostDoctor');
+    console.log('*********************PostDoctor');
+    console.log(doctor);
+    console.log('*********************PostDoctor');
 
-    return this.http.post(environment.apiBaseUrl + '/doctor', doctor);
+    return this.http.post(this.baseURL, doctor);
   }
 
   getDoctorsList() {

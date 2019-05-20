@@ -30,12 +30,8 @@ export class DoctorService {
   constructor(private http: HttpClient) { }
 
   postDoctor(doctor: Doctor) {
-    console.log(' in post doctor');
-    // console.log('*********************PostDoctor');
-    // console.log(doctor);
-    // console.log('*********************PostDoctor');
-
-    return this.http.post(environment.apiBaseUrl + '/doctor', doctor);
+    console.log(" in post doctor");
+    return this.http.post(this.baseURL, doctor);
   }
 
   getDoctorsList() {
