@@ -1,8 +1,8 @@
 export class Doctor {
-    _id?: string;
+    _id: string;
     fullname: string;
     checkuptype: string;
     price: string;
     image: string;
-    doctorshedule: any;
+    doctorshedule: string;
 }

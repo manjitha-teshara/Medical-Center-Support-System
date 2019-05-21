@@ -19,12 +19,13 @@ export class DoctorService {
     checkuptype: '',
     price: '',
     image: '',
-    doctorshedule: []
+    doctorshedule: ''
 
   } ;
 
   doctores: Doctor [];
   readonly baseURL = environment.apiBaseUrl ;
+
 
   constructor(private http: HttpClient) { }
 

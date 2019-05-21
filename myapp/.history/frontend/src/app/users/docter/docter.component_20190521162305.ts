@@ -173,7 +173,6 @@ export class ManageDoctorView {
 
   private fieldArray: Array<any> = [];
   private newAttribute: any = {};
-  private sheduleArray: Array<string> = [];
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
@@ -197,7 +196,6 @@ export class ManageDoctorView {
 
   addFieldValue() {
     this.fieldArray.push(this.newAttribute);
-    this.sheduleArray.push(this.newAttribute.day + ' ' + this.newAttribute.startTime  + ' ' + this.newAttribute.endTime);
     this.newAttribute = {};
 }
 
@@ -212,15 +210,17 @@ onSubmitDoctorView(form: NgForm) {
   console.log(this.fieldArray);
   console.log('***************onSubmitDoctorView');
 
-  const doctor = new Doctor();
-
+  cont doctor = new Doctor();
   doctor.checkuptype = form.value.checkuptype;
   doctor.fullname = form.value.fullname;
   doctor.image = form.value.image;
   doctor.price = form.value.price;
-  doctor.doctorshedule = this.sheduleArray;
+  doctor.doctorshedule = form.value.day;
 
-  this.doctorService.postDoctor(doctor).subscribe(
+  console.log(doctor);
+  
+
+  this.doctorService.postDoctor(form.value).subscribe(
     res => {
       this.resetForm(form);
       swal({

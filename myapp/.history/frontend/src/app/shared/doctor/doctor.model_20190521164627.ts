@@ -4,5 +4,5 @@ export class Doctor {
     checkuptype: string;
     price: string;
     image: string;
-    doctorshedule: any;
+    doctorshedule: Array<any>;
 }

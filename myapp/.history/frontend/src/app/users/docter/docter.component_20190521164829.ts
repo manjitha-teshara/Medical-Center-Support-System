@@ -219,8 +219,13 @@ onSubmitDoctorView(form: NgForm) {
   doctor.image = form.value.image;
   doctor.price = form.value.price;
   doctor.doctorshedule = this.sheduleArray;
+  console.log('===========');
+  console.log(doctor);
+  console.log('===========');
 
-  this.doctorService.postDoctor(doctor).subscribe(
+  
+
+  this.doctorService.postDoctor(form.value).subscribe(
     res => {
       this.resetForm(form);
       swal({

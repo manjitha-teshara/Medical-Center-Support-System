@@ -5,7 +5,6 @@ import { PatientRecordsService } from '../../shared/patientRecords/patient-recor
 import { from } from 'rxjs';
 import swal from 'sweetalert';
 import { DoctorService } from '../../shared/doctor/doctor.service';
-import { Doctor } from 'src/app/shared/doctor/doctor.model';
 
 
 export interface DialogData {
@@ -107,7 +106,7 @@ deleteFieldValue(index) {
 }
 
 onSubmitPrecord(form: NgForm) {
-//  console.log("inonSubmitPrecord");
+ console.log("inonSubmitPrecord");
  this.patientRecordsService.postPatientRecord(form.value).subscribe(
    res=> {
      this.resetForm(form);
@@ -173,7 +172,6 @@ export class ManageDoctorView {
 
   private fieldArray: Array<any> = [];
   private newAttribute: any = {};
-  private sheduleArray: Array<string> = [];
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
@@ -187,8 +185,6 @@ export class ManageDoctorView {
       checkuptype: '',
       price: '',
       image: '',
-      doctorshedule: []
-
     };
 
   onNoClick(): void {
@@ -197,7 +193,6 @@ export class ManageDoctorView {
 
   addFieldValue() {
     this.fieldArray.push(this.newAttribute);
-    this.sheduleArray.push(this.newAttribute.day + ' ' + this.newAttribute.startTime  + ' ' + this.newAttribute.endTime);
     this.newAttribute = {};
 }
 
@@ -208,19 +203,8 @@ deleteFieldValue(index) {
 
 onSubmitDoctorView(form: NgForm) {
   console.log('in onSubmitDoctorView');
-  console.log('***************onSubmitDoctorView');
   console.log(this.fieldArray);
-  console.log('***************onSubmitDoctorView');
-
-  const doctor = new Doctor();
-
-  doctor.checkuptype = form.value.checkuptype;
-  doctor.fullname = form.value.fullname;
-  doctor.image = form.value.image;
-  doctor.price = form.value.price;
-  doctor.doctorshedule = this.sheduleArray;
-
-  this.doctorService.postDoctor(doctor).subscribe(
+  this.doctorService.postDoctor(form.value).subscribe(
     res => {
       this.resetForm(form);
       swal({
@@ -242,7 +226,7 @@ onSubmitDoctorView(form: NgForm) {
     checkuptype: '',
     price: '',
     image: '',
-    doctorshedule: [],
+    doctorshedule: '',
 
   };
   form.resetForm();

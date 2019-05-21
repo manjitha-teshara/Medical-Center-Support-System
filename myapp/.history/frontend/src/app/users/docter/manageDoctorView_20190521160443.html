@@ -58,17 +58,17 @@
           </tr>
           <tr>
               <td>
-                  <input class="form-control" type="text" id="newAttributeDay" [(ngModel)]="newAttribute.day" name="newAttributeDay" />
+                  <input class="form-control" type="text" id="newAttributeDay" name="newAttributeDay" />
               </td>
               <td>
-                  <input class="form-control" type="text" id="newAttributestartTime" [(ngModel)]="newAttribute.startTime" name="newAttributestartTime" />
+                  <input class="form-control" type="text" id="newAttributestartTime" name="newAttributestartTime" />
               </td>
               <td>
-                  <input class="form-control" type="text" id="newAttributeendTime" [(ngModel)]="newAttribute.endTime" name="newAttributeendTime" />
+                  <input class="form-control" type="text" id="newAttributeendTime" name="newAttributeendTime" />
               </td>
-              <!-- <td>
-                    <input value='{{newAttribute.day + newAttribute.startTime + newAttribute.endTime}}', [(ngModel)]="dshedule", style="display:none">
-              </td> -->
+              <td>
+                    <input value='{{newAttributeDay + newAttributestartTime + newAttributeendTime}}', [(ngModel)]="dshedule", style="display:none">
+              </td>
               <td>
                   <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
               </td>

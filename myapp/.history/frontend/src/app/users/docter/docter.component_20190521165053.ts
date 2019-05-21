@@ -197,6 +197,8 @@ export class ManageDoctorView {
 
   addFieldValue() {
     this.fieldArray.push(this.newAttribute);
+    console.log('$$$$$$$$$$$$$$$$$$$$$');
+    console.log(this.fieldArray);
     this.sheduleArray.push(this.newAttribute.day + ' ' + this.newAttribute.startTime  + ' ' + this.newAttribute.endTime);
     this.newAttribute = {};
 }
