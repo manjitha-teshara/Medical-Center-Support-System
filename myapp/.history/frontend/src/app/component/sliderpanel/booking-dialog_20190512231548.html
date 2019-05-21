@@ -1,0 +1,45 @@
+<div>
+                <h1 mat-dialog-title>Get Appointment</h1>
+                <div mat-dialog-content>
+                    <form >       
+                        <div class="">
+                                <mat-form-field >
+                                <input matInput placeholder="First Name"  required>
+                                <!-- #firstName="ngModel" name="firstName" [(ngModel)]="" -->
+                                </mat-form-field>
+                                                
+                                <mat-form-field>
+                                <input matInput placeholder="Last Name"   required>
+                                <!-- #lastName="ngModel" name="lastName" [(ngModel)]="" -->
+                                
+                                </mat-form-field>
+                                <!-- <mat-form-field>
+                                                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field> -->
+                                <mat-form-field >
+                                                <input matInput placeholder="Mobile"  required>
+                                                <!-- #mobile="ngModel" name="mobile" [(ngModel)]="" -->
+                                </mat-form-field>
+                                
+                                <mat-form-field>
+                                                <mat-select placeholder="Select Time">
+                                                  <mat-option value="option">Option</mat-option>
+                                                </mat-select>
+                                </mat-form-field>
+                                <mat-form-field >
+                                                <input matInput placeholder="currentDate"  required>
+                                                <!--  #date="ngModel" name="date" [(ngModel)]="" -->
+                                </mat-form-field>                                      
+                          
+                     
+                        </div>
+                    <button mat-button  type="submit">Submit</button> 
+                    </form>  
+                </div>
+                <div mat-dialog-actions>
+                    <!-- <p><font color="blue">Already have an account</font></p>
+                    <a mat-button (click)="">Sign In</a> -->
+                </div>  
+            </div>

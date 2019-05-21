@@ -1,0 +1,98 @@
+<mdb-carousel [isControls]="true" class="carousel slide" [animation]="'slide'">
+  <mdb-carousel-item>
+    <div class="view">
+      <video class="video-fluid" autoplay loop>
+          <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
+      </video>
+      <div class="mask rgba-indigo-light waves-light" mdbWavesEffect></div>
+    </div>
+    <div class="carousel-caption">
+      <h1 style="font-family: 'Times New Roman', Times, serif;">Be Healthy Be Happy</h1>
+      <br><br>
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <div style="border-style:solid; border-radius:5px;background:ghostwhite;">
+            <img src="assets/img/logo.png">
+            <br><br>
+          </div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+      <br>
+      <ul>
+          <li class="btn">
+            <button mat-raised-button color="primary" (click)="openDialogSignIn()">Sign in</button>
+          </li>
+          <li class="btn">
+            <button mat-raised-button color="primary" (click)="openDialogSignUp()">Sign Up</button>
+          </li>
+      </ul>
+    </div>
+  </mdb-carousel-item>
+</mdb-carousel>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-5 panel1">
+            <div class="row panel2">    
+                <div class="col-md-5">Doctor</div>
+                <div class="col-md-3">Checkup Name</div>
+                <div class="col-md-2">Price</div>
+                <div class="col-md-2">Action</div>
+            </div>
+        
+            
+            <div class="row panel3">    
+                <div class="col-md-5">
+                    <div class="row">
+                        <img class="docterImage" src="../../../assets/docter-images/1.jpg" alt="Forest" style="width:150px">
+                    </div>
+                </div>
+                <div class="col-md-3">Master Health Check</div>
+                <div class="col-md-2">Rs.2625</div>
+                <div class="col-md-2"  >
+                    <div class="row" style="padding-bottom:2px;width:100px;"><button mat-raised-button color="primary" (click)="openDialogBooking()">Book</button></div>
+                    <div class="row" style="padding-bottom:2px;width:100px;"><button mat-raised-button color="primary" (click)="openViewMore()">View More</button></div>
+
+                </div>
+            </div>
+            
+             <div class="row panel3">    
+                <div class="col-md-5">
+                    <div class="row">
+                        <img class="docterImage" src="../../../assets/docter-images/2.png" alt="Forest" style="width:150px">
+                    </div>
+                </div>
+                <div class="col-md-3">Master Health Check</div>
+                <div class="col-md-2">Rs.2625</div>
+                <div class="col-md-2"  >
+                    <div class="row" style="padding-bottom:2px;width:100px;"><button mat-raised-button color="primary"  (click)="openDialogBooking()">Book</button></div>
+                    <div class="row" style="padding-bottom:2px;width:100px;"><button mat-raised-button color="primary" (click)="openViewMore()">View More</button></div>
+
+                </div>
+            </div>
+            
+             <div class="row panel3">    
+                <div class="col-md-5">
+                    <div class="row">
+                        <img class="docterImage" src="../../../assets/docter-images/1.jpg" alt="Forest" style="width:150px">
+                    </div>
+                </div>
+                <div class="col-md-3">Master Health Check</div>
+                <div class="col-md-2">Rs.2625</div>
+                <div class="col-md-2"  >
+                    <div class="row" style="padding-bottom:2px;width:100px;"><button mat-raised-button color="primary" (click)="openDialogBooking()">Book</button></div>
+                    <div class="row" style="padding-bottom:2px;width:100px;"><button mat-raised-button color="primary" (click)="openViewMore()">View More</button></div>
+
+                </div>
+            </div>
+            
+        </div>
+
+
+
+        </div>        
+    </div>

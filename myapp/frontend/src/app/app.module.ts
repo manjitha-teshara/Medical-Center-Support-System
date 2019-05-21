@@ -5,41 +5,56 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent, LoginDialog, SignupDialog} from './login/login.component';
-import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
+import {LoginDialogInBox,SignupDialogInBox,BookingDialog,ViewMoreDialog} from './component/sliderpanel/sliderpanel.component';
+import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
 import {enableProdMode} from '@angular/core';
 import {MatDialogModule} from '@angular/material/dialog';
-import { FormsModule,ReactiveFormsModule} from '@angular/forms';
-import { NavbarComponent } from './component/navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FooterComponent } from './component/footer/footer.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
-import { ContactComponent } from './component/contact/contact.component';
-import { DocterViewComponent } from './component/docter-view/docter-view.component';
-import { DocterComponent } from './users/docter/docter.component';
+import { DocterComponent, CheckPatient, CheckEarn } from './users/docter/docter.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserService } from './shared/user.service';
 
-
+import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
+import { AuthGuard } from './auth.guard';
+import { AuthInterceptor } from './auth.interceptor';
+import { AdminComponent } from './users/admin/admin.component';
+import { PatientRecordsService } from './shared/patientRecords/patient-records.service';
+import {MatTabsModule} from '@angular/material/tabs';
+// for docter dash board
+// import { CheckPatient } from './users/docter/checkPatient';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LoginDialog,
+    LoginDialogInBox,
     SignupDialog,
-    NavbarComponent,
+    SignupDialogInBox,
     FooterComponent,
     SliderpanelComponent,
-    ContactComponent,
-    DocterViewComponent,
     DocterComponent,
     PatientComponent,
-    PharmacistComponent
+    PharmacistComponent,
+    BookingDialog,
+    ViewMoreDialog,
+    UserProfileComponent,
+    CheckPatient,
+    CheckEarn,
+    AdminComponent
+    
+
   ],
   imports: [
-    HttpClientModule, 
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     MatFormFieldModule,
@@ -53,10 +68,14 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
     ReactiveFormsModule,
     MatIconModule,
     MDBBootstrapModule,
+    MatSelectModule,
+    MatTableModule,
+    MatTabsModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialog, SignupDialog]
+  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn]
 })
 export class AppModule {}
 enableProdMode();
