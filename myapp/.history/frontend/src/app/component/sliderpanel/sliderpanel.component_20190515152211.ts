@@ -71,10 +71,7 @@ usr = new User();
   refreshDoctors() {
     this.doctorservice.getDoctorsList().subscribe((res ) => {
       this.Doctors = res as Doctor[];
-      console.log("*************refres");
       console.log(res);
-      console.log("*************refres");
-
 
     });
   }
@@ -191,7 +188,7 @@ phone = /^(\+94)[0-9]{9,9}$/;
         },
         err => {
 
-          swal( 'Oops' , '',  'error' );
+          swal ( 'Oops' , '',  'error' );
         }
       );
     }
@@ -253,7 +250,7 @@ export class ViewMoreDialog {
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private doctorservice: DoctorService) {}
 
-  Doctors: Doctor;
+  Doctors: Doctor[];
 
 
 
@@ -267,17 +264,10 @@ export class ViewMoreDialog {
       console.log('**********vm');
       // this.Doctors = this.data as Doctor[];
 
-    // this.doctorservice.getDoctorsList().subscribe((res ) => {
-    //   this.Doctors = res as Doctor[];
-    //   console.log(res);
-
-    // });
-
-    this.doctorservice.getSelectDoctor(this.data.name).subscribe((res) => {
-      this.Doctors = res as Doctor;
-      console.log("*************getselect");
+    this.doctorservice.getDoctorsList().subscribe((res ) => {
+      this.Doctors = res as Doctor[];
       console.log(res);
-      console.log("*************getselect");
+
     });
    }
 }
