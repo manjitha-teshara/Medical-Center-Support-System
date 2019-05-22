@@ -9,17 +9,17 @@ import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth.guard';
 import { AdminComponent } from './users/admin/admin.component';
-
-
-
+import { MedicineComponent } from './users/admin/medicine/medicine.component';
 
 
 const routes: Routes = [
 { path:'',component:SliderpanelComponent},
+
 { path:'doctor',component:DocterComponent},
 { path:'patient',component:PatientComponent},
 { path:'pha',component:PharmacistComponent},
 { path: 'admin' , component:AdminComponent},
+{ path: 'med' , component:MedicineComponent},
 {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];
