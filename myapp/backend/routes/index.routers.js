@@ -22,6 +22,7 @@ router.get('/getNewSelect/:_id',ctrlDocter.getNewSelect);
 router.post('/booking',ctrlBooking.postBooking);
 router.get('/booking',ctrlBooking.getBooking);
 
+router.post('/addMedicine',ctrlMedicine.addMedicine);
 
 
 
