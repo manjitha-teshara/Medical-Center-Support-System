@@ -6,6 +6,8 @@ const ctrlUser=require('../controllers/user.controller');
 const ctrlDocter=require('../controllers/doctor.controller');
 const ctrlPatientRecord=require('../controllers/patientRecord.controller');
 const ctrlBooking=require('../controllers/bookingForm.controller');
+const ctrlMedicine=require('../controllers/medicine.controller');
+
 
 router.post('/register',ctrlUser.register);
 router.post('/authenticate',ctrlUser.authenticate);

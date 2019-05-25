@@ -1,8 +1,6 @@
 const mongoose=require('mongoose');
 
-var med=new mongoose.Schema({
-    id:{type:String},
-
+var medicineSchema=new mongoose.Schema({
     name:{
         type:String,
         required:'Full name can\'t be empty'
@@ -11,8 +9,4 @@ var med=new mongoose.Schema({
     notes:{type:String}
 });
 
-
-// module.exports=PatientRecord;
-
-// mongoose.model('patientRecord',PatientRecord);
-mongoose.model('medicine',med);
+mongoose.model('medicine',medicineSchema);
