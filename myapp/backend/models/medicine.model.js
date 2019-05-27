@@ -6,7 +6,14 @@ var medicineSchema=new mongoose.Schema({
         required:'Full name can\'t be empty'
     },
 
-    notes:{type:String}
+    notes:{
+        type:String
+    },
+
+    type:{
+        type:String
+    }
+
 });
 
 mongoose.model('medicine',medicineSchema);

@@ -10,6 +10,7 @@ module.exports.addMedicine = (req,res,next) => {
      var medicine = new Medicine();
     medicine.name = req.body.name;
     medicine.notes = req.body.notes;
+    medicine.type = req.body.type;
     medicine.save((err, doc) => {
          if(!err)
              res.send(doc);

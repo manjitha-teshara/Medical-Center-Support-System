@@ -25,7 +25,8 @@ export class MedicineComponent implements OnInit{
       form.reset();
     this.medicineService.selectedMedicine = {
       name:"",
-      notes:""
+      notes:"",
+      type:""
     }
     
   }
