@@ -30,10 +30,10 @@ export class MedicineComponent implements OnInit{
     
   }
    
-  onsubmit(form : NgForm){
+  onSubmit(form : NgForm){
     this.medicineService.postMedicine(form.value).subscribe(res => {
       this.resetForm(form);
-      M.toast({html: 'Saved successfully', classes: 'rounded'});
+      //M.toast({html: 'Saved successfully', classes: 'rounded'});
     });
   }
 
