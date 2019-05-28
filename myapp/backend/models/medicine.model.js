@@ -12,6 +12,9 @@ var medicineSchema=new mongoose.Schema({
 
     type:{
         type:String
+    },
+    dose:{
+        type:String
     }
 
 });

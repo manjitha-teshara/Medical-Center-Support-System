@@ -25,6 +25,10 @@ router.post('/booking',ctrlBooking.postBooking);
 router.get('/booking',ctrlBooking.getBooking);
 
 router.post('/addMedicine',ctrlMedicine.addMedicine);
+router.get('/getMedicine', ctrlMedicine.getMedicine);
+router.get('/getMedicineById/:_id', ctrlMedicine.getMedicineById);
+router.put('/updateMedicine', ctrlMedicine.updateMedicine);
+router.delete('/deleteMedicine/:_id', ctrlMedicine.deleteMedicine);
 
 
 
