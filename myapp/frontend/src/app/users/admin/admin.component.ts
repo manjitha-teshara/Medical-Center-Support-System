@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/observable/of';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MedicineService } from '../../shared/medicine.service';
+import { Medicine} from '../../shared/medicine.model';
+import { NgForm } from '@angular/forms';
 
 
 export class TabGroupDynamicHeightExample {}
@@ -56,4 +59,21 @@ export class AdminComponent implements OnInit {
 
 
 
+  export class MedicineComponent implements OnInit{
+    constructor(private medicineService: MedicineService){}
+  
+    ngOnInit(){
+     
+      this.refreshMedicineList();
+    }
+  
+    refreshMedicineList(){
+      this.medicineService.getMedicineList().subscribe((res) => {
+        this.medicineService.medi = res as Medicine[];
+      })
+    }
+  
+  }
+  
+  
 

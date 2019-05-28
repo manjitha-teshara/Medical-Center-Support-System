@@ -1,7 +1,7 @@
 <div class= "row">
   <div class="col-xs-12">
     <div class="container">
-        <div class="row">
+        <div class="row"><h1>Add Medicine</h1>
            <div class="col-md-12">
             <form #MedicineForm="ngForm" (ngSubmit)="onSubmit(MedicineForm)">
               <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="medicineService.selectedMedicine._id">
@@ -26,6 +26,18 @@
                   </div>
 
                   <div class="row">
+                      <label>Dose:</label>
+                      <select class="dropdown" name="dose" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.dose">
+                          <option>50mg</option>
+                          <option>100mg</option>
+                          <option>200mg</option>
+                          <option>250mg</option>
+                          <option>500mg</option>
+                          <option>1000mg</option>
+                      </select>
+                  </div>
+
+                  <div class="row">
                   <label>Notes:  
                     </label>
                   <input type="text" name="notes" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.notes" placeholder="Any special notes?">
@@ -45,8 +57,34 @@
           </div>
 
           
-          <div class="col s7">
- 
+          <div class="col-sm-12">
+            <table class="responsible-table highlight">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Dose</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tr *ngFor="let med of medicineService.medi">
+                  <td>{{med.name}}</td>
+                  <td>{{med.type}}</td>
+                  <td>{{med.dose}}</td>
+                  <td>{{med.notes}}</td>
+                  <td>
+                    <a class="action-btn" (click)="onEdit(med)">
+                      <i class="material-icons">edit</i>
+                    </a>
+                  </td>
+
+                  <td>
+                    <a class="action-btn" (click)="onDelete(med._id,MedicineForm)">
+                        <i class="material-icons">delete</i>
+                      </a>
+                  </td>
+              </tr>
+            </table>
          </div>
 
         </div>
