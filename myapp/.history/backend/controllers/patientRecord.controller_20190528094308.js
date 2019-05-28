@@ -47,11 +47,8 @@ module.exports.regRecord=(req,res,next)=>{
     precord.age=req.body.age;
     precord.cost=req.body.cost;
     precord.description=req.body.description;
-    precord.date=new Date().toDateString();
-    console.log('*******************regRecord');
+    precord.date=new Date("DD.MM.YY");
     console.log(precord.date);
-    console.log('*******************regRecord');
-
     
     
     precord.save((err,doc)=>{
