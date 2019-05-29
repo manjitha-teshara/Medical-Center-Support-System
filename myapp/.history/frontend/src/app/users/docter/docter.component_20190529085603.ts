@@ -155,7 +155,7 @@ export class CheckEarn {
 
   userDate: string;
   NoArray: Number[];
-  TotalEarn: Number = 0;
+  TotalEarn: Number;
   Precords: PatientRecordClass[];
   constructor(
     public dialogRef: MatDialogRef<CheckEarn>,
@@ -173,11 +173,8 @@ export class CheckEarn {
 
       const rows = this.Precords.length;
       console.log('array length ' + rows);
-      let sum: any = 0;
-      for ( let i = 0; i < rows; i++) {
-       sum = sum + this.Precords[i].cost;
-      }
-      this.TotalEarn = sum;
+
+
       console.log('*************getselect');
       console.log(res);
       console.log('*************getselect');

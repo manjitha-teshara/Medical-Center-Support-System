@@ -177,7 +177,6 @@ export class CheckEarn {
       for ( let i = 0; i < rows; i++) {
        sum = sum + this.Precords[i].cost;
       }
-      this.TotalEarn = sum;
       console.log('*************getselect');
       console.log(res);
       console.log('*************getselect');
