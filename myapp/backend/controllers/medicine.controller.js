@@ -63,7 +63,6 @@ module.exports.updateMedicine = (req, res) => {
     console.log(req.body);
 
     Medicine.findByIdAndUpdate(req.body._id, { $set: medicine }, { new: true }, (err, docs) => {
-        console.log("fd");
         if (!err) { res.send(docs); }
         else { console.log('Error in Updating Medicine Records :' + JSON.stringify(err, undefined, 2)); }
     });

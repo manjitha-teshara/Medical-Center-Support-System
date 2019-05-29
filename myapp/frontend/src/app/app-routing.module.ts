@@ -10,6 +10,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth.guard';
 import { AdminComponent } from './users/admin/admin.component';
 import { MedicineComponent } from './users/admin/medicine/medicine.component';
+import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.component';
+import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
 
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
 { path:'pha',component:PharmacistComponent},
 { path: 'admin' , component:AdminComponent},
 { path: 'med' , component:MedicineComponent},
+{ path: 'addMed' , component:AddMedicineComponent},
+{ path: 'updateMed/:_id' , component:UpdateMedicineComponent},
 {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];
