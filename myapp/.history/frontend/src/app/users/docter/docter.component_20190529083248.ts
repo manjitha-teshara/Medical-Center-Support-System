@@ -173,6 +173,9 @@ export class CheckEarn {
       const rows = this.Precords.length;
       console.log('array length ' + rows);
 
+      for (let i = 0; i < rows; i++) {
+        this.NoArray[i] = i;
+      }
 
       console.log('*************getselect');
       console.log(res);

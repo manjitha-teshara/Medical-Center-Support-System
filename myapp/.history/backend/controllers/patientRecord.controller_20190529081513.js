@@ -54,7 +54,7 @@ module.exports.regRecord=(req,res,next)=>{
 
 module.exports.getRegRecordForList=(req,res)=>{
     console.log("in side get selected patient Reg REcords "+req);
-    Precord.find({date:req.params.date},
+    Precord.findOne({date:req.params.date},
         (err,patientrecords )=>{
         console.log("******########****");
         console.log(patientrecords);

@@ -6,7 +6,6 @@ import { from } from 'rxjs';
 import swal from 'sweetalert';
 import { DoctorService } from '../../shared/doctor/doctor.service';
 import { Doctor } from 'src/app/shared/doctor/doctor.model';
-import { PatientRecordClass } from 'src/app/shared/patientRecords/patient-record-class.model';
 
 
 export interface DialogData {
@@ -154,8 +153,6 @@ resetForm(form: NgForm) {
 export class CheckEarn {
 
   userDate: string;
-  NoArray: Number[];
-  Precords: PatientRecordClass[];
   constructor(
     public dialogRef: MatDialogRef<CheckEarn>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -168,11 +165,6 @@ export class CheckEarn {
   onChange() {
     console.log(this.userDate);
     this.patientRecordsService.getRegRecordForList(this.userDate).subscribe((res) => {
-      this.Precords = res as PatientRecordClass[];
-
-      const rows = this.Precords.length;
-      console.log('array length ' + rows);
-
 
       console.log('*************getselect');
       console.log(res);

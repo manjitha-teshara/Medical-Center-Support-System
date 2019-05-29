@@ -11,8 +11,8 @@
        <td>Cost</td>
      </tr>
    </thead>
-   <tr *ngFor="let  precord of Precords">
-     <td>01</td>
+   <tr *ngFor="let  precord of Precords,let no of NoArray">
+     <td>{{no}}</td>
     <td>{{precord.name}}</td>
     <td>{{precord.cost}}</td>  
   </tr>

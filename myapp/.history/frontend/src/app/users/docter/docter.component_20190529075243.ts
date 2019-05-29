@@ -154,7 +154,6 @@ resetForm(form: NgForm) {
 export class CheckEarn {
 
   userDate: string;
-  NoArray: Number[];
   Precords: PatientRecordClass[];
   constructor(
     public dialogRef: MatDialogRef<CheckEarn>,
@@ -169,10 +168,6 @@ export class CheckEarn {
     console.log(this.userDate);
     this.patientRecordsService.getRegRecordForList(this.userDate).subscribe((res) => {
       this.Precords = res as PatientRecordClass[];
-
-      const rows = this.Precords.length;
-      console.log('array length ' + rows);
-
 
       console.log('*************getselect');
       console.log(res);

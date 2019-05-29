@@ -5,16 +5,16 @@
 </mat-form-field>
  <table>
    <thead>
-     <tr>
+     <tr *ngFor="let  precord of Precord">
        <td>No</td>
        <td>Patient</td>
        <td>Cost</td>
      </tr>
    </thead>
-   <tr *ngFor="let  precord of Precords">
+   <tr>
      <td>01</td>
-    <td>{{precord.name}}</td>
-    <td>{{precord.cost}}</td>  
+    <td>Mr.K.L.Hungama</td>
+    <td>300</td>  
   </tr>
     <tr><td><h5>Total Cost</h5></td><td>15000</td></tr>
  </table>
