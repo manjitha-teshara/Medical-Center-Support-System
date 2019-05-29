@@ -17,6 +17,9 @@ export class MedicineService {
   readonly baseURL2= 'http://localhost:3000/api/getMedicine'
   readonly baseURL3= 'http://localhost:3000/api/updateMedicine'
   readonly baseURL4= 'http://localhost:3000/api/deleteMedicine'
+  readonly baseURL5= 'http://localhost:3000/api/getMedicineById'
+
+
 
   constructor(private http:HttpClient) { }
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
@@ -27,6 +30,12 @@ export class MedicineService {
 
   getMedicineList(){
     return this.http.get(this.baseURL2);
+  }
+
+  getMedicineByID(_id:string){
+    let url = this.baseURL5 + '/' + _id;
+    console.log('url', url)
+    return this.http.get(this.baseURL5 + '/' + _id);
   }
 
   editMedicine(med:Medicine){

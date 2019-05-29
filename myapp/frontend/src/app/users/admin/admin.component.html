@@ -73,22 +73,9 @@
     <mat-tab label="Doctor"> Content 2 </mat-tab>
 
     <mat-tab label="Medicine"> 
-        <button [routerLink]=" ['/med'] ">Add Medicine</button>
+        <button [routerLink]=" ['/addMed'] ">Add Medicine</button>
 
         <app-medicine></app-medicine>
-
-        <table class="responsible-table highlight">
-            <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Type</th>
-                  <th>notes</th>
-                </tr>
-              </thead>
-              
-              
-        </table>
-        
         
     </mat-tab>
 
@@ -99,22 +86,4 @@
   
 
    
-  <!--        
-<div class="col-sm-12">
-    <table class="responsible-table highlight">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>notes</th>
-        </tr>
-      </thead>
-      <tr *ngFor="let med of medicineService.medi">
-        <td>{{med.name}}</td>
-        <td>{{med.type}}</td>
-        <td>{{med.notes}}</td>
-      </tr>
-    </table>
- </div>
-   -->
-   
+ 

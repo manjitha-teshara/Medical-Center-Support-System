@@ -1,0 +1,66 @@
+<div class= "row">
+    <div class="col-xs-12">
+      <div class="container">
+          <div class="row"><h1>Update Medicine</h1>
+             <div class="col-md-12">
+              <form #MedicineForm="ngForm" (ngSubmit)="onSubmit(MedicineForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="medicineService.selectedMedicine._id">
+                <div class="row">
+                  <div class="input-field col-sm-12 ">
+                    <div class="row">
+                      <label>Name:                  
+                      </label>
+                      <input type="text" name="name" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.name" required>
+                    </div>
+  
+                    <div class="row">
+                        <label>Type:</label>
+                        <select class="dropdown" name="type" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.type">
+                            <option>Tablet</option>
+                            <option>Capsule</option>
+                            <option>Drop</option>
+                            <option>Ointment</option>
+                            <option>Inhaler</option>
+                            <option>Liquid</option>
+                        </select>
+                    </div>
+  
+                    <div class="row">
+                        <label>Dose:</label>
+                        <select class="dropdown" name="dose" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.dose">
+                            <option>50mg</option>
+                            <option>100mg</option>
+                            <option>200mg</option>
+                            <option>250mg</option>
+                            <option>500mg</option>
+                            <option>1000mg</option>
+                        </select>
+                    </div>
+  
+                    <div class="row">
+                    <label>Notes:  
+                      </label>
+                    <input type="text" name="notes" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.notes" placeholder="Any special notes?">
+                  </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="input-field col-xs-6 ">
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(MedicineForm)">Reset</button>
+                    <button class="btn btn-custom right" type="submit">Update</button>
+  
+                  </div>
+                </div>
+              </form>
+            </div>              
+  
+            
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
