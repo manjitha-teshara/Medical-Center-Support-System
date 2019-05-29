@@ -32,9 +32,8 @@ module.exports.regRecord=(req,res,next)=>{
     precord.age=req.body.age;
     precord.cost=req.body.cost;
     precord.description=req.body.description;
-    var tempDate=new Date().toISOString();
-    precord.date=tempDate.substring(0,10);
-    console.log('*******************regRecord');//string.substring(0, length);
+    precord.date=trimFunction(10,new Date().toISOString());
+    console.log('*******************regRecord');
     console.log(precord.date);
     console.log('*******************regRecord');
 
