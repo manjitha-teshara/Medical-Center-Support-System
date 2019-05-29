@@ -161,10 +161,6 @@ export class CheckEarn {
     this.dialogRef.close();
   }
 
-  onChange() {
-    console.log(this.userDate);
-  }
-
 }
 
 // manage doctor view

@@ -13,7 +13,7 @@ router.get('/userProfile',jwtHelper.verifyJwtToken,ctrlUser.userProfile);
 
 router.post('/patientRecord',ctrlPatientRecord.regRecord);
 router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
-router.get('/patientRecordList/:date',ctrlPatientRecord.getRegRecordForList);
+router.get('/patientRecordList/:id',ctrlPatientRecord.getRegRecordForList);
 
 
 router.post('/doctor',ctrlDocter.doctorRegister);

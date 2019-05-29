@@ -21,7 +21,7 @@ export interface DialogData {
 export class DocterComponent {
   animal: string;
   name: string;
-  
+  userDate: Date;
 
   constructor(public dialog: MatDialog) {}
 
@@ -152,17 +152,12 @@ resetForm(form: NgForm) {
 // tslint:disable-next-line:component-class-suffix
 export class CheckEarn {
 
-  userDate: Date;
   constructor(
     public dialogRef: MatDialogRef<CheckEarn>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {
     this.dialogRef.close();
-  }
-
-  onChange() {
-    console.log(this.userDate);
   }
 
 }

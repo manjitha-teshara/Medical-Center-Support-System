@@ -66,9 +66,7 @@ module.exports.getRegRecordForList=(req,res)=>{
                 return res.status(404).json({status:false,message:'patientrecords  record not found. '});}
             else{
                 console.log("found");
-                // return res.status(200).json({status:true,patientrecords:__.pick(patientrecords ,['name','id'])});
-                res.send(patientrecords);
-            }
+                return res.status(200).json({status:true,patientrecords:_.pick(patientrecords ,['name','id'])});}
         });
 }
 

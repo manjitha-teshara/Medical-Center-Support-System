@@ -52,8 +52,8 @@ module.exports.regRecord=(req,res,next)=>{
 }
 
 module.exports.getRegRecordForList=(req,res)=>{
-    console.log("in side get selected patient Reg REcords "+req);
-    Precord.findOne({date:req.params.date},
+    console.log("in side get selected patient Reg REcords"+req);
+    precord.findOne({date:req.date},
         (err,patientrecords )=>{
         console.log("******########****");
         console.log(patientrecords);
@@ -66,9 +66,7 @@ module.exports.getRegRecordForList=(req,res)=>{
                 return res.status(404).json({status:false,message:'patientrecords  record not found. '});}
             else{
                 console.log("found");
-                // return res.status(200).json({status:true,patientrecords:__.pick(patientrecords ,['name','id'])});
-                res.send(patientrecords);
-            }
+                return res.status(200).json({status:true,doctor:_.pick(patientrecords ,['name','date'])});}
         });
 }
 

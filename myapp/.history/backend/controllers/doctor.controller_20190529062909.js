@@ -39,7 +39,7 @@ module.exports.getSelectedDoctorDetail=(req,res)=>{
     console.log("********");
     console.log(req.fullname);
     console.log("**********");
-    Doctor.findOne({_id:req.params._id},
+    Doctor.findOne({_id:req._id},
         (err,doctor)=>{
         console.log("******########****");
         console.log(doctor);
@@ -52,9 +52,7 @@ module.exports.getSelectedDoctorDetail=(req,res)=>{
                 return res.status(404).json({status:false,message:'doctor record not found. '});}
             else{
                 console.log("found");
-                // return res.status(200).json({status:true,doctor:__.pick(doctor,['fullname','doctorshedule'])});
-                res.send(doctor);
-            }
+                return res.status(200).json({status:true,doctor:_.pick(doctor,['fullname','doctorshedule'])});}
         });
 }
 

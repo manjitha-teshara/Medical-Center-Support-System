@@ -39,23 +39,8 @@ module.exports.getSelectedDoctorDetail=(req,res)=>{
     console.log("********");
     console.log(req.fullname);
     console.log("**********");
-    Doctor.findOne({_id:req.params._id},
-        (err,doctor)=>{
-        console.log("******########****");
-        console.log(doctor);
-        console.log("******########****");
-            console.log("in in side usdoctorerprofile findone");
-
-            if(!doctor){
-                console.log("not found");
-                // console.log(err);
-                return res.status(404).json({status:false,message:'doctor record not found. '});}
-            else{
-                console.log("found");
-                // return res.status(200).json({status:true,doctor:__.pick(doctor,['fullname','doctorshedule'])});
-                res.send(doctor);
-            }
-        });
+    Doctor.findOne();
+    console.log("[[[[[[[[ "+Doctor.findOne().fullname+" ]]]]]]]]]]");
 }
 
 

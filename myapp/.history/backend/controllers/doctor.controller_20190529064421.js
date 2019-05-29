@@ -53,7 +53,7 @@ module.exports.getSelectedDoctorDetail=(req,res)=>{
             else{
                 console.log("found");
                 // return res.status(200).json({status:true,doctor:__.pick(doctor,['fullname','doctorshedule'])});
-                res.send(doctor);
+                res.send(docs);
             }
         });
 }

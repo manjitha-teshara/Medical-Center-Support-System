@@ -22,6 +22,21 @@ module.exports.getRegRecord=(req,res)=>{
             });
 }
 
+/**
+module.exports.userProfile=(req,res,next)=>{
+    console.log("in in side userprofile");
+    User.findOne({_id:req._id},
+        (err,user)=>{
+            console.log("in in side userprofile findone");
+
+            if(!user){
+                console.log("not found");
+                return res.status(404).json({status:false,message:'User record not found. '});}
+            else{
+                console.log("found");
+                return res.status(200).json({status:true,user:_.pick(user,['userName','email'])});}
+        });
+} */
 
 module.exports.regRecord=(req,res,next)=>{
     var precord=new Precord();
@@ -49,27 +64,6 @@ module.exports.regRecord=(req,res,next)=>{
         }
     });
    console.log('inside precord fn.');
-}
-
-module.exports.getRegRecordForList=(req,res)=>{
-    console.log("in side get selected patient Reg REcords "+req);
-    Precord.findOne({date:req.params.date},
-        (err,patientrecords )=>{
-        console.log("******########****");
-        console.log(patientrecords);
-        console.log("******########****");
-            console.log("in in side patientrecords  findone");
-
-            if(!patientrecords ){
-                console.log("not found");
-                // console.log(err);
-                return res.status(404).json({status:false,message:'patientrecords  record not found. '});}
-            else{
-                console.log("found");
-                // return res.status(200).json({status:true,patientrecords:__.pick(patientrecords ,['name','id'])});
-                res.send(patientrecords);
-            }
-        });
 }
 
 
