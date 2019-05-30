@@ -131,7 +131,7 @@ resetForm(form: NgForm) {
   name: '',
   age: '',
   description: '',
-  cost: '' ,
+  cost:  ,
   date: ''
   };
   form.resetForm();

@@ -15,7 +15,7 @@ export class PatientRecordsService {
     id: '',
     name: '',
     age: '',
-    cost: '' ,
+    cost: ,
     description: '',
     date: ''
      };
