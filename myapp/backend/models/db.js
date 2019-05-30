@@ -12,7 +12,7 @@ require('./user.model');
 require('./doctor.model');
 require('./patientRecord.model');
 require('./bookingForm.model');
-
+require('./medicine.model');
 
 
 module.export=mongoose;

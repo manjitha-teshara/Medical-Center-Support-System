@@ -1,31 +1,48 @@
 import { Component, OnInit } from '@angular/core';
-import { Med } from '../med';
 import { NgForm }   from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { MedicineService } from '../../../shared/medicine.service';
 import { Medicine} from '../../../shared/medicine.model';
+import { ActivatedRoute } from '@angular/router';
+
 
 declare var M: any;
 @Component({
-  selector: 'app-medicine',
-  templateUrl: './medicine.component.html',
-  styleUrls: ['./medicine.component.css'],
-  providers: [MedicineService]
+  selector: 'app-update-medicine',
+  templateUrl: './update-medicine.component.html',
+  styleUrls: ['./update-medicine.component.css']
 })
+export class UpdateMedicineComponent implements OnInit {
 
-export class MedicineComponent implements OnInit{
-  constructor(private medicineService: MedicineService){}
+  constructor(private medicineService: MedicineService, private route:ActivatedRoute){
+  
+  }
+
+  _id = "";
 
   ngOnInit(){
     this.resetForm();
-    this.refreshMedicineList();
+    //this.refreshMedicineList();
+    this._id = this.route.snapshot.params['_id'];
+    this.medicineService.getMedicineByID(this._id).subscribe((res:any) => {
+    this.medicineService.selectedMedicine = {
+      name:res.name,
+      notes:res.notes,
+      type:res.type,
+      dose:res.dose
+      }
+    });
+
+    //this.m=this.;
+
   }
 
   resetForm(form?:NgForm){
     if(form)
       form.reset();
     this.medicineService.selectedMedicine = {
+
       name:"",
       notes:"",
       type:"",
@@ -39,8 +56,9 @@ export class MedicineComponent implements OnInit{
       this.resetForm(form);
       //M.toast({html: 'Saved successfully', classes: 'rounded'});
     });*/
-    this.medicineService.editMedicine(form.value).subscribe(res => {
-      this.resetForm();
+    this.medicineService.editMedicine({...form.value, _id:this._id}).subscribe(res => {
+      
+      //this.resetForm();
     });
   }
 

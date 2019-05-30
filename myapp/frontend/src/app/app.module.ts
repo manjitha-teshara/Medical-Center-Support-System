@@ -29,6 +29,8 @@ import { AdminComponent } from './users/admin/admin.component';
 import { PatientRecordsService } from './shared/patientRecords/patient-records.service';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MedicineComponent } from './users/admin/medicine/medicine.component';
+import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.component';
+import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
 
@@ -52,7 +54,9 @@ import { MedicineComponent } from './users/admin/medicine/medicine.component';
     CheckEarn,
     AdminComponent,
     ManageDoctorView,
-    MedicineComponent
+    MedicineComponent,
+    AddMedicineComponent,
+    UpdateMedicineComponent
 
 
   ],

@@ -1,44 +1,45 @@
-<div class="container">
-  <div>
-      <div class="container">
-        <h1>Add Medicine</h1>
+<div class= "row">
+  <div class="col-xs-12">
+    <div class="container">
+        <div class="row"><h1>Medicine</h1>
+           
 
-        <div class="row">
-            <div class="col-lg-6">
+          
+          <div class="col-sm-12">
+            <table class="responsible-table highlight">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Dose</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tr *ngFor="let med of medicineService.medi">
+                  <td>{{med.name}}</td>
+                  <td>{{med.type}}</td>
+                  <td>{{med.dose}}</td>
+                  <td>{{med.notes}}</td>
+                  <td>
 
-                <form role="form">
-                    <fieldset class="form-group">
-                        <label>Name </label>
-                        <input class="form-control" placeholder="Enter the name of the medicine">
-                    </fieldset>
+                    <a class="action-btn"  [routerLink]=" ['/updateMed/' + med._id] ">
+                      <i class="material-icons">edit</i>
+                    </a>
 
-                  
-                    <div class="form-group">
-                        <label>Dose</label>
-                        <select class="form-control">
-                            <option>50mg</option>
-                            <option>100mg</option>
-                            <option>200mg</option>
-                            <option>250mg</option>
-                            <option>500mg</option>
-                            <option>1000mg</option>
-                        </select>
-                    </div>
+                  </td>
 
-                    <fieldset class="form-group">
-                        <label>Special Notes</label>
-                        <input class="form-control">
-                    </fieldset>
+                  <td>
+                    <a class="action-btn" (click)="onDelete(med._id,MedicineForm)">
+                        <i class="material-icons">delete</i>
+                      </a>
+                  </td>
+              </tr>
+            </table>
+         </div>
 
-                    <div class>  
-                        <button type="submit" class="btn btn-secondary"> Submit Button </button>
-                        <button type="reset" class="btn btn-secondary"> Reset Button </button>
-                    </div>
-
-                </form>
-
-            </div>
         </div>
     </div>
   </div>
 </div>
+
+
