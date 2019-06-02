@@ -31,6 +31,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MedicineComponent } from './users/admin/medicine/medicine.component';
 import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.component';
 import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
+import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail.component';
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
 
@@ -56,8 +57,9 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
     ManageDoctorView,
     MedicineComponent,
     AddMedicineComponent,
-    UpdateMedicineComponent
-
+    UpdateMedicineComponent,
+    DoctorDetailComponent
+    
 
   ],
   imports: [
@@ -82,7 +84,7 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
   ],
   providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn, ManageDoctorView]
+  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn, ManageDoctorView  ]
 })
 export class AppModule {}
 enableProdMode();
