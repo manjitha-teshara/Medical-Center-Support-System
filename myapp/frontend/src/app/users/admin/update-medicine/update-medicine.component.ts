@@ -45,14 +45,13 @@ export class UpdateMedicineComponent implements OnInit {
     if(form)
       form.reset();
     this.medicineService.selectedMedicine = {
-
       name:"",
       notes:"",
       type:"",
-      dose:"",
+      dose:null,
       unit:"",
-      price:"",
-      qty:""
+      price:null,
+      qty:null
     }
     
   }

@@ -28,10 +28,10 @@ export class PharmacistComponent implements OnInit {
       name:"",
       notes:"",
       type:"",
-      dose:"",
+      dose:null,
       unit:"",
-      price:"",
-      qty:""
+      price:null,
+      qty:null
     }
     
   }

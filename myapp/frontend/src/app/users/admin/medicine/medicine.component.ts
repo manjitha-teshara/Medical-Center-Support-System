@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { Med } from '../med';
 import { NgForm }   from '@angular/forms';
+import { FilterPipeModule } from 'ngx-filter-pipe';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { MedicineService } from '../../../shared/medicine.service';
@@ -29,10 +30,10 @@ export class MedicineComponent implements OnInit{
       name:"",
       notes:"",
       type:"",
-      dose:"",
+      dose:null,
       unit:"",
-      price:"",
-      qty:""
+      price:null,
+      qty:null
     }
     
   }

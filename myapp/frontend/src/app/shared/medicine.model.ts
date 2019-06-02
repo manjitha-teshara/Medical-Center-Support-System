@@ -2,9 +2,9 @@ export class Medicine {
     name:string;
     notes:string;
     type:string;
-    dose:string;
+    dose:number;
     unit:string;
-    price:string;
-    qty:string;
+    price:number;
+    qty:number;
 
 }

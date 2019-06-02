@@ -5,10 +5,13 @@
         <body ng-app="mainAPP">
           <input type="text" ngModel="serach">
 
+          <input type="text" name="quantity" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.qty" required>
+          <button type="button">Issue</button>
+
           <div ng-controller="Medicine">
             <ul>
               <h2>MEdicine</h2>
-              <li *ngFor="let med of medicineService.medi  ">
+              <li *ngFor="let med of medicineService.medi ">
                 {{med.name + ' '  + med.dose  }}     
               </li>
             </ul>

@@ -14,16 +14,16 @@ var medicineSchema=new mongoose.Schema({
         type:String
     },
     dose:{
-        type:String
+        type:Number
     },
     unit:{
         type:String
     },
     price:{
-        type:String
+        type:Number
     },
     qty:{
-        type:String
+        type:Number
     }
 
 });
