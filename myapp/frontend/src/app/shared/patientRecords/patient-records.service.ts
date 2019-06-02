@@ -31,7 +31,10 @@ export class PatientRecordsService {
 
     return this.http.post(environment.apiBaseUrl + '/patientRecord', patientRecordClass, this.noAuthHeader);
     }
-
-
+//patient record to the list
+  getPatientRecordList() {
+      console.log(' get patient record list fn');
+      return this.http.get(environment.apiBaseUrl + '/patientRecord');
+  }
 }
 
