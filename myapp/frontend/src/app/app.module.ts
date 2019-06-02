@@ -5,8 +5,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent, LoginDialog, SignupDialog} from './login/login.component';
-import {LoginDialogInBox,SignupDialogInBox,BookingDialog,ViewMoreDialog} from './component/sliderpanel/sliderpanel.component';
-import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule } from '@angular/material';
+import {LoginDialogInBox,SignupDialogInBox,ViewMoreDialog} from './component/sliderpanel/sliderpanel.component';
+import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
 import {enableProdMode} from '@angular/core';
@@ -20,6 +20,8 @@ import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
+import { BookingDialog } from './users/patient/patient.component';
+
 
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
@@ -80,7 +82,9 @@ import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail
     MatSelectModule,
     MatTableModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule, 
+    MatNativeDateModule
   ],
   providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],

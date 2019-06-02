@@ -1,0 +1,72 @@
+<div>
+        <h1 mat-dialog-title>Get Appointment</h1>
+        <div mat-dialog-content>
+            <form >       
+                <div class="">
+                        <mat-form-field >
+                                <input matInput placeholder="ID"  required>
+                      </mat-form-field>
+                                      
+                        <mat-form-field >
+                                  <input matInput placeholder="First Name"  required>
+                        </mat-form-field>
+                                        
+                        <mat-form-field>
+                                 <input matInput placeholder="Last Name"   required>
+                        </mat-form-field>
+                        
+                       
+
+                        <mat-form-field >
+                                  <input matInput placeholder="Mobile"  required>
+                        </mat-form-field>
+                        
+
+                        <mat-form-field >
+                                <input matInput placeholder="Doctor"  required>
+                                <!-- {{Doctors.fullname}} -->
+                        </mat-form-field>
+                        
+
+                        <mat-form-field>
+                                <input matInput [matDatepicker]="picker" placeholder="Choose a date " formControlName="dateOfApp" id="dateOfApp" 
+                                            readonly (click)="picker.open()">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                         </mat-form-field>
+
+
+                        <!-- <mat-form-field>
+                                <mat-label>Select Time</mat-label>
+                                <mat-select>
+                                        <mat-option *ngFor="let option of Doctor.doctrshdule" [value]="option">
+                                                {{option}}
+                                        </mat-option>
+                                 </mat-select>
+                            </mat-form-field> -->
+                        
+                        <!-- <mat-form-field>
+                                        <mat-select placeholder="Select Time">
+                                          <mat-option value="option">Option</mat-option>
+                                            <option value="option1"> 08.00-10.00:</option>
+                                            <option value="option2"> 16.00-22.00</option>
+                                            <option value="option3"> 15.00 22.00</option>
+                                            <option value="option4">13.00 22.00</option>
+                                            
+                                        </mat-select>
+                        </mat-form-field> -->
+                        <!-- <mat-form-field>
+                                <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth" formControlName="dateOfBirth" id="dateOfBirth" 
+                                    readonly (click)="picker.open()">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field >                                     -->
+                  
+             
+                </div>
+            <button mat-button  type="submit">Submit</button> 
+            </form>  
+        </div>
+        <div mat-dialog-actions>
+            
+        </div>  
