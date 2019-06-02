@@ -83,10 +83,9 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
   ],
   providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn,
+  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn, 
     ManageDoctorView],
-    // tslint:disable-next-line:max-line-length
-    schemas: [ LoginComponent, SliderpanelComponent, DocterComponent, PatientComponent, PharmacistComponent, UserProfileComponent, MedicineComponent, AddMedicineComponent, UpdateMedicineComponent]
+    schemas: [ LoginComponent, SliderpanelComponent, DocterComponent, PatientComponent, PharmacistComponent, UserProfileComponent  ]
 })
 export class AppModule {}
 enableProdMode();

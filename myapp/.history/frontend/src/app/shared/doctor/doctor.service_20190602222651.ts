@@ -51,7 +51,6 @@ export class DoctorService {
 
   deleteDoctor(doctor: Doctor) {
     console.log(doctor);
-    return this.http.delete(environment.apiBaseUrl + '/deleteDoctor' + `/${doctor._id}`);
   }
 
 }

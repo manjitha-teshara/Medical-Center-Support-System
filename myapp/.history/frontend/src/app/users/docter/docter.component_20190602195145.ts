@@ -198,7 +198,7 @@ export class CheckEarn {
 })
 // tslint:disable-next-line:component-class-suffix
 export class ManageDoctorView {
-  Doctors: Doctor[];
+
   private fieldArray: Array<any> = [];
   private newAttribute: any = {};
   private sheduleArray: Array<string> = [];
@@ -218,13 +218,6 @@ export class ManageDoctorView {
       doctorshedule: []
 
     };
-
-    // tslint:disable-next-line:use-life-cycle-interface
-    ngOnInit() {
-
-      this.refreshDoctors();
-    }
-
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -292,23 +285,14 @@ getDoctorRealTime() {
 
 
 refreshDoctors() {
-  this.doctorService.getDoctorsList().subscribe((res ) => {
+  this.doctorservice.getDoctorsList().subscribe((res ) => {
     this.Doctors = res as Doctor[];
-    console.log('*************refres');
+    console.log("*************refres");
     console.log(res);
-    console.log('*************refres');
+    console.log("*************refres");
 
 
   });
-}
-
-deleteSelectedDoctor(doctor: Doctor) {
-  console.log(doctor);
-  if (confirm('Are you sure to delete this record?') == true) {
-    this.doctorService.deleteDoctor(doctor).subscribe((res) => {
-    this.refreshDoctors();
-    });
-  }
 }
 
 }

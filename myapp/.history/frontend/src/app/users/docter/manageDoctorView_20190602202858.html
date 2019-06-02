@@ -96,7 +96,13 @@
                         </div>
                       </tr>
                     </thead>
-                  
+                    <!-- {{Doctors[0].fullname}} -->
+                    <!-- <tr *ngFor="let  doctor of Doctors">
+                      <td><img src={{doctor.image}}></td>
+                      <td>{{doctor.fullname}}</td>
+                      <td>{{doctor.checkuptype}}</td>
+                      <td>{{doctor.price}}</td>
+                    </tr> -->
           
                     <tr *ngFor="let  doctor of Doctors">
                       <div class="card row" style="padding:5px">
@@ -105,7 +111,7 @@
                         <div class="col-md-2">{{doctor.price}}</div>
                         <div class="col-md-3" >
                          
-                          <div class="row"><button mat-button color="primary" (click)="deleteSelectedDoctor(doctor)" >Remove</button></div>
+                          <div class="row"><button mat-button color="primary"  style="margin:10px">View More</button></div>
                         </div>
                       </div>
                     </tr>

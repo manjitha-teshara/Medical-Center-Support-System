@@ -302,15 +302,6 @@ refreshDoctors() {
   });
 }
 
-deleteSelectedDoctor(doctor: Doctor) {
-  console.log(doctor);
-  if (confirm('Are you sure to delete this record?') == true) {
-    this.doctorService.deleteDoctor(doctor).subscribe((res) => {
-    this.refreshDoctors();
-    });
-  }
-}
-
 }
 
 
