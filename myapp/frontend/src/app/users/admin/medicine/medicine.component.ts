@@ -29,7 +29,10 @@ export class MedicineComponent implements OnInit{
       name:"",
       notes:"",
       type:"",
-      dose:""
+      dose:"",
+      unit:"",
+      price:"",
+      qty:""
     }
     
   }

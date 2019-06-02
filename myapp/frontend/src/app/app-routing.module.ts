@@ -24,6 +24,7 @@ const routes: Routes = [
 { path: 'med' , component:MedicineComponent},
 { path: 'addMed' , component:AddMedicineComponent},
 { path: 'updateMed/:_id' , component:UpdateMedicineComponent},
+{ path: 'pharmacist' , component:PharmacistComponent},
 {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];

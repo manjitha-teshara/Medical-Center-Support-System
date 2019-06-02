@@ -30,7 +30,10 @@ export class UpdateMedicineComponent implements OnInit {
       name:res.name,
       notes:res.notes,
       type:res.type,
-      dose:res.dose
+      dose:res.dose,
+      unit:res.unit,
+      price:res.price,
+      qty:res.qty
       }
     });
 
@@ -46,7 +49,10 @@ export class UpdateMedicineComponent implements OnInit {
       name:"",
       notes:"",
       type:"",
-      dose:""
+      dose:"",
+      unit:"",
+      price:"",
+      qty:""
     }
     
   }

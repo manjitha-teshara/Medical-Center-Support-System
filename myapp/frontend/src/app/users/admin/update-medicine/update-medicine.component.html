@@ -13,7 +13,7 @@
                       <input type="text" name="name" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.name" required>
                     </div>
   
-                    <div class="row">
+                    <div class="row col-md-12">
                         <label>Type:</label>
                         <select class="dropdown" name="type" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.type">
                             <option>Tablet</option>
@@ -25,19 +25,35 @@
                         </select>
                     </div>
   
-                    <div class="row">
-                        <label>Dose:</label>
-                        <select class="dropdown" name="dose" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.dose">
-                            <option>50mg</option>
-                            <option>100mg</option>
-                            <option>200mg</option>
-                            <option>250mg</option>
-                            <option>500mg</option>
-                            <option>1000mg</option>
-                        </select>
+                    <div class="row col-md-12">
+                        <div class="col-md-1">
+                          <label>Dose:</label>
+                        </div>
+                        <div class="col-md-4">
+                          <select class="dropdown" name="dose" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.dose">
+                              <option>50</option>
+                              <option>100</option>
+                              <option>200</option>
+                              <option>250</option>
+                              <option>500</option>
+                              <option>1000</option>
+                          </select>
+                        </div>
+                        <div class=" col-md-4">
+                            <select class="dropdown" name="unit" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.unit">
+                                <option>mg</option>
+                                <option>ml</option>                            
+                            </select>
+                          </div>
+                    </div>
+
+                    <div class="row col-md-12">
+                        <label>Quantity:                  
+                        </label>
+                        <input type="text" name="qty" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.qty" required>
                     </div>
   
-                    <div class="row">
+                    <div class="row col-md-12">
                     <label>Notes:  
                       </label>
                     <input type="text" name="notes" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.notes" placeholder="Any special notes?">
@@ -46,7 +62,7 @@
                   </div>
                 </div>
   
-                <div class="row">
+                <div class="row col-md-12">
                   <div class="input-field col-xs-6 ">
                     <button class="btn btn-custom right" type="button" (click)="resetForm(MedicineForm)">Reset</button>
                     <button class="btn btn-custom right" type="submit">Update</button>

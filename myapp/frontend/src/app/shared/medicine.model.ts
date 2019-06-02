@@ -3,5 +3,8 @@ export class Medicine {
     notes:string;
     type:string;
     dose:string;
+    unit:string;
+    price:string;
+    qty:string;
 
 }
