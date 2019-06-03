@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-import { FilterPipeModule } from 'ngx-filter-pipe';
+import { FilterPipe } from './filter.pipe';
 import 'hammerjs';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +38,7 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
 @NgModule({
   declarations: [
     AppComponent,
+    //FilterPipeModule,
     LoginComponent,
     LoginDialog,
     LoginDialogInBox,
@@ -57,14 +58,14 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
     ManageDoctorView,
     MedicineComponent,
     AddMedicineComponent,
-    UpdateMedicineComponent
-
+    UpdateMedicineComponent,
+    FilterPipe
 
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    FilterPipeModule,
+    //FilterPipeModule,
     AppRoutingModule,
     MatFormFieldModule,
     MatButtonModule,

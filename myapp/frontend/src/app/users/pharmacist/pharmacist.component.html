@@ -10,8 +10,8 @@
 
           <div ng-controller="Medicine">
             <ul>
-              <h2>MEdicine</h2>
-              <li *ngFor="let med of medicineService.medi ">
+              <h2>MEdicine</h2>  
+              <li *ngFor="let med of medicineService.medi | filter:serach:name">
                 {{med.name + ' '  + med.dose  }}     
               </li>
             </ul>
