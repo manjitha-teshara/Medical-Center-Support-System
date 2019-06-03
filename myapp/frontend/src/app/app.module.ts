@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
+//import { FilterPipeModule} from 'ngx-filter-pipe';
 import { FilterPipe } from './filter.pipe';
+
 import 'hammerjs';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +21,7 @@ import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.compon
 import { DocterComponent, CheckPatient, CheckEarn, ManageDoctorView} from './users/docter/docter.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
+import { PrescriptionComponent} from './users/pharmacist/prescription/prescription.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
 
@@ -49,6 +52,7 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
     DocterComponent,
     PatientComponent,
     PharmacistComponent,
+    PrescriptionComponent,
     BookingDialog,
     ViewMoreDialog,
     UserProfileComponent,
