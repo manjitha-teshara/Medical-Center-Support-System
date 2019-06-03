@@ -1,14 +1,14 @@
 <div class= "row">
   <div class="col-xs-12">
     <div class="container">
-      <div class="row"><h1>Prescription</h1>
+      <div class="row"><h1>Issue Medicine</h1>
         <body ng-app="mainAPP">
           <input type="text" [(ngModel)]="serach">
 
 
           <div ng-controller="Medicine">
             <ul>
-              <h2>MEdicine</h2>
+
               <li *ngFor="let med of medicineService.medi | filter:serach">
                 {{med.name + ' '  + med.dose + med.unit +' ' + med.qty}}  
                 <a class="action-btn" (click)="onAdd(med)">
@@ -29,43 +29,7 @@
 
       
       </div>
-      <div class="container"></div>
-      <div class="row"><h1>Medicine</h1>
-           
-
-          
-          <div class="col-sm-12">
-            <table class="responsible-table highlight">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Type</th>
-                  <th>Dose</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Notes</th>
-                </tr>
-              </thead>
-              <tr *ngFor="let med of medicineService.medi">
-                  <td>{{med.name}}</td>
-                  <td>{{med.type}}</td>
-                  <td>{{med.dose}}</td>
-                  <td>{{med.price}}</td>
-                  <td>{{med.qty}}</td>
-                  <td>{{med.notes}}</td>
-                  <td>
-
-                    <a class="action-btn"  [routerLink]=" ['/updateMed/' + med._id] ">
-                      <i class="material-icons">edit</i>
-                    </a>
-
-                  </td>
-
-              </tr>
-            </table>
-         </div>
-
-        </div>
+    
     </div>
   </div>
 </div>
