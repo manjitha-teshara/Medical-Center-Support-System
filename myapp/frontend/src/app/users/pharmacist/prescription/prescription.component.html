@@ -21,7 +21,7 @@
 
           <label name="medList">{{medicineService.selectedMedicine.name}}</label>
           <input type="text" name="quantity" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.qty" required>
-          <button type="submit">Issue</button>
+          <button type="submit" (click)="onSubmit(med, medicineService.selectedMedicine._id)">Issue</button>
 
 
 

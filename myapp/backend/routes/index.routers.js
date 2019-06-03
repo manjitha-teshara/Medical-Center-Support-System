@@ -29,7 +29,8 @@ router.get('/getMedicine', ctrlMedicine.getMedicine);
 router.get('/getMedicineById/:_id', ctrlMedicine.getMedicineById);
 router.put('/updateMedicine', ctrlMedicine.updateMedicine);
 router.delete('/deleteMedicine/:_id', ctrlMedicine.deleteMedicine);
-router.put('/updateQty/:_id', ctrlMedicine.updateQty);
+//router.put('/updateQty/:_id', ctrlMedicine.updateQty);
+router.put('/issue', ctrlMedicine.issue);
 
 
 

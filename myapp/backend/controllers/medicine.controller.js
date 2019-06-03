@@ -85,7 +85,7 @@ module.exports.deleteMedicine=(req,res)=>{
     });
 }
 
-module.exports.updateQty = (req, res) => {
+module.exports.issue = (req, res) => {
     console.log("in side updateQty ");
     //if (!objectId.isValid(req.body._id)) return res.status(400).send("No record with the given id : ${req.params._id}")
    
@@ -94,9 +94,9 @@ module.exports.updateQty = (req, res) => {
 
     console.log(req.body);
 
-    Medicine.findByIdAndUpdate(req.body._id, { $set: medicine }, { new: true }, (err, docs) => {
+    Medicine.findByIdAndUpdate(req.body._id, { $inc:{qty:-1*medicine.qty} }, { new: true }, (err, docs) => {
         if (!err) { 
-            qty=qty+quantity;
+            //qty=qty-quantity;
             res.send(docs); 
         }
         else { console.log('Error in Updating Medicine Records :' + JSON.stringify(err, undefined, 2)); }

@@ -36,14 +36,16 @@ export class PrescriptionComponent implements OnInit {
     
   }
    
-  onSubmit(form : NgForm){
+  onSubmit(med, _id){
     /** this.medicineService.postMedicine(form.value).subscribe(res => {
       this.resetForm(form);
       //M.toast({html: 'Saved successfully', classes: 'rounded'});
     });*/
-    this.medicineService.editMedicine(form.value).subscribe(res => {
-      this.resetForm();
+    this.medicineService.issueMedicine(_id,this.medicineService.selectedMedicine.qty).subscribe(res => {
+      
+      //this.resetForm();
     });
+    
   }
 
   refreshMedicineList(){
