@@ -1,20 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PharmacistComponent } from './../pharmacist.component';
+import { PrescriptionComponent } from './../prescription/prescription.component';
+//import { PharmacistComponent } from './../pharmacist.component';
 
-describe('PharmacistComponent', () => {
-  let component: PharmacistComponent;
-  let fixture: ComponentFixture<PharmacistComponent>;
+describe('PrescriptionComponent', () => {
+  let component: PrescriptionComponent ;
+  let fixture: ComponentFixture<PrescriptionComponent >;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PharmacistComponent ]
+      declarations: [ PrescriptionComponent  ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PharmacistComponent);
+    fixture = TestBed.createComponent(PrescriptionComponent );
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,4 +23,5 @@ describe('PharmacistComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });
