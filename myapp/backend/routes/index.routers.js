@@ -15,11 +15,14 @@ router.get('/userProfile',jwtHelper.verifyJwtToken,ctrlUser.userProfile);
 
 router.post('/patientRecord',ctrlPatientRecord.regRecord);
 router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
+router.get('/patientRecordList/:date',ctrlPatientRecord.getRegRecordForList);
+
 
 router.post('/doctor',ctrlDocter.doctorRegister);
 router.get('/doctor',ctrlDocter.getDoctorDetail);
 router.get('/selectedDoctor/:_id',ctrlDocter.getSelectedDoctorDetail);
 router.get('/getNewSelect/:_id',ctrlDocter.getNewSelect);
+router.delete('/deleteDoctor/:_id',ctrlDocter.deleteDoctor);
 
 router.post('/booking',ctrlBooking.postBooking);
 router.get('/booking',ctrlBooking.getBooking);

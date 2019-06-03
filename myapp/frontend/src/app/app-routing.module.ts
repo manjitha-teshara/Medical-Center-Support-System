@@ -16,7 +16,8 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
 
 
 const routes: Routes = [
-{ path:'',component:SliderpanelComponent},
+{ path: '', component: SliderpanelComponent},
+
 
 { path:'doctor',component:DocterComponent},
 { path:'patient',component:PatientComponent},
@@ -32,9 +33,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),CommonModule],
+  imports: [RouterModule.forRoot(routes), CommonModule],
   exports: [RouterModule],
-  declarations:[]
+  declarations: []
 })
 export class AppRoutingModule {
 
