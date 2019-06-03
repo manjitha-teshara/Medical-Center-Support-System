@@ -35,6 +35,7 @@ import { MedicineComponent } from './users/admin/medicine/medicine.component';
 import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.component';
 import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
 import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail.component';
+import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pharmacist-details.component';
 
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
@@ -66,6 +67,7 @@ import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail
     AvailabilityView,
     ViewPrescription,
     CalculateFee,
+    PharmacistDetailsComponent,
 
   ],
   imports: [
