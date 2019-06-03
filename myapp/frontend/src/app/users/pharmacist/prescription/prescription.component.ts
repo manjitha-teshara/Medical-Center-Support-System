@@ -5,15 +5,14 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MedicineService } from '../../../shared/medicine.service';
 import { Medicine} from '../../../shared/medicine.model';
 
-
-
 declare var M: any;
 @Component({
-  selector: 'app-add-medicine',
-  templateUrl: './add-medicine.component.html',
-  styleUrls: ['./add-medicine.component.css']
+  selector: 'app-prescription',
+  templateUrl: './prescription.component.html',
+  styleUrls: ['./prescription.component.css'],
+  providers: [MedicineService]
 })
-export class AddMedicineComponent implements OnInit {
+export class PrescriptionComponent implements OnInit {
 
   constructor(private medicineService: MedicineService){}
 
@@ -37,11 +36,16 @@ export class AddMedicineComponent implements OnInit {
     
   }
    
-  onSubmit(form : NgForm){
-    this.medicineService.postMedicine(form.value).subscribe(res => {
+  onSubmit(med, _id){
+    /** this.medicineService.postMedicine(form.value).subscribe(res => {
       this.resetForm(form);
       //M.toast({html: 'Saved successfully', classes: 'rounded'});
+    });*/
+    this.medicineService.issueMedicine(_id,this.medicineService.selectedMedicine.qty).subscribe(res => {
+      
+      //this.resetForm();
     });
+    
   }
 
   refreshMedicineList(){
@@ -49,6 +53,12 @@ export class AddMedicineComponent implements OnInit {
       this.medicineService.medi = res as Medicine[];
     });
   }
+
+  onAdd(med : Medicine){
+    console.log("edit works");
+    this.medicineService.selectedMedicine = med;
+  }
+
 
 }
 

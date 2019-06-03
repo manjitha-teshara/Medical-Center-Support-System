@@ -192,7 +192,7 @@ phone = /^(\+94)[0-9]{9,9}$/;
         },
         err => {
 
-          swal( 'Oops' , '',  'error' );
+          swal( "Oops" , "", "error" );
         }
       );
     }

@@ -6,6 +6,7 @@ import { LoginComponent, LoginDialog, SignupDialog} from './login/login.componen
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
+import { PrescriptionComponent } from './users/pharmacist/prescription/prescription.component'
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth.guard';
 import { AdminComponent } from './users/admin/admin.component';
@@ -17,14 +18,17 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
 const routes: Routes = [
 { path: '', component: SliderpanelComponent},
 
-{ path: 'doctor', component: DocterComponent},
-{ path: 'patient', component: PatientComponent},
-{ path: 'pha', component: PharmacistComponent},
-{ path: 'admin' , component: AdminComponent},
-{ path: 'med' , component: MedicineComponent},
-{ path: 'addMed' , component: AddMedicineComponent},
-{ path: 'updateMed/:_id' , component: UpdateMedicineComponent},
-{path: 'userprofile', component: UserProfileComponent, canActivate: [AuthGuard]}
+
+{ path:'doctor',component:DocterComponent},
+{ path:'patient',component:PatientComponent},
+{ path:'pha',component:PharmacistComponent},
+{ path: 'admin' , component:AdminComponent},
+{ path: 'med' , component:MedicineComponent},
+{ path: 'addMed' , component:AddMedicineComponent},
+{ path: 'updateMed/:_id' , component:UpdateMedicineComponent},
+{ path: 'pharmacist' , component:PharmacistComponent},
+{ path: 'prescription' , component:PrescriptionComponent},
+{path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];
 

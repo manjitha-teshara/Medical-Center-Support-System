@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+//import { FilterPipeModule} from 'ngx-filter-pipe';
 import { CommonModule } from '@angular/common';
+import { FilterPipe } from './filter.pipe';
 import 'hammerjs';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +23,7 @@ import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.compon
 import { DocterComponent, CheckPatient, CheckEarn, ManageDoctorView} from './users/docter/docter.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
+import { PrescriptionComponent} from './users/pharmacist/prescription/prescription.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
 import { BookingDialog } from './users/patient/patient.component';
@@ -43,6 +46,7 @@ import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail
 @NgModule({
   declarations: [
     AppComponent,
+    //FilterPipeModule,
     LoginComponent,
     LoginDialog,
     LoginDialogInBox,
@@ -53,6 +57,7 @@ import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail
     DocterComponent,
     PatientComponent,
     PharmacistComponent,
+    PrescriptionComponent,
     BookingDialog,
     ViewMoreDialog,
     UserProfileComponent,
@@ -63,13 +68,16 @@ import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail
     MedicineComponent,
     AddMedicineComponent,
     UpdateMedicineComponent,
+    FilterPipe,
     DoctorDetailComponent
     
+
 
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
+    //FilterPipeModule,
     AppRoutingModule,
     MatFormFieldModule,
     MatButtonModule,
