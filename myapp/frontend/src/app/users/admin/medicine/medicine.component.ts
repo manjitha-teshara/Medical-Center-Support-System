@@ -1,7 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Med } from '../med';
 import { NgForm }   from '@angular/forms';
-import { FilterPipeModule } from 'ngx-filter-pipe';
+//import { FilterPipeModule } from 'ngx-filter-pipe';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { MedicineService } from '../../../shared/medicine.service';

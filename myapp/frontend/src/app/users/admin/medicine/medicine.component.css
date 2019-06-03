@@ -12,6 +12,11 @@ input[type=text], select, textarea {
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
   }
 
+  h2{
+    margin-left:10px;
+    margin-bottom:10px;
+  }
+
   button{
     background-color: rgb(103, 175, 218);
     color: rgb(238, 238, 238);
@@ -21,7 +26,7 @@ input[type=text], select, textarea {
     margin-left:15px;
     margin-right:5px;
     margin-top:5px;
-    margin-bottom:50px;
+    margin-bottom:40px;
     border: black;
     border-radius: 4px;
     cursor: pointer;
@@ -34,7 +39,7 @@ input[type=text], select, textarea {
   /* Add a background color and some padding around the form */
   .container {
     border-radius: 5px;
-    background-color: #e1ebf1ec;
+    background-color: #ffffffec;
     padding: 20px;
   }
 
