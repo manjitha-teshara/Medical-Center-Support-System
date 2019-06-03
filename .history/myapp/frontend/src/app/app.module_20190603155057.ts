@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import 'hammerjs';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent, LoginDialog, SignupDialog} from './login/login.component';
+
 import {LoginDialogInBox, SignupDialogInBox, ViewMoreDialog} from './component/sliderpanel/sliderpanel.component';
 // tslint:disable-next-line:max-line-length
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
 import {enableProdMode} from '@angular/core';
@@ -18,7 +21,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
 import { DocterComponent, CheckPatient, CheckEarn, ManageDoctorView} from './users/docter/docter.component';
 import { PatientComponent } from './users/patient/patient.component';
-import { PharmacistComponent, AvailabilityView, ViewPrescription, CalculateFee  } from './users/pharmacist/pharmacist.component';
+import { PharmacistComponent, AvailabilityView, ViewPrescription, CalculateFee   } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
 import { BookingDialog } from './users/patient/patient.component';
@@ -35,7 +38,9 @@ import { MedicineComponent } from './users/admin/medicine/medicine.component';
 import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.component';
 import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
 import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail.component';
-
+import { ViewPrescriptionComponent } from './users/pharmacist/view-prescription/view-prescription.component';
+import { AvailabilityViewComponent } from './users/pharmacist/availability-view/availability-view.component';
+import { CalculateFeeComponent } from './users/pharmacist/calculate-fee/calculate-fee.component';
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
 
@@ -63,9 +68,13 @@ import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail
     AddMedicineComponent,
     UpdateMedicineComponent,
     DoctorDetailComponent,
+    ViewPrescriptionComponent,
+    AvailabilityViewComponent,
+    CalculateFeeComponent,
     AvailabilityView,
     ViewPrescription,
-    CalculateFee,
+    CalculateFee
+
 
   ],
   imports: [
@@ -92,8 +101,12 @@ import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail
   ],
   providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],
-  // tslint:disable-next-line:max-line-length
-  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn, ManageDoctorView, AvailabilityView, ViewPrescription, CalculateFee ]
+
+  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn,
+    ManageDoctorView],
+    // tslint:disable-next-line:max-line-length
+    schemas: [ LoginComponent, SliderpanelComponent, DocterComponent, PatientComponent, PharmacistComponent, UserProfileComponent, MedicineComponent, AddMedicineComponent, UpdateMedicineComponent, AvailabilityView, ViewPrescription, CalculateFee]
+
 })
 export class AppModule {}
 enableProdMode();
