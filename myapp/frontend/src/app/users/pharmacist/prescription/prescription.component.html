@@ -3,25 +3,41 @@
     <div class="container">
       <div class="row"><h1>Issue Medicine</h1>
         <body ng-app="mainAPP">
-          <input type="text" [(ngModel)]="serach">
+
+            <div class="row col-md-12">  
+                <div class="label col-md-4 ">
+                  <label>Select Medicine</label>
+                </div>
+                <div class="input-field col-md-4 ">
+                  <input type="text" [(ngModel)]="serach">
+                </div>
+            </div>
 
 
-          <div ng-controller="Medicine">
-            <ul>
+            <div ng-controller="Medicine">
+              <ul>                
+                <li *ngFor="let med of medicineService.medi | filter:serach">
+                  {{med.name + ' '  + med.dose + med.unit +' ' + med.qty}}  
+                  <a class="action-btn" (click)="onAdd(med)">
+                      <i class="material-icons">add</i>
+                    </a> 
+                    
+                </li>
+              </ul>
+            </div>
 
-              <li *ngFor="let med of medicineService.medi | filter:serach">
-                {{med.name + ' '  + med.dose + med.unit +' ' + med.qty}}  
-                <a class="action-btn" (click)="onAdd(med)">
-                    <i class="material-icons">add</i>
-                  </a> 
-                  
-              </li>
-            </ul>
-          </div>
+            <div class="row col-md-12">  
+                <div class="label col-md-4 ">
+                  <label name="medList">{{medicineService.selectedMedicine.name}}</label>
+                </div>
+                <div class="input-field col-md-4 ">
+                  <input type="text" name="quantity" #name="ngModel" placeholder="Enter the quantity" [(ngModel)]="medicineService.selectedMedicine.qty" required>
+                </div>
+            </div>
 
-          <label name="medList">{{medicineService.selectedMedicine.name}}</label>
-          <input type="text" name="quantity" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.qty" required>
-          <button type="submit" (click)="onSubmit(med, medicineService.selectedMedicine._id)">Issue</button>
+            <div class="row col-md-12">
+                <button type="submit" (click)="onSubmit(med, medicineService.selectedMedicine._id)">Issue</button>
+            </div>
 
 
 
