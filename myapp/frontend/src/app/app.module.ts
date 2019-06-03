@@ -6,8 +6,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent, LoginDialog, SignupDialog} from './login/login.component';
-import {LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog} from './component/sliderpanel/sliderpanel.component';
-import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule } from '@angular/material';
+
+import {LoginDialogInBox,SignupDialogInBox,ViewMoreDialog} from './component/sliderpanel/sliderpanel.component';
+import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
 import {enableProdMode} from '@angular/core';
@@ -21,6 +23,8 @@ import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
+import { BookingDialog } from './users/patient/patient.component';
+
 
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
@@ -32,6 +36,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MedicineComponent } from './users/admin/medicine/medicine.component';
 import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.component';
 import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
+import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail.component';
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
 
@@ -57,8 +62,9 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
     ManageDoctorView,
     MedicineComponent,
     AddMedicineComponent,
-    UpdateMedicineComponent
-
+    UpdateMedicineComponent,
+    DoctorDetailComponent
+    
 
   ],
   imports: [
@@ -79,14 +85,18 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
     MatSelectModule,
     MatTableModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule, 
+    MatNativeDateModule
   ],
   providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],
+
   entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn,
     ManageDoctorView],
     // tslint:disable-next-line:max-line-length
     schemas: [ LoginComponent, SliderpanelComponent, DocterComponent, PatientComponent, PharmacistComponent, UserProfileComponent, MedicineComponent, AddMedicineComponent, UpdateMedicineComponent]
+
 })
 export class AppModule {}
 enableProdMode();
