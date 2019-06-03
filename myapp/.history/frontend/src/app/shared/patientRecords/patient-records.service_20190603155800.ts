@@ -18,7 +18,7 @@ export class PatientRecordsService {
     cost: '' ,
     description: '',
     date: '',
-    medicenList: []
+    mediceList: []
      };
 
 

@@ -9,7 +9,7 @@ import { PatientRecordClass } from './patient-record-class.model';
 })
 export class PatientRecordsService {
 
-
+  
   selectedPatientRecordClass: PatientRecordClass = {
 
     id: '',
@@ -18,7 +18,7 @@ export class PatientRecordsService {
     cost: '' ,
     description: '',
     date: '',
-    medicenList: []
+    mediceList: []
      };
 
 
@@ -34,7 +34,7 @@ export class PatientRecordsService {
     }
 
 
-
+    
     getRegRecordForList(date: string) {
     console.log(' get selected getRegRecordForList ');
     // console.log(doctores._id);
@@ -44,7 +44,7 @@ export class PatientRecordsService {
 
 
 
-// patient record to the list
+//patient record to the list
   getPatientRecordList() {
       console.log(' get patient record list fn');
       return this.http.get(environment.apiBaseUrl + '/patientRecord');

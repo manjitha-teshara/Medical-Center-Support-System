@@ -5,7 +5,7 @@ export class PatientRecordClass {
     cost: any;
     description: string;
     date: string;
-    medicenList: any;
+    mediceList: any;
 
 }
 

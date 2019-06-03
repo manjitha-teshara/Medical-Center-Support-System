@@ -95,8 +95,7 @@ export class CheckPatient {
       age: '',
       cost: '',
       date: '',
-      description: '',
-      medicenList: []
+      description: ''
     };
 
   onNoClick(): void {
@@ -115,15 +114,7 @@ deleteFieldValue(index) {
 
 onSubmitPrecord(form: NgForm) {
 //  console.log("inonSubmitPrecord");
-const patientRecords = new PatientRecordClass();
-
-patientRecords.name = form.value.name;
-patientRecords.id = form.value.id;
-patientRecords.age = form.value.age;
-patientRecords.cost = form.value.cost;
-patientRecords.description = form.value.description;
-patientRecords.medicenList = this.sheduleArray;
- this.patientRecordsService.postPatientRecord(patientRecords).subscribe(
+ this.patientRecordsService.postPatientRecord(form.value).subscribe(
    res => {
      this.resetForm(form);
      swal({
@@ -145,8 +136,7 @@ resetForm(form: NgForm) {
   age: '',
   description: '',
   cost: '' ,
-  date: '',
-  medicenList: [],
+  date: ''
   };
   form.resetForm();
   this.serverErrorMessages = '';

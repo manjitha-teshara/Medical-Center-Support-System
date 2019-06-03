@@ -26,7 +26,7 @@ module.exports.getRegRecord=(req,res)=>{
 module.exports.regRecord=(req,res,next)=>{
     var precord=new Precord();
     console.log("submit in d controller ");
-    console.log(req.body);
+
     precord.id=req.body.id;
     precord.name=req.body.name;
     precord.age=req.body.age;

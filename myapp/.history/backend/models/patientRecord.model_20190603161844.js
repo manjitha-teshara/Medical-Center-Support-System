@@ -8,7 +8,7 @@ var PRecord=new mongoose.Schema({
     date:{type:String},
     description:{type:String},
     date:{type:String},
-    medicenList:{type:Array},
+    medicenList:{type:any},
     saltSecret:String
 });
 
