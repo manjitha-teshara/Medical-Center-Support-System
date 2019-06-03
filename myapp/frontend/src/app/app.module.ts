@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import 'hammerjs';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent, LoginDialog, SignupDialog} from './login/login.component';
+
 import {LoginDialogInBox,SignupDialogInBox,ViewMoreDialog} from './component/sliderpanel/sliderpanel.component';
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material';
 import {enableProdMode} from '@angular/core';
@@ -88,7 +91,12 @@ import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail
   ],
   providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],
-  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn, ManageDoctorView  ]
+
+  entryComponents: [LoginDialog, SignupDialog, LoginDialogInBox, SignupDialogInBox, BookingDialog, ViewMoreDialog, CheckPatient, CheckEarn,
+    ManageDoctorView],
+    // tslint:disable-next-line:max-line-length
+    schemas: [ LoginComponent, SliderpanelComponent, DocterComponent, PatientComponent, PharmacistComponent, UserProfileComponent, MedicineComponent, AddMedicineComponent, UpdateMedicineComponent]
+
 })
 export class AppModule {}
 enableProdMode();

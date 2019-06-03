@@ -15,7 +15,7 @@ export class PatientRecordsService {
     id: '',
     name: '',
     age: '',
-    cost: '',
+    cost: '' ,
     description: '',
     date: ''
      };
@@ -31,10 +31,23 @@ export class PatientRecordsService {
 
     return this.http.post(environment.apiBaseUrl + '/patientRecord', patientRecordClass, this.noAuthHeader);
     }
+
+
+    
+    getRegRecordForList(date: string) {
+    console.log(' get selected getRegRecordForList ');
+    // console.log(doctores._id);
+    console.log(environment.apiBaseUrl + '/patientRecordList' + `/${date}`);
+    return this.http.get(environment.apiBaseUrl + '/patientRecordList' + `/${date}`);
+  }
+
+
+
 //patient record to the list
   getPatientRecordList() {
       console.log(' get patient record list fn');
       return this.http.get(environment.apiBaseUrl + '/patientRecord');
   }
+
 }
 

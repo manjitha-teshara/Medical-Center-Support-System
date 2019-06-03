@@ -1,0 +1,29 @@
+<div class=login-dialog>
+  <h1 mat-dialog-title>Sign In</h1>
+  <div mat-dialog-content>
+    <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+        <mat-form-field >
+      <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
+        [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
+      </mat-form-field >
+      <div *ngIf="signInForm.submitted && email.errors?.pattern">
+        <label class="validation-message">Invalid email address.</label>
+      </div>
+    <mat-form-field >
+      <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4"
+        [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+      </mat-form-field >
+      <div *ngIf="signInForm.submitted && password.errors?.minlength">
+        <label class="validation-message">Minimum 4 characters.</label>
+      </div>
+      <button mat-button type="submit" value="Sign In">Sign In</button>
+    </form>
+  </div>
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>
+  <div mat-dialog-actions>
+    <p><font color="blue">Create new account</font></p>
+      <a mat-button (click)="onNoClickSignUp()">Sign Up</a>
+  </div>  
+</div>
