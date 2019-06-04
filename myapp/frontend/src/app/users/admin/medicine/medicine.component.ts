@@ -6,6 +6,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 import { MedicineService } from '../../../shared/medicine.service';
 import { Medicine} from '../../../shared/medicine.model';
+import { MatTableDataSource } from '@angular/material/table';
 
 declare var M: any;
 @Component({
@@ -16,7 +17,12 @@ declare var M: any;
 })
 
 export class MedicineComponent implements OnInit{
+  public dataSource = new MatTableDataSource< Medicine >();
+ 
+    
   constructor(private medicineService: MedicineService){}
+    displayedColumns: string[] = ['name','type','price','qty','dose','notes','actions'];
+  
 
   ngOnInit(){
     this.resetForm();
@@ -50,9 +56,10 @@ export class MedicineComponent implements OnInit{
 
   refreshMedicineList(){
     this.medicineService.getMedicineList().subscribe((res) => {
-      this.medicineService.medi = res as Medicine[];
+      this.dataSource.data = res as Medicine[];
     });
   }
+
 
   onEdit(med : Medicine){
     console.log("edit works");
@@ -68,6 +75,11 @@ export class MedicineComponent implements OnInit{
       });
     }
   }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
 
 }
 
