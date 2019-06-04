@@ -84,9 +84,7 @@ module.exports.deleteDoctor=(req,res)=>{
 
 
 module.exports.deletePatientRecord=(req,res)=>{
-
-    
-    Precord.findByIdAndRemove(req.params._id,(err,docs)=>{
+    Doctor.findByIdAndRemove(req.params._id,(err,docs)=>{
         if(!err){res.send(docs);}
         else{ console.log('Error in Deleting Patient Records :' + JSON.stringify(err,undefined,2));}
     });

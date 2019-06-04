@@ -140,7 +140,6 @@ patientRecords.medicenList = this.sheduleArray;
 
 resetForm(form: NgForm) {
   this.patientRecordsService.selectedPatientRecordClass = {
-    _id: '',
     id: '',
   name: '',
   age: '',

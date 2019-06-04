@@ -1,5 +1,4 @@
 export class PatientRecordClass {
-    _id: string;
     id: string;
     name: string;
     age: string;

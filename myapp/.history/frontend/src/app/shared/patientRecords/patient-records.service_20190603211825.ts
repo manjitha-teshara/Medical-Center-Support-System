@@ -11,7 +11,7 @@ export class PatientRecordsService {
 
 
   selectedPatientRecordClass: PatientRecordClass = {
-    _id: '',
+
     id: '',
     name: '',
     age: '',

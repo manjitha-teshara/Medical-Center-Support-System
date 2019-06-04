@@ -26,13 +26,13 @@ module.exports.getRegRecord=(req,res)=>{
 module.exports.regRecord=(req,res,next)=>{
     var precord=new Precord();
     console.log("submit in d controller ");
-    console.log(req.body);
+
     precord.id=req.body.id;
     precord.name=req.body.name;
     precord.age=req.body.age;
     precord.cost=req.body.cost;
     precord.description=req.body.description;
-    precord.medicenList=req.body.medicenList;
+    precord.mediceList=req.body.mediceList;
     var tempDate=new Date().toISOString();
     precord.date=tempDate.substring(0,10);
     console.log('*******************regRecord');//string.substring(0, length);
@@ -74,23 +74,6 @@ module.exports.getRegRecordForList=(req,res)=>{
         });
 }
 
-/**
-module.exports.deleteDoctor=(req,res)=>{
-    Doctor.findByIdAndRemove(req.params._id,(err,docs)=>{
-        if(!err){res.send(docs);}
-        else{ console.log('Error in Deleting Doctor Records :' + JSON.stringify(err,undefined,2));}
-    });
-} */
-
-
-module.exports.deletePatientRecord=(req,res)=>{
-
-    
-    Precord.findByIdAndRemove(req.params._id,(err,docs)=>{
-        if(!err){res.send(docs);}
-        else{ console.log('Error in Deleting Patient Records :' + JSON.stringify(err,undefined,2));}
-    });
-}
-
+/** */
 
 

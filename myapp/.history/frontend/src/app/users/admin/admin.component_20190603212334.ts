@@ -63,11 +63,6 @@ export class AdminComponent implements OnInit {
 
   deletePatientRecord(patientRecords: PatientRecordClass) {
     console.log(patientRecords);
-    if (confirm('Are you sure to delete this record?') == true) {
-      this.patientRecordService.deletePatientRecord(patientRecords).subscribe((res) => {
-        this.getPatientRecord();
-      });
-    }
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

@@ -83,7 +83,6 @@ export class CheckPatient {
   private newAttribute: any = {};
   showSucessMessage: boolean;
   serverErrorMessages: string;
-  private sheduleArray: Array<string> = [];
   constructor(
     public dialogRef: MatDialogRef<CheckPatient>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -95,8 +94,7 @@ export class CheckPatient {
       age: '',
       cost: '',
       date: '',
-      description: '',
-      medicenList: []
+      description: ''
     };
 
   onNoClick(): void {
@@ -105,7 +103,6 @@ export class CheckPatient {
 
   addFieldValue() {
     this.fieldArray.push(this.newAttribute);
-    this.sheduleArray.push(this.newAttribute.code + ' ' + this.newAttribute.name  + ' ' + this.newAttribute.price);
     this.newAttribute = {};
 }
 
@@ -115,15 +112,7 @@ deleteFieldValue(index) {
 
 onSubmitPrecord(form: NgForm) {
 //  console.log("inonSubmitPrecord");
-const patientRecords = new PatientRecordClass();
-
-patientRecords.name = form.value.name;
-patientRecords.id = form.value.id;
-patientRecords.age = form.value.age;
-patientRecords.cost = form.value.cost;
-patientRecords.description = form.value.description;
-patientRecords.medicenList = this.sheduleArray;
- this.patientRecordsService.postPatientRecord(patientRecords).subscribe(
+ this.patientRecordsService.postPatientRecord(form.value).subscribe(
    res => {
      this.resetForm(form);
      swal({
@@ -140,14 +129,12 @@ patientRecords.medicenList = this.sheduleArray;
 
 resetForm(form: NgForm) {
   this.patientRecordsService.selectedPatientRecordClass = {
-    _id: '',
     id: '',
   name: '',
   age: '',
   description: '',
   cost: '' ,
-  date: '',
-  medicenList: [],
+  date: ''
   };
   form.resetForm();
   this.serverErrorMessages = '';

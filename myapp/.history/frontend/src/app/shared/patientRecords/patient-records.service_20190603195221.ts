@@ -11,7 +11,7 @@ export class PatientRecordsService {
 
 
   selectedPatientRecordClass: PatientRecordClass = {
-    _id: '',
+
     id: '',
     name: '',
     age: '',
@@ -48,12 +48,6 @@ export class PatientRecordsService {
   getPatientRecordList() {
       console.log(' get patient record list fn');
       return this.http.get(environment.apiBaseUrl + '/patientRecord');
-  }
-
-
-  deletePatientRecord(patientRecordClass: PatientRecordClass) {
-    console.log(patientRecordClass);
-    return this.http.delete(environment.apiBaseUrl + '/deletePatientRecord' + `/${patientRecordClass._id}`);
   }
 
 }
