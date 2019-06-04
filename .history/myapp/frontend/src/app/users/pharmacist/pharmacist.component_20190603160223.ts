@@ -59,7 +59,7 @@ export class PharmacistComponent {
 
 @Component({
   selector: 'app-prescription-box',
-  templateUrl: 'prescription.html',
+  templateUrl: './ViewPrescription.html',
 })
 
 // tslint:disable-next-line:component-class-suffix
@@ -77,7 +77,7 @@ export class ViewPrescription {
 
 @Component({
   selector: 'app-availability-box',
-  templateUrl: './availability.html',
+  templateUrl: './AvailabilityView.html',
 })
 // tslint:disable-next-line:component-class-suffix
 export class AvailabilityView {
@@ -95,7 +95,7 @@ export class AvailabilityView {
 
 @Component({
   selector: 'app-fee-box',
-  templateUrl: './fee.html',
+  templateUrl: './CalculateFee.html',
 })
 
 // tslint:disable-next-line:component-class-suffix

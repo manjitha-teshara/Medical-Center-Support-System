@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent, LoginDialog, SignupDialog} from './login/login.component';
-
 import {LoginDialogInBox, SignupDialogInBox, ViewMoreDialog} from './component/sliderpanel/sliderpanel.component';
 // tslint:disable-next-line:max-line-length
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatIconModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
@@ -36,7 +35,6 @@ import { MedicineComponent } from './users/admin/medicine/medicine.component';
 import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.component';
 import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
 import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail.component';
-import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pharmacist-details.component';
 
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
@@ -64,13 +62,10 @@ import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pha
     MedicineComponent,
     AddMedicineComponent,
     UpdateMedicineComponent,
-
     DoctorDetailComponent,
     AvailabilityView,
     ViewPrescription,
     CalculateFee,
-    PharmacistDetailsComponent,
-
 
   ],
   imports: [

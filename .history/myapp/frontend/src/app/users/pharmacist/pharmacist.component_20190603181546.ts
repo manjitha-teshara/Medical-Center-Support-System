@@ -59,7 +59,7 @@ export class PharmacistComponent {
 
 @Component({
   selector: 'app-prescription-box',
-  templateUrl: 'prescription.html',
+  templateUrl: './prescription.html',
 })
 
 // tslint:disable-next-line:component-class-suffix
