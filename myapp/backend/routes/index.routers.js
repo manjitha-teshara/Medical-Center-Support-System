@@ -16,6 +16,7 @@ router.get('/userProfile',jwtHelper.verifyJwtToken,ctrlUser.userProfile);
 router.post('/patientRecord',ctrlPatientRecord.regRecord);
 router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
 router.get('/patientRecordList/:date',ctrlPatientRecord.getRegRecordForList);
+router.delete('/deletePatientRecord/:_id',ctrlPatientRecord.deletePatientRecord);
 
 
 router.post('/doctor',ctrlDocter.doctorRegister);
