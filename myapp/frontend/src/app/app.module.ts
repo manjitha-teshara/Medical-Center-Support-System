@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+//import { FilterPipeModule} from 'ngx-filter-pipe';
+import { CommonModule } from '@angular/common';
+import { FilterPipe } from './filter.pipe';
+
 import 'hammerjs';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +24,12 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
 import { DocterComponent, CheckPatient, CheckEarn, ManageDoctorView} from './users/docter/docter.component';
 import { PatientComponent } from './users/patient/patient.component';
+
 import { PharmacistComponent, AvailabilityView, ViewPrescription, CalculateFee  } from './users/pharmacist/pharmacist.component';
+
+
+import { PrescriptionComponent} from './users/pharmacist/prescription/prescription.component';
+
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
 import { BookingDialog } from './users/patient/patient.component';
@@ -44,6 +54,7 @@ import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pha
 @NgModule({
   declarations: [
     AppComponent,
+    //FilterPipeModule,
     LoginComponent,
     LoginDialog,
     LoginDialogInBox,
@@ -54,6 +65,7 @@ import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pha
     DocterComponent,
     PatientComponent,
     PharmacistComponent,
+    PrescriptionComponent,
     BookingDialog,
     ViewMoreDialog,
     UserProfileComponent,
@@ -65,6 +77,7 @@ import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pha
     AddMedicineComponent,
     UpdateMedicineComponent,
 
+
     DoctorDetailComponent,
     AvailabilityView,
     ViewPrescription,
@@ -72,10 +85,17 @@ import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pha
     PharmacistDetailsComponent,
 
 
+    FilterPipe,
+    DoctorDetailComponent
+    
+
+
+
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
+    //FilterPipeModule,
     AppRoutingModule,
     MatFormFieldModule,
     MatButtonModule,

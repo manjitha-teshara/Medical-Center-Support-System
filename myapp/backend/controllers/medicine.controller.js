@@ -13,6 +13,9 @@ module.exports.addMedicine = (req, res, next) => {
     medicine.notes = req.body.notes;
     medicine.type = req.body.type;
     medicine.dose = req.body.dose;
+    medicine.unit = req.body.unit;
+    medicine.price = req.body.price;
+    medicine.qty = req.body.qty;
     medicine.save((err, doc) => {
         if (!err)
             res.send(doc);
@@ -59,6 +62,9 @@ module.exports.updateMedicine = (req, res) => {
     medicine.notes = req.body.notes;
     medicine.type = req.body.type;
     medicine.dose = req.body.dose;
+    medicine.unit = req.body.unit;
+    medicine.price = req.body.price;
+    medicine.qty = req.body.qty;
 
     console.log(req.body);
 
@@ -78,4 +84,24 @@ module.exports.deleteMedicine=(req,res)=>{
         else{ console.log('Error in Deleting Medicine Records :' + JSON.stringify(err,undefined,2));}
     });
 }
+
+module.exports.issue = (req, res) => {
+    console.log("in side updateQty ");
+    //if (!objectId.isValid(req.body._id)) return res.status(400).send("No record with the given id : ${req.params._id}")
+   
+    var medicine = {};
+    medicine.qty = req.body.qty;
+
+    console.log(req.body);
+
+    Medicine.findByIdAndUpdate(req.body._id, { $inc:{qty:-1*medicine.qty} }, { new: true }, (err, docs) => {
+        if (!err) { 
+            //qty=qty-quantity;
+            res.send(docs); 
+        }
+        else { console.log('Error in Updating Medicine Records :' + JSON.stringify(err, undefined, 2)); }
+    });
+}
+
+
 
