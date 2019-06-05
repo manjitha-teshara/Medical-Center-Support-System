@@ -18,6 +18,7 @@ export class MedicineService {
   readonly baseURL3= 'http://localhost:3000/api/updateMedicine'
   readonly baseURL4= 'http://localhost:3000/api/deleteMedicine'
   readonly baseURL5= 'http://localhost:3000/api/getMedicineById'
+  readonly baseURL6= 'http://localhost:3000/api/issue'
 
 
 
@@ -44,5 +45,9 @@ export class MedicineService {
 
   deleteMedicine(_id:string){
     return this.http.delete(this.baseURL4 + '/' + _id);
+  }
+
+  issueMedicine(_id:string,qty:number){
+    return this.http.put(this.baseURL6, {_id:_id, qty:qty});
   }
 }

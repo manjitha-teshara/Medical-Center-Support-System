@@ -6,6 +6,7 @@ import { LoginComponent, LoginDialog, SignupDialog} from './login/login.componen
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
+import { PrescriptionComponent } from './users/pharmacist/prescription/prescription.component'
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth.guard';
 import { AdminComponent } from './users/admin/admin.component';
@@ -15,7 +16,8 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
 
 
 const routes: Routes = [
-{ path:'',component:SliderpanelComponent},
+{ path: '', component: SliderpanelComponent},
+
 
 { path:'doctor',component:DocterComponent},
 { path:'patient',component:PatientComponent},
@@ -24,14 +26,16 @@ const routes: Routes = [
 { path: 'med' , component:MedicineComponent},
 { path: 'addMed' , component:AddMedicineComponent},
 { path: 'updateMed/:_id' , component:UpdateMedicineComponent},
+{ path: 'pharmacist' , component:PharmacistComponent},
+{ path: 'prescription' , component:PrescriptionComponent},
 {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),CommonModule],
+  imports: [RouterModule.forRoot(routes), CommonModule],
   exports: [RouterModule],
-  declarations:[]
+  declarations: []
 })
 export class AppRoutingModule {
 

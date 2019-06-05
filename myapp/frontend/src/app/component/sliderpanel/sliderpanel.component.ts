@@ -192,7 +192,7 @@ phone = /^(\+94)[0-9]{9,9}$/;
         },
         err => {
 
-          swal( 'Oops' , '',  'error' );
+          swal( "Oops" , "", "error" );
         }
       );
     }
@@ -221,10 +221,12 @@ phone = /^(\+94)[0-9]{9,9}$/;
 // booking button
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'booking-dialog',
   templateUrl: 'booking-dialog.html',
   styleUrls: ['./sliderpanel.component.css', './booking-dialog.css'],
 })
+// tslint:disable-next-line:component-class-suffix
 export class BookingDialog {
 
   constructor(
@@ -242,11 +244,13 @@ export class BookingDialog {
 // view more button
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'viewMore-dialog',
   templateUrl: 'viewMore-dialog.html',
   styleUrls: ['./sliderpanel.component.css'],
   providers: [DoctorService]
 })
+// tslint:disable-next-line:component-class-suffix
 export class ViewMoreDialog {
   constructor(
     public dialogRef: MatDialogRef<ViewMoreDialog>,
@@ -261,6 +265,7 @@ export class ViewMoreDialog {
   hide = true;
 
 
+    // tslint:disable-next-line:use-life-cycle-interface
     ngOnInit() {
       console.log('**********vm');
       console.log(this.data.doctor);

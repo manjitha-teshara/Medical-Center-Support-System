@@ -11,43 +11,23 @@ input[type=text], select, textarea {
     line-height: 10px;
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
   }
-  
-  /* Style the submit button with a specific background color etc */
-  button[type=submit] {
-    background-color: rgb(103, 175, 218);
-    color: rgb(238, 238, 238);
-    padding: 10px 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left:5px;
-    margin-right:5px;
-    margin-top:5px;
-    margin-bottom:5px;
-    border: black;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button[type=button] {
-    background-color: rgb(103, 175, 218);
-    color: rgb(238, 238, 238);
-    padding: 10px 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left:5px;
-    margin-right:5px;
-    margin-top:5px;
-    margin-bottom:5px;
-    border: black;
-    border-radius: 4px;
-    cursor: pointer;
-  } 
-  /* When moving the mouse over the submit button, add a darker green color */
-  button[type=submit]:hover {
-    background-color: #251874;
-  }
 
-  button[type=button]:hover {
+  button{
+    background-color: rgb(103, 175, 218);
+    color: rgb(238, 238, 238);
+    padding: 10px 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left:15px;
+    margin-right:5px;
+    margin-top:5px;
+    margin-bottom:50px;
+    border: black;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  /* When moving the mouse over the submit button, add a darker green color */
+  button:hover {
     background-color: #251874;
   }
   
@@ -103,7 +83,7 @@ input[type=text], select, textarea {
   }
   
   table, th, td {
-    border: 1px solid black;
+    border: 0px solid black;
   }
 
   table {
@@ -112,6 +92,7 @@ input[type=text], select, textarea {
   
   th {
     height: 50px;
+    background-color: rgb(17, 131, 184);
   }
 
   td {
@@ -124,6 +105,10 @@ input[type=text], select, textarea {
     text-align: left;
   }
 
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
   tr:hover {background-color: rgb(14, 111, 156);}
+
+  
 
 

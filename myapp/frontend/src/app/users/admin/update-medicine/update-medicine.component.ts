@@ -30,7 +30,10 @@ export class UpdateMedicineComponent implements OnInit {
       name:res.name,
       notes:res.notes,
       type:res.type,
-      dose:res.dose
+      dose:res.dose,
+      unit:res.unit,
+      price:res.price,
+      qty:res.qty
       }
     });
 
@@ -42,11 +45,13 @@ export class UpdateMedicineComponent implements OnInit {
     if(form)
       form.reset();
     this.medicineService.selectedMedicine = {
-
       name:"",
       notes:"",
       type:"",
-      dose:""
+      dose:null,
+      unit:"",
+      price:null,
+      qty:null
     }
     
   }
@@ -55,7 +60,7 @@ export class UpdateMedicineComponent implements OnInit {
     /** this.medicineService.postMedicine(form.value).subscribe(res => {
       this.resetForm(form);
       //M.toast({html: 'Saved successfully', classes: 'rounded'});
-    });*/
+    });*/ 
     this.medicineService.editMedicine({...form.value, _id:this._id}).subscribe(res => {
       
       //this.resetForm();

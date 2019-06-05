@@ -58,7 +58,7 @@
                     <!-- <mat-header-cell *matHeaderCellDef>actions</mat-header-cell> -->
                     <mat-cell *matCellDef="let element">
                       <!-- <button mat-icon-button><mat-icon>launch</mat-icon></button>-->
-                      <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button> 
+                      <button mat-icon-button color="warn" (click)="deletePatientRecord(element)"><mat-icon>delete_outline</mat-icon></button> 
                      
                      
                     </mat-cell>
@@ -82,7 +82,7 @@
     <mat-tab label="Doctor"> <app-doctor-detail></app-doctor-detail> </mat-tab>
 
     <mat-tab label="Medicine"> 
-        <button [routerLink]=" ['/addMed'] ">Add Medicine</button>
+     
 
         <app-medicine></app-medicine>
         

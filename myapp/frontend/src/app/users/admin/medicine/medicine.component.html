@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row"><h1>Medicine</h1>
            
-
+          <button [routerLink]=" ['/addMed'] ">Add Medicine</button>
           
           <div class="col-sm-12">
             <table class="responsible-table highlight">
@@ -12,13 +12,19 @@
                   <th>Name</th>
                   <th>Type</th>
                   <th>Dose</th>
-                  <th>Notes</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Notes</th>   
+                  <th> </th> 
+                  <th> </th>             
                 </tr>
               </thead>
               <tr *ngFor="let med of medicineService.medi">
                   <td>{{med.name}}</td>
                   <td>{{med.type}}</td>
-                  <td>{{med.dose}}</td>
+                  <td>{{med.dose+med.unit}}</td>
+                  <td>{{med.price}}</td>
+                  <td>{{med.qty}}</td>
                   <td>{{med.notes}}</td>
                   <td>
 
