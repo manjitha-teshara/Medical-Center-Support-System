@@ -42,8 +42,8 @@ export class PrescriptionComponent implements OnInit {
       //M.toast({html: 'Saved successfully', classes: 'rounded'});
     });*/
     this.medicineService.issueMedicine(_id,this.medicineService.selectedMedicine.qty).subscribe(res => {
-      
-      //this.resetForm();
+    this.refreshMedicineList();
+    this.resetForm();
     });
     
   }
