@@ -55,26 +55,8 @@ module.exports.userProfile=(req,res,next)=>{
 
 module.exports.getPatientDetails=(req,res)=>{
     console.log("in side getPatientDetails ");
-    User.find({type:'patient'},(err,docs)=>{
-                if(!err){res.send(docs);}
-                else{ console.log('Error in Retriving Patients Records :' + JSON.stringify(err,undefined,2));}
-            });
-}
-
-
-module.exports.getDoctorDetails=(req,res)=>{
-    console.log("in side getDoctorDetails ");
     User.find({type:'doctor'},(err,docs)=>{
                 if(!err){res.send(docs);}
-                else{ console.log('Error in Retriving Doctor :' + JSON.stringify(err,undefined,2));}
-            });
-}
-
-
-module.exports.getpharmacistDetails=(req,res)=>{
-    console.log("in side getpharmacistDetails ");
-    User.find({type:'pharmacist'},(err,docs)=>{
-                if(!err){res.send(docs);}
-                else{ console.log('Error in Retriving getpharmacistDetails Records :' + JSON.stringify(err,undefined,2));}
+                else{ console.log('Error in Retriving Patients Records :' + JSON.stringify(err,undefined,2));}
             });
 }
