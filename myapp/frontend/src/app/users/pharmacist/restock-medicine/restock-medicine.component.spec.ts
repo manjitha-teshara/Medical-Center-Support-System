@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RestockComponent } from './restock.component';
+import { RestockMedicineComponent } from './restock-medicine.component';
 
 describe('RestockComponent', () => {
-  let component: RestockComponent;
-  let fixture: ComponentFixture<RestockComponent>;
+  let component: RestockMedicineComponent;
+  let fixture: ComponentFixture<RestockMedicineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RestockComponent ]
+      declarations: [ RestockMedicineComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RestockComponent);
+    fixture = TestBed.createComponent(RestockMedicineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

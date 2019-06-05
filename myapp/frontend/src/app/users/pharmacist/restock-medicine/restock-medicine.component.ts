@@ -8,13 +8,13 @@ import { Medicine} from '../../../shared/medicine.model';
 declare var M: any;
 
 @Component({
-  selector: 'app-restock',
-  templateUrl: './restock.component.html',
-  styleUrls: ['./restock.component.css'],
+  selector: 'app-restock-medicine',
+  templateUrl: './restock-medicine.component.html',
+  styleUrls: ['./restock-medicine.component.css'],
   providers: [MedicineService]
 })
 
-export class RestockComponent implements OnInit {
+export class RestockMedicineComponent implements OnInit {
 
   constructor(private medicineService: MedicineService){}
 

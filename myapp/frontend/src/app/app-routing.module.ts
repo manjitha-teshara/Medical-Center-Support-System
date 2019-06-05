@@ -6,8 +6,8 @@ import { LoginComponent, LoginDialog, SignupDialog} from './login/login.componen
 import { SliderpanelComponent } from './component/sliderpanel/sliderpanel.component';
 import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent } from './users/pharmacist/pharmacist.component';
-import { PrescriptionComponent } from './users/pharmacist/prescription/prescription.component';
-import { RestockComponent } from './users/pharmacist/restock/restock.component';
+import { IssueMedicineComponent } from './users/pharmacist/issue-medicine/issue-medicine.component';
+import { RestockMedicineComponent } from './users/pharmacist/restock-medicine/restock-medicine.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './auth.guard';
 import { AdminComponent } from './users/admin/admin.component';
@@ -28,8 +28,8 @@ const routes: Routes = [
 { path: 'addMed' , component:AddMedicineComponent},
 { path: 'updateMed/:_id' , component:UpdateMedicineComponent},
 { path: 'pharmacist' , component:PharmacistComponent},
-{ path: 'prescription' , component:PrescriptionComponent},
-{ path: 'restock' , component:RestockComponent},
+{ path: 'prescription' , component:IssueMedicineComponent},
+{ path: 'restock' , component:RestockMedicineComponent},
 {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];
