@@ -9,6 +9,8 @@ import { Doctor } from 'src/app/shared/doctor/doctor.model';
 import { PatientRecordClass } from 'src/app/shared/patientRecords/patient-record-class.model';
 
 
+
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -17,7 +19,7 @@ export interface DialogData {
 @Component({
   selector: 'app-docter',
   templateUrl: './docter.component.html',
-  styleUrls: []
+  styleUrls: ['./docter.component.css']
 })
 export class DocterComponent {
   animal: string;
@@ -81,6 +83,7 @@ export class CheckPatient {
   private newAttribute: any = {};
   showSucessMessage: boolean;
   serverErrorMessages: string;
+  private sheduleArray: Array<string> = [];
   constructor(
     public dialogRef: MatDialogRef<CheckPatient>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -92,7 +95,8 @@ export class CheckPatient {
       age: '',
       cost: '',
       date: '',
-      description: ''
+      description: '',
+      medicenList: []
     };
 
   onNoClick(): void {
@@ -101,6 +105,7 @@ export class CheckPatient {
 
   addFieldValue() {
     this.fieldArray.push(this.newAttribute);
+    this.sheduleArray.push(this.newAttribute.code + ' ' + this.newAttribute.name  + ' ' + this.newAttribute.price);
     this.newAttribute = {};
 }
 
@@ -110,7 +115,15 @@ deleteFieldValue(index) {
 
 onSubmitPrecord(form: NgForm) {
 //  console.log("inonSubmitPrecord");
- this.patientRecordsService.postPatientRecord(form.value).subscribe(
+const patientRecords = new PatientRecordClass();
+
+patientRecords.name = form.value.name;
+patientRecords.id = form.value.id;
+patientRecords.age = form.value.age;
+patientRecords.cost = form.value.cost;
+patientRecords.description = form.value.description;
+patientRecords.medicenList = this.sheduleArray;
+ this.patientRecordsService.postPatientRecord(patientRecords).subscribe(
    res => {
      this.resetForm(form);
      swal({
@@ -127,12 +140,14 @@ onSubmitPrecord(form: NgForm) {
 
 resetForm(form: NgForm) {
   this.patientRecordsService.selectedPatientRecordClass = {
+    _id: '',
     id: '',
   name: '',
   age: '',
   description: '',
   cost: '' ,
-  date: ''
+  date: '',
+  medicenList: [],
   };
   form.resetForm();
   this.serverErrorMessages = '';
@@ -205,6 +220,7 @@ export class ManageDoctorView {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
+  private Doctor_id: string;
   constructor(
     public dialogRef: MatDialogRef<ManageDoctorView>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -223,6 +239,7 @@ export class ManageDoctorView {
     ngOnInit() {
 
       this.refreshDoctors();
+      this.getuserpayload();
     }
 
 
@@ -309,6 +326,23 @@ deleteSelectedDoctor(doctor: Doctor) {
     this.refreshDoctors();
     });
   }
+}
+
+
+getuserpayload() {
+  const token = localStorage.getItem('token');
+  console.log(token + '====');
+  if (token) {
+      const userPayload = atob(token.split('.')[1]);
+      console.log('***********getuserpayload');
+      console.log(JSON.parse(userPayload)._id);
+      this.Doctor_id = JSON.parse(userPayload)._id;
+      console.log('***********getuserpayload');
+      return JSON.parse(userPayload);
+    } else {
+      return null;
+  }
+
 }
 
 }

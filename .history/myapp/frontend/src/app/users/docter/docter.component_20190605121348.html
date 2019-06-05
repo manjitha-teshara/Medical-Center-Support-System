@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 500px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="column">
+    <img src="../../../assets/Doctor.jpg"style="width:100%;">
+  </div>
+  <div class="column" >
+
+    <br><br><br>
+
+    <section style="background-color:#EBF5FB  ;">
+      <h3>Check Patient</h3>
+      <p>Go to add the patien's prescription.</p>
+      <button style="width:160px" mat-raised-button (click)="openDialog()">Add</button>
+    </section>
+
+   <section style="background-color:#EBF5FB  ;">
+      <h3>Check Income</h3>
+      <p>Go to check income in daily basis.</p>
+      <button style="width:160px" mat-raised-button (click)="openDialogEarn()">Check</button>
+    </section>
+
+  <section style="background-color:#EBF5FB  ;">
+      <h3>Manage Doctor View</h3>
+      <p>Go to manage the doctor's details</p>
+    <button style="width:160px" mat-raised-button (click)="manageDoctorView()">Manage</button>
+  </section>
+</div>
+</div>
+
+</body>
+</html>
