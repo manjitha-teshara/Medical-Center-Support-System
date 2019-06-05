@@ -50,7 +50,6 @@ export class AdminComponent implements OnInit {
     //   this.dataSource  =  result.body;
       
   }
-
   // getPatientRecord(){
   //   this.patientRecordService.getPatientRecordList().subscribe((res)=>{
   //     this.dataSource.data = res as PatientRecordClass[];
@@ -66,7 +65,6 @@ export class AdminComponent implements OnInit {
 
   getPatientRecord() {
     this.userService.getPatientDetails().subscribe((res) => {
-
       this.dataSource.data = res as PatientRecordClass[];
     });
   }

@@ -5,6 +5,7 @@ import { DoctorService } from '../../shared/doctor/doctor.service';
 import { Doctor } from '../../shared/doctor/doctor.model';
 
 
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -110,5 +111,6 @@ export class CalculateFee {
   }
 
 }
+
 
 

@@ -73,7 +73,7 @@ module.exports.getDoctorDetails=(req,res)=>{
 
 module.exports.getpharmacistDetails=(req,res)=>{
     console.log("in side getpharmacistDetails ");
-    User.find({type:'pharmacist'},(err,docs)=>{
+    User.find({type:'pha'},(err,docs)=>{
                 if(!err){res.send(docs);}
                 else{ console.log('Error in Retriving getpharmacistDetails Records :' + JSON.stringify(err,undefined,2));}
             });
