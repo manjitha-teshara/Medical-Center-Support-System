@@ -48,6 +48,7 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
 import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail.component';
 import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pharmacist-details.component';
 import { PatientRecordComponent } from './users/pharmacist/patient-record/patient-record.component';
+import { RestockComponent } from './users/pharmacist/restock/restock.component';
 
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
@@ -88,7 +89,8 @@ import { PatientRecordComponent } from './users/pharmacist/patient-record/patien
 
     FilterPipe,
     DoctorDetailComponent,
-    PatientRecordComponent
+    PatientRecordComponent,
+    RestockComponent
     
 
 
