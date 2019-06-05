@@ -57,7 +57,7 @@ button[type=button] {
   padding: 10px 10px;
   padding-left: 5px;
   padding-right: 5px;
-  margin-left:200px;
+  margin-left:140px;
   margin-right:5px;
   margin-top:15px;
   margin-bottom:15px;
@@ -74,6 +74,11 @@ button[type=button]:hover {
   background-color: #251874;
 }
 
+img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+}
 /* Add a background color and some padding around the form */
 .container {
   border-radius: 5px;
