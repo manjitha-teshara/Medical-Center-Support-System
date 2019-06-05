@@ -1,47 +1,68 @@
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
-    width: 60%; /* Full width */
+    width: 90%; /* Full width */
     padding: 15px; /* Some padding */  
     border: 1px solid rgb(13, 144, 219); /* Gray border */
     border-radius: 4px; /* Rounded borders */
     box-sizing: content-box; /* Make sure that padding and width stays in place */
     margin-top: 6px; /* Add a top margin */
     margin-bottom: 16px; /* Bottom margin */
-    margin-left:10px;
-    line-height: 10px;
+    margin-left:15px;
+    line-height: 15px;
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
   }
   
-  /* Style the submit button with a specific background color etc */
-  button[type=submit] {
-    background-color: rgb(103, 175, 218);
-    color: rgb(238, 238, 238);
-    padding: 10px 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left:5px;
-    margin-right:5px;
-    margin-top:5px;
-    margin-bottom:5px;
-    border: black;
-    border-radius: 4px;
-    cursor: pointer;
+  label{
+    width: 90%; /* Full width */
+    padding: 15px; /* Some padding */  
+    background-color: rgb(211, 222, 228);
+    color: rgb(14, 1, 1);
+    border: 0px solid rgb(13, 144, 219); /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: content-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    margin-left:15px;
+    line-height: 15px;
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
   }
-  
-  button[type=button] {
-    background-color: rgb(103, 175, 218);
-    color: rgb(238, 238, 238);
-    padding: 10px 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left:5px;
-    margin-right:5px;
-    margin-top:5px;
-    margin-bottom:5px;
-    border: black;
-    border-radius: 4px;
-    cursor: pointer;
-  } 
+
+  h1{
+    margin-left:180px;
+    margin-bottom:50px;
+    }
+    /* Style the submit button with a specific background color etc */
+    button[type=submit] {
+      width:80px;
+      background-color: rgb(103, 175, 218);
+      color: rgb(238, 238, 238);
+      padding: 10px 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-left:200px;
+      margin-right:5px;
+      margin-top:15px;
+      margin-bottom:15px;
+      border: black;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    button[type=button] {
+      width:80px;
+      background-color: rgb(103, 175, 218);
+      color: rgb(238, 238, 238);
+      padding: 10px 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+      margin-left:200px;
+      margin-right:5px;
+      margin-top:15px;
+      margin-bottom:15px;
+      border: black;
+      border-radius: 4px;
+      cursor: pointer;
+    } 
   /* When moving the mouse over the submit button, add a darker green color */
   button[type=submit]:hover {
     background-color: #251874;
