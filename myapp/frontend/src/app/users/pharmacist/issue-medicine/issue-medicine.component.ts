@@ -7,12 +7,12 @@ import { Medicine} from '../../../shared/medicine.model';
 
 declare var M: any;
 @Component({
-  selector: 'app-prescription',
-  templateUrl: './prescription.component.html',
-  styleUrls: ['./prescription.component.css'],
+  selector: 'app-issue-medicine',
+  templateUrl: './issue-medicine.component.html',
+  styleUrls: ['./issue-medicine.component.css'],
   providers: [MedicineService]
 })
-export class PrescriptionComponent implements OnInit {
+export class IssueMedicineComponent implements OnInit {
 
   constructor(private medicineService: MedicineService){}
 

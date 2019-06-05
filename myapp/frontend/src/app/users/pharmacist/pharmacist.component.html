@@ -28,6 +28,12 @@
     </section>
 
     <section style="background-color:#EBF5FB  ;">
+        <h3>Restock Medicine</h3>
+        <p>When new medicine stocks arrive restock them</p>
+        <button style="width:160px" mat-raised-button [routerLink] = "['/restock']">Restock Medicine</button>
+      </section>
+
+    <section style="background-color:#EBF5FB  ;">
       <h3>Calculate Total Fee</h3>
       <p>Calculate total fee of the prescribed medicine of the given patient including Doctor's charge.</p>
       <button style="width:160px" mat-raised-button (click)="OpenDialogFee()">Calculate</button>

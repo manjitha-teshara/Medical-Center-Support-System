@@ -38,6 +38,7 @@ router.put('/updateMedicine', ctrlMedicine.updateMedicine);
 router.delete('/deleteMedicine/:_id', ctrlMedicine.deleteMedicine);
 //router.put('/updateQty/:_id', ctrlMedicine.updateQty);
 router.put('/issue', ctrlMedicine.issue);
+router.put('/restock', ctrlMedicine.restock);
 
 
 
