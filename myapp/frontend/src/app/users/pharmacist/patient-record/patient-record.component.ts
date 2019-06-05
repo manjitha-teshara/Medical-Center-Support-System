@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material';
 import { PatientRecordClass } from 'src/app/shared/patientRecords/patient-record-class.model';
 import { PatientRecordsService } from 'src/app/shared/patientRecords/patient-records.service';
 
+
+
+
 @Component({
-  selector: 'app-pharmacist-details',
-  templateUrl: './pharmacist-details.component.html',
-  styleUrls: ['./pharmacist-details.component.css']
+  selector: 'app-patient-record',
+  templateUrl: './patient-record.component.html',
+  styleUrls: ['./patient-record.component.css']
 })
+export class PatientRecordComponent implements OnInit {
 
- 
-export class PharmacistDetailsComponent implements OnInit {
-
-  // dataSource :any;
   public dataSource = new MatTableDataSource<PatientRecordClass>();
  
   constructor(private  patientRecordService:  PatientRecordsService,) {}
