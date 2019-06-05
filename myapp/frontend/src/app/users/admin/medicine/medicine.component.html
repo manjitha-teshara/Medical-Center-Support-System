@@ -59,8 +59,8 @@
         </mat-card-title>
         <mat-card-content>
           <div class="search-div">
-              <button mat-raised-button>
-                  <mat-icon>add</mat-icon>Create
+              <button mat-raised-button [routerLink] = "['/addMed']">
+                  <mat-icon>add</mat-icon>Add Medicine
               </button>    
               <mat-form-field>
                   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -115,14 +115,15 @@
                       <th mat-header-cell *matHeaderCellDef> Action </th>
                       <!-- <mat-header-cell *matHeaderCellDef>actions</mat-header-cell> -->
                       <mat-cell *matCellDef="let element">
-                        <button mat-icon-button><mat-icon>launch</mat-icon></button>
-                        <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button> 
+                        <button mat-icon-button [routerLink]=" ['/updateMed/' + element._id] "><mat-icon>update</mat-icon></button>
+                        <button mat-icon-button color="warn"  (click)="onDelete(element)"><mat-icon>delete_outline</mat-icon></button> 
                       </mat-cell>
                     </ng-container>  
                 
   
                   <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+             
                     
            </table>
          </div>

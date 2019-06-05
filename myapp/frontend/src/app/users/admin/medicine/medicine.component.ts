@@ -22,6 +22,7 @@ export class MedicineComponent implements OnInit{
     
   constructor(private medicineService: MedicineService){}
     displayedColumns: string[] = ['name','type','price','qty','dose','notes','actions'];
+    hiddenColumns: string[] = ['_id'];
   
 
   ngOnInit(){
@@ -66,12 +67,22 @@ export class MedicineComponent implements OnInit{
     this.medicineService.selectedMedicine = med;
   }
 
-  onDelete(_id:string, form:NgForm){
+  /*onDelete(_id:string, form:NgForm){
     console.log("delete works");
     if(confirm('Are you sure to delete this record?')==true){
       this.medicineService.deleteMedicine(_id).subscribe((res) => {
       this.refreshMedicineList();
       this.resetForm(form);
+      });
+    }
+  }
+  */
+
+  onDelete(elm) {
+    if(confirm('Are you sure to delete this record?')==true){
+      this.dataSource.data = this.dataSource.data.filter(i => i !== elm);
+      this.medicineService.deleteMedicine(elm._id).subscribe((res)=>{
+        this.refreshMedicineList();
       });
     }
   }
