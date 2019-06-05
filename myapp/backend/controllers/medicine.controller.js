@@ -86,7 +86,7 @@ module.exports.deleteMedicine=(req,res)=>{
 }
 
 module.exports.issue = (req, res) => {
-    console.log("in side updateQty ");
+    console.log("in side issue medicine ");
     //if (!objectId.isValid(req.body._id)) return res.status(400).send("No record with the given id : ${req.params._id}")
    
     var medicine = {};
@@ -102,6 +102,25 @@ module.exports.issue = (req, res) => {
         else { console.log('Error in Updating Medicine Records :' + JSON.stringify(err, undefined, 2)); }
     });
 }
+
+module.exports.restock = (req, res) => {
+    console.log("in side restock medicine ");
+    //if (!objectId.isValid(req.body._id)) return res.status(400).send("No record with the given id : ${req.params._id}")
+   
+    var medicine = {};
+    medicine.qty = req.body.qty;
+
+    console.log(req.body);
+
+    Medicine.findByIdAndUpdate(req.body._id, { $inc:{qty:+1*medicine.qty} }, { new: true }, (err, docs) => {
+        if (!err) { 
+            //qty=qty-quantity;
+            res.send(docs); 
+        }
+        else { console.log('Error in Updating Medicine Records :' + JSON.stringify(err, undefined, 2)); }
+    });
+}
+
 
 
 

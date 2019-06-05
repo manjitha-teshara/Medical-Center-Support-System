@@ -22,7 +22,7 @@ export class MedicineComponent implements OnInit{
     
   constructor(private medicineService: MedicineService){}
     displayedColumns: string[] = ['name','type','price','qty','dose','notes','actions'];
-    hiddenColumns: string[] = ['_id'];
+    hiddenColumns: string[] = ['_id','unit'];
   
 
   ngOnInit(){

@@ -62,6 +62,10 @@ export class UpdateMedicineComponent implements OnInit {
       //M.toast({html: 'Saved successfully', classes: 'rounded'});
     });*/ 
     this.medicineService.editMedicine({...form.value, _id:this._id}).subscribe(res => {
+      if(confirm('Successfully updated.Do you want to go back?')==true){
+    
+      
+      }
     //this.resetForm();
     });
   }
