@@ -220,7 +220,6 @@ export class ManageDoctorView {
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  private Doctor_id: string;
   constructor(
     public dialogRef: MatDialogRef<ManageDoctorView>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -239,7 +238,6 @@ export class ManageDoctorView {
     ngOnInit() {
 
       this.refreshDoctors();
-      this.getuserpayload();
     }
 
 
@@ -326,23 +324,6 @@ deleteSelectedDoctor(doctor: Doctor) {
     this.refreshDoctors();
     });
   }
-}
-
-
-getuserpayload() {
-  const token = localStorage.getItem('token');
-  console.log(token + '====');
-  if (token) {
-      const userPayload = atob(token.split('.')[1]);
-      console.log('***********getuserpayload');
-      console.log(JSON.parse(userPayload)._id);
-      this.Doctor_id = JSON.parse(userPayload)._id;
-      console.log('***********getuserpayload');
-      return JSON.parse(userPayload);
-    } else {
-      return null;
-  }
-
 }
 
 }

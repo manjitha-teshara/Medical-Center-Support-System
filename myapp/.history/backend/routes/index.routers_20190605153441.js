@@ -13,8 +13,6 @@ router.post('/register',ctrlUser.register);
 router.post('/authenticate',ctrlUser.authenticate);
 router.get('/userProfile',jwtHelper.verifyJwtToken,ctrlUser.userProfile);
 router.get('/getPatientDetails',ctrlUser.getPatientDetails);
-router.get('/getDoctorDetails',ctrlUser.getDoctorDetails);
-router.get('/getpharmacistDetails',ctrlUser.getpharmacistDetails);
 
 router.post('/patientRecord',ctrlPatientRecord.regRecord);
 router.get('/patientRecord',ctrlPatientRecord.getRegRecord);
