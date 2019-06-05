@@ -15,7 +15,7 @@
           <td> {{ doctor.checkuptype }} </td>
           <td> {{ doctor.price}} </td>
           <td> {{ doctor.doctorshedule }} </td>
-          <td> <button type="button"  (click)="openDialogBooking()" class="btn btn-success">Book</button></td>
+          <td> <button type="button"  (click)="openDialogBooking(doctor)" class="btn btn-success">Book</button></td>
            <!-- <div class="row"><button mat-raised-button color="primary" (click)="openDialogBooking()" style="margin:10px">Book</button></div> -->
         </tr>
       </tbody>
