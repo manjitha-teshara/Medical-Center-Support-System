@@ -1,11 +1,12 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Med } from '../med';
 import { NgForm }   from '@angular/forms';
-import { FilterPipeModule } from 'ngx-filter-pipe';
+//import { FilterPipeModule } from 'ngx-filter-pipe';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { MedicineService } from '../../../shared/medicine.service';
 import { Medicine} from '../../../shared/medicine.model';
+import { MatTableDataSource } from '@angular/material/table';
 
 declare var M: any;
 @Component({
@@ -16,7 +17,13 @@ declare var M: any;
 })
 
 export class MedicineComponent implements OnInit{
+  public dataSource = new MatTableDataSource< Medicine >();
+ 
+    
   constructor(private medicineService: MedicineService){}
+    displayedColumns: string[] = ['name','type','price','qty','dose','notes','actions'];
+    hiddenColumns: string[] = ['_id','unit'];
+  
 
   ngOnInit(){
     this.resetForm();
@@ -50,16 +57,17 @@ export class MedicineComponent implements OnInit{
 
   refreshMedicineList(){
     this.medicineService.getMedicineList().subscribe((res) => {
-      this.medicineService.medi = res as Medicine[];
+      this.dataSource.data = res as Medicine[];
     });
   }
+
 
   onEdit(med : Medicine){
     console.log("edit works");
     this.medicineService.selectedMedicine = med;
   }
 
-  onDelete(_id:string, form:NgForm){
+  /*onDelete(_id:string, form:NgForm){
     console.log("delete works");
     if(confirm('Are you sure to delete this record?')==true){
       this.medicineService.deleteMedicine(_id).subscribe((res) => {
@@ -68,6 +76,21 @@ export class MedicineComponent implements OnInit{
       });
     }
   }
+  */
+
+  onDelete(elm) {
+    if(confirm('Are you sure to delete this record?')==true){
+      this.dataSource.data = this.dataSource.data.filter(i => i !== elm);
+      this.medicineService.deleteMedicine(elm._id).subscribe((res)=>{
+        this.refreshMedicineList();
+      });
+    }
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
 
 }
 

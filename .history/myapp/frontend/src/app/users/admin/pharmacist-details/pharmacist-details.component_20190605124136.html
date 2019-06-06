@@ -1,0 +1,16 @@
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="center center" class="content">
+    <mat-card class="card" >
+      <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+          <h3>Pharmacist Details</h3>
+      </mat-card-title>
+
+      <mat-card-content>
+        <div class="search-div">
+            <button mat-raised-button>
+                <mat-icon>add</mat-icon>Create
+            </button><br>
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>

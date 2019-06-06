@@ -19,7 +19,7 @@ export interface DialogData {
 @Component({
   selector: 'app-docter',
   templateUrl: './docter.component.html',
-  styleUrls: []
+  styleUrls: ['./docter.component.css']
 })
 export class DocterComponent {
   animal: string;

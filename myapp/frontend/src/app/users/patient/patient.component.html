@@ -1,4 +1,11 @@
 <div class="container">
+    <!-- <div class="row">
+           <img src="../../../assets/row.jpg" style="width:100% ;height: 200px;">
+      </div> -->
+      <div class="row">
+          <img src="../../../assets/b2.jpg" style="width:100% ;height: 520px;">
+     </div>
+   
     <table class="table table-striped">
       <thead>
           <tr>
@@ -15,7 +22,7 @@
           <td> {{ doctor.checkuptype }} </td>
           <td> {{ doctor.price}} </td>
           <td> {{ doctor.doctorshedule }} </td>
-          <td> <button type="button"  (click)="openDialogBooking()" class="btn btn-success">Book</button></td>
+          <td> <button type="button"  (click)="openDialogBooking(doctor)" class="btn btn-success">Book</button></td>
            <!-- <div class="row"><button mat-raised-button color="primary" (click)="openDialogBooking()" style="margin:10px">Book</button></div> -->
         </tr>
       </tbody>

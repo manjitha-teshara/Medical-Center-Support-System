@@ -1,22 +1,28 @@
 <div class= "row">
-    <div class="col-xs-12">
+    <div class="col-md-12">
       <div class="container">
           <div class="row"><h1>Add Medicine</h1>
-             <div class="col-md-12">
+             <div class="col-md-6">
               <form #MedicineForm="ngForm" (ngSubmit)="onSubmit(MedicineForm)">
 
                 <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="medicineService.selectedMedicine._id">
-                  <div class="row col-md-12">
-                    <div class="input-field col-sm-12 ">
+                <div class="row col-md-12">
+                  <div class="input-field col-sm-12 ">
 
                     <div class="row col-md-12">
-                      <label>Name:                  
-                      </label>
-                      <input type="text" name="name" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.name" required>
+                        <div class="label col-md-3 ">
+                          <label>Name: </label>
+                        </div>
+                        <div class="input-field col-md-9 ">
+                          <input type="text" name="name" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.name" required>
+                        </div>
                     </div>
   
                     <div class="row col-md-12">
+                      <div class="label col-md-3 ">
                         <label>Type:</label>
+                      </div>
+                      <div class="input-field col-md-9 ">
                         <select class="dropdown" name="type" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.type">
                             <option>Tablet</option>
                             <option>Capsule</option>
@@ -25,14 +31,15 @@
                             <option>Inhaler</option>
                             <option>Liquid</option>
                         </select>
+                      </div>
                     </div>
                  
 
                     <div class="row col-md-12">
-                        <div class="col-md-1">
-                          <label>Dose:</label>
+                        <div class="label col-md-3 ">
+                          <label>Dosage:</label>
                         </div>
-                        <div class="col-md-3">
+                        <div class="input-field col-md-5 ">
                           <select class="dropdown" name="dose" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.dose">
                               <option>50</option>
                               <option>100</option>
@@ -42,7 +49,7 @@
                               <option>1000</option>
                           </select>
                         </div>
-                        <div class=" col-md-3">
+                        <div class="input-field col-md-3 ">
                             <select class="dropdown" name="unit" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.unit">
                                 <option>mg</option>
                                 <option>ml</option>                            
@@ -51,35 +58,49 @@
                     </div>
 
                     <div class="row col-md-12">
-                        <label>Price:                  
-                        </label>
+                      <div class="label col-md-3 ">
+                        <label>Price: </label>
+                      </div>
+                      <div class="input-field col-md-9 ">
                         <input type="text" name="price" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.price" required>
+                      </div>
                     </div>
                     
                     <div class="row col-md-12">
-                        <label>Quantity:                  
-                        </label>
+                      <div class="label col-md-3 ">
+                        <label>Quantity:  </label>
+                      </div>
+                      <div class="input-field col-md-9 ">
                         <input type="text" name="qty" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.qty" required>
+                      </div>
                     </div>
 
                     <div class="row col-md-12">
-                    <label>Notes:  
-                      </label>
-                    <input type="text" name="notes" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.notes" placeholder="Any special notes?">
-                  </div>
+                      <div class="label col-md-3 ">
+                        <label>Notes: </label>
+                      </div>
+                      <div class="input-field col-md-9 ">
+                        <input type="text" name="notes" #name="ngModel" [(ngModel)]="medicineService.selectedMedicine.notes" placeholder="Any special notes?">
+                       </div>
+                    </div>
   
                   </div>
                 </div>
   
                 <div class="row col-md-12">
-                  <div class="input-field col-xs-6 ">
+                  <div class="input-field col-md-12 ">
                     <button class="btn btn-custom right" type="button" (click)="resetForm(MedicineForm)">Reset</button>
                     <button class="btn btn-custom right" type="submit">Submit</button>
   
                   </div>
                 </div>
+
+                
               </form>
-            </div>              
+            </div>    
+            <div class="col-md-6">
+                <img src="../../../assets/med2.jpg">
+            </div>          
   
             
           </div>
