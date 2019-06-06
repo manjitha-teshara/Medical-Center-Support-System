@@ -210,15 +210,16 @@ serverErrorMessages: string;
 
     resetForm(form: NgForm) {
       this.usersevice.selectedUser = {
-        userName:'',
-      email:'',
-      phonenumber:'',
-      password:''
+      userName: '',
+      email: '',
+      phonenumber: '',
+      password: '',
+      phone: ''
       };
       form.resetForm();
       this.serverErrorMessages = '';
 
-    
+
   }
 
  
