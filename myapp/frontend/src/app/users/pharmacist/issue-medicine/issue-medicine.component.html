@@ -2,8 +2,13 @@
   <div class="col-md-12">
     <div class="container">
       <div class="row"><h1>Issue Medicine</h1>
+        
+        <div class="col-md-4">
 
-        <div class="col-md-7">
+          
+        </div>
+
+        <div class="col-md-6">
 
           <body ng-app="mainAPP">
 
@@ -55,8 +60,17 @@
       
         </div>
 
-        <div class="col-md-5">
-          <img src="../../../assets/med1.jpg">
+        <div class="col-md-2">
+            <ul>               
+              <h2>Bill</h2>
+                <li *ngFor="let med of issuedMedicine">
+                  {{ med.name + ' '  + med.dose + med.unit + ' Rs:' + med.price + ' Qty: ' +med.qty}}  
+                </li>
+                <h5>{{'Total Price: '+total()}}</h5>
+              </ul>
+
+             <!-- <button (click)="print()">Print</button> -->
+
         </div>
     
       </div>

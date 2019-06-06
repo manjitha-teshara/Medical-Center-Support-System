@@ -49,6 +49,7 @@ import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail
 import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pharmacist-details.component';
 import { PatientRecordComponent } from './users/pharmacist/patient-record/patient-record.component';
 import { RestockMedicineComponent } from './users/pharmacist/restock-medicine/restock-medicine.component';
+import { BillComponent } from './users/pharmacist/bill/bill.component';
 
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
@@ -90,7 +91,8 @@ import { RestockMedicineComponent } from './users/pharmacist/restock-medicine/re
     FilterPipe,
     DoctorDetailComponent,
     PatientRecordComponent,
-    RestockMedicineComponent
+    RestockMedicineComponent,
+    BillComponent
     
 
 
@@ -118,6 +120,7 @@ import { RestockMedicineComponent } from './users/pharmacist/restock-medicine/re
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule
+
   ],
   providers: [AuthGuard, UserService, AuthInterceptor , PatientRecordsService],
   bootstrap: [AppComponent],

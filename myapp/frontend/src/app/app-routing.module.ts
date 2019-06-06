@@ -14,6 +14,7 @@ import { AdminComponent } from './users/admin/admin.component';
 import { MedicineComponent } from './users/admin/medicine/medicine.component';
 import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.component';
 import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
+import { BillComponent } from './users/pharmacist/bill/bill.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
 { path: 'pharmacist' , component:PharmacistComponent},
 { path: 'prescription' , component:IssueMedicineComponent},
 { path: 'restock' , component:RestockMedicineComponent},
+{ path: 'bill' , component:BillComponent },
 {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];

@@ -5,14 +5,14 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MedicineService } from '../../../shared/medicine.service';
 import { Medicine} from '../../../shared/medicine.model';
 
-declare var M: any;
+
 @Component({
-  selector: 'app-issue-medicine',
-  templateUrl: './issue-medicine.component.html',
-  styleUrls: ['./issue-medicine.component.css'],
-  providers: [MedicineService]
+  selector: 'app-bill',
+  templateUrl: './bill.component.html',
+  styleUrls: ['./bill.component.css']
 })
-export class IssueMedicineComponent implements OnInit {
+export class BillComponent implements OnInit {
+
 
   issuedMedicine = [];
   constructor(private medicineService: MedicineService){}
@@ -37,13 +37,6 @@ export class IssueMedicineComponent implements OnInit {
     
   }
    
-  /** 
-  onprint(){
-    this.router.navigateByUrl('/bill', { med: issuedMedicine });
-
-  }
-  */
-
   onSubmit(med, _id){
     /** this.medicineService.postMedicine(form.value).subscribe(res => {
       this.resetForm(form);
@@ -66,11 +59,6 @@ export class IssueMedicineComponent implements OnInit {
     });
   }
 
-  onAdd(med : Medicine){
-    console.log("edit works");
-    this.medicineService.selectedMedicine = med;
-   
-  }
 
   total(){
     var tot=0;

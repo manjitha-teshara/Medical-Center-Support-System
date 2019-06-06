@@ -81,9 +81,12 @@ img {
 }
 /* Add a background color and some padding around the form */
 .container {
+  width: 90%;
   border-radius: 5px;
   background-color: #e1ebf1ec;
-  padding: 20px;
+  padding: 10px;
+  margin-left: 60px;
+  margin-right:20px;
 }
 
 .dropbtn {
