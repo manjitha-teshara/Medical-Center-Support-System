@@ -16,7 +16,7 @@ export class UserService {
     phonenumber: '',
     password: '',
     phone: ''
-     };
+     }
 
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };

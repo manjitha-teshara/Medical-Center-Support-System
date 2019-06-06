@@ -9,6 +9,7 @@ import { error } from '@angular/compiler/src/util';
 import Swal from 'sweetalert';
 import { Router } from '@angular/router';
 
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -29,8 +30,8 @@ usr = new User();
 
   }
 
-  constructor(public dialog: MatDialog,private userservce :UserService) {}
- 
+  constructor(public dialog: MatDialog, private userservce: UserService, private router: Router) {}
+
 
   openDialogSignIn(): void {
     const dialogRef = this.dialog.open(LoginDialog, {
@@ -47,33 +48,50 @@ usr = new User();
       width: '500px',
     });
   }
+/**onLogout(){
+    this.userService.deleteToken();
+    this.router.navigate(['/login']);
+  } */
+  onLogout(){
+    this.userservce.deleteToken();
+    this.router.navigate(['']);
+  }
+
 }
 
 
 
-//get loging loalog box
+// get loging loalog box
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'login-dialog',
   templateUrl: 'login-dialog.html',
   styleUrls: ['./login.component.css'],
 })
+// tslint:disable-next-line:component-class-suffix
 export class LoginDialog {
-  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  serverErrorMessages:string;
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialog>,
     public dialog: MatDialog,
-    private userService:UserService,
-    private router : Router,
+    private userService: UserService,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  // tslint:disable-next-line:max-line-length
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  serverErrorMessages: string;
 
     /**constructor(private userService: UserService,private router : Router) { } */
 
-  model={
-    email:'',
-    password:''
+  model = {
+    email: '',
+    password: ''
   };
+  // tslint:disable-next-line:member-ordering
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  /*****/
+  hide = true;
 
   onNoClickSignUp(): void {
     this.dialogRef.close();
@@ -81,7 +99,6 @@ export class LoginDialog {
       width: '500px',
     });
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
@@ -89,64 +106,74 @@ export class LoginDialog {
             '';
   }
   /****/
-  onSubmit(form : NgForm){
+  onSubmit(form: NgForm) {
     this.userService.login(form.value).subscribe(
       res => {
         this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/docter');/**set naviagation to doctor dash board mailnly */
+        console.log(this.userService.isDoctor());
+       if (this.userService.isDoctor()){
+        this.router.navigateByUrl('/doctor'); /**set naviagation to doctor dash board mailnly */
+       } else if (this.userService.isPatient()){
+        this.router.navigateByUrl('/patient');
+       }       else if (this.userService.isAdmin()){
+        this.router.navigateByUrl('/admin');
+       }       else {
+         this.router.navigateByUrl('');
+       }
+
       },
       err => {
         this.serverErrorMessages = err.error.message;
       }
     );
   }
-  
-  /*****/
-  hide = true;
 }
 
 
 
-//get sign up dialog box
+// get sign up dialog box
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'signup-dialog',
   templateUrl: 'signup-dialog.html',
   styleUrls: ['./login.component.css'],
-  providers:[UserService]
+  providers: [UserService]
 })
 
 
+// tslint:disable-next-line:component-class-suffix
 export class SignupDialog {
-usr =new User();
+usr = new User();
+// tslint:disable-next-line:max-line-length
 emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-phone =/^(\+94)[0-9]{9,9}$/;
-showSucessMessage:boolean;
-serverErrorMessages:string;
+phone = /^(\+94)[0-9]{9,9}$/;
+showSucessMessage: boolean;
+serverErrorMessages: string;
   constructor(
     public dialogRef: MatDialogRef<LoginDialog>,
     public dialog: MatDialog,
-    private usersevice:UserService,
+    private usersevice: UserService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
 
-    onSubmit(form: NgForm){
+    onSubmit(form: NgForm) {
       this.usersevice.postuser(form.value).subscribe(
-        res=>{
+        res => {
           this.resetForm(form);
 
           Swal({
-            title: "Good job!",
-            text: "You Have Sussefully registered!",
-            icon: "success",
+            title: 'Good job!',
+            text: 'You Have Sussefully registered!',
+            icon: 'success',
           });
         },
-        err=>{
-         
-          swal ( "Oops " ,"",  "error" )
+        err => {
+
+          swal ( 'Oops ' , '',  'error' );
         }
-      )
+      );
     }
-  
+
   onNoClickSignIn(): void {
     this.dialogRef.close();
     const dialogRef = this.dialog.open(LoginDialog, {
@@ -183,15 +210,16 @@ serverErrorMessages:string;
 
     resetForm(form: NgForm) {
       this.usersevice.selectedUser = {
-        userName:'',
-      email:'',
-      phonenumber:'',
-      password:''
+        userName: '',
+      email: '',
+      phonenumber: '',
+      password: '',
+      phone: ''
       };
       form.resetForm();
       this.serverErrorMessages = '';
 
-    
+
   }
 
  
