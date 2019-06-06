@@ -108,9 +108,6 @@ export class UserService {
   getPatientDetails() {
     return this.http.get(environment.apiBaseUrl + '/getPatientDetails');
   }
-  getPharmasictstDetails() {
-    return this.http.get(environment.apiBaseUrl + '/getpharmacistDetails');
-  }
 
 
 

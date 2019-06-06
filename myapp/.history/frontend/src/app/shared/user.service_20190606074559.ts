@@ -16,7 +16,7 @@ export class UserService {
     phonenumber: '',
     password: '',
     phone: ''
-     };
+     }
 
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
@@ -107,9 +107,6 @@ export class UserService {
 
   getPatientDetails() {
     return this.http.get(environment.apiBaseUrl + '/getPatientDetails');
-  }
-  getPharmasictstDetails() {
-    return this.http.get(environment.apiBaseUrl + '/getpharmacistDetails');
   }
 
 

@@ -28,7 +28,7 @@ import { PatientComponent } from './users/patient/patient.component';
 import { PharmacistComponent, AvailabilityView, ViewPrescription, CalculateFee  } from './users/pharmacist/pharmacist.component';
 
 
-import { PrescriptionComponent} from './users/pharmacist/prescription/prescription.component';
+import { IssueMedicineComponent} from './users/pharmacist/issue-medicine/issue-medicine.component';
 
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserService } from './shared/user.service';
@@ -48,6 +48,7 @@ import { UpdateMedicineComponent } from './users/admin/update-medicine/update-me
 import { DoctorDetailComponent } from './users/admin/doctor-detail/doctor-detail.component';
 import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pharmacist-details.component';
 import { PatientRecordComponent } from './users/pharmacist/patient-record/patient-record.component';
+import { RestockMedicineComponent } from './users/pharmacist/restock-medicine/restock-medicine.component';
 
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
@@ -66,7 +67,7 @@ import { PatientRecordComponent } from './users/pharmacist/patient-record/patien
     DocterComponent,
     PatientComponent,
     PharmacistComponent,
-    PrescriptionComponent,
+    IssueMedicineComponent,
     BookingDialog,
     ViewMoreDialog,
     UserProfileComponent,
@@ -88,7 +89,8 @@ import { PatientRecordComponent } from './users/pharmacist/patient-record/patien
 
     FilterPipe,
     DoctorDetailComponent,
-    PatientRecordComponent
+    PatientRecordComponent,
+    RestockMedicineComponent
     
 
 
