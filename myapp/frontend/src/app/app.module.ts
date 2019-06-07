@@ -50,6 +50,7 @@ import { PharmacistDetailsComponent } from './users/admin/pharmacist-details/pha
 import { PatientRecordComponent } from './users/pharmacist/patient-record/patient-record.component';
 import { RestockMedicineComponent } from './users/pharmacist/restock-medicine/restock-medicine.component';
 import { BillComponent } from './users/pharmacist/bill/bill.component';
+import { MedicineListComponent } from './users/pharmacist/medicine-list/medicine-list.component';
 
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
@@ -92,7 +93,8 @@ import { BillComponent } from './users/pharmacist/bill/bill.component';
     DoctorDetailComponent,
     PatientRecordComponent,
     RestockMedicineComponent,
-    BillComponent
+    BillComponent,
+    MedicineListComponent
     
 
 
