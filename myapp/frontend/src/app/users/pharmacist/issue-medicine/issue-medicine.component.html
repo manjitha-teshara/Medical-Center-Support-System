@@ -28,8 +28,9 @@
                   <label>Selected  </label>
                 </div>
                 <div class="label col-md-4 ">
-                  
-                  <label>{{x.medicenList[0]}}</label>
+                    
+                  <label *ngFor="let med of medicineService.medList">
+                    {{med.name}}</label>
                   
                 </div>
               </div>
