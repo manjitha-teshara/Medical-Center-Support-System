@@ -18,6 +18,7 @@ export class IssueMedicineComponent implements OnInit {
 
   issuedMedicine = [];
   _id = "";
+  name="";
   x;
   serach = "";
   blah: string = "dsfsdffsdfs";

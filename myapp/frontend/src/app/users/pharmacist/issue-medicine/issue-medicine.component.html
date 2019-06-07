@@ -1,16 +1,50 @@
-<div class="row">
+<div class= "row">
   <div class="col-md-12">
     <div class="container">
-      <div class="row">
-        <h1>Issue Medicine</h1>
-
+      <div class="row"><h1>Issue Medicine {{patientRecordService.selectedPatientRecordClass.name}} </h1>
+        
         <div class="col-md-4">
-          aaaa bbb
+
+          <div class="row col-md-12">  
+            <div class="label col-md-4 ">
+              <label>Name: </label>
+            </div>
+            <div class="label col-md-4 ">
+              <label>{{x.name}}</label>
+            </div>
+          </div>
+
+          <div class="row col-md-12">  
+              <div class="label col-md-4 ">
+                <label>Age: </label>
+              </div>
+              <div class="label col-md-4 ">
+                <label>{{x.age}}</label>
+              </div>
+            </div>
+
+            <div class="row col-md-12">  
+                <div class="label col-md-4 ">
+                  <label>Selected  </label>
+                </div>
+                <div class="label col-md-4 ">
+                  
+                  <label>{{x.medicenList[0]}}</label>
+                  
+                </div>
+              </div>
+              <label>{{x.medicenList[1]}}</label>
+              <label>{{x.medicenList[2]}}</label>
+              <label>{{x.medicenList[3]}}</label>
+              <label>{{x.medicenList[4]}}</label>
+              <label>{{x.medicenList[5]}}</label>
+              <label>{{x.medicenList[6]}}</label>
+
         </div>
 
         <div class="col-md-6">
 
-          <div class="row col-md-12">  
+            <div class="row col-md-12">  
                 <div class="label col-md-4 ">
                   <label>Select Medicine</label>
                 </div>
@@ -18,9 +52,7 @@
                   <input type="text" [(ngModel)]="serach">
                 </div>
             </div>
-
-
-            <div>
+ 
               <ul>                
                 <li *ngFor="let med of medicineService.medi | filter:serach">
                   {{ med.name + ' '  + med.dose + med.unit + ' Rs:' + med.price}}  
@@ -30,7 +62,7 @@
                     
                 </li>
               </ul>
-            </div>
+         
 
             <div class="row col-md-12">  
                 <div class="label col-md-4 ">
@@ -50,29 +82,32 @@
                 </div>
             </div>
 
-          <div class="row col-md-12">
-            <button type="submit" (click)="onSubmit(med, medicineService.selectedMedicine._id)">Issue</button>
-          </div>
+            <div class="row col-md-12">
+                <button type="submit" (click)="onSubmit(med, medicineService.selectedMedicine._id)">Issue</button>
+            </div>
 
-
+    
+      
         </div>
 
         <div class="col-md-2">
-          <ul>
-            <h2>Bill</h2>
-            <li *ngFor="let med of issuedMedicine">
-              {{ med.name + ' '  + med.dose + med.unit + ' Rs:' + med.price + ' Qty: ' +med.qty}}
-            </li>
-            <h5>{{'Total Price: '+total()}}</h5>
-          </ul>
+            <ul>               
+              <h2>Bill</h2>
+                <li *ngFor="let med of issuedMedicine">
+                  {{ med.name + ' '  + med.dose + med.unit + ' Rs:' + med.price + ' Qty: ' +med.qty}}  
+                </li>
+                <h5>{{'Total Price: '+total()}}</h5>
+              </ul>
 
-          <!-- <button (click)="print()">Print</button> -->
+             <!-- <button (click)="print()">Print</button> -->
 
         </div>
-
+    
       </div>
-
+ 
     </div>
   </div>
 
 </div>
+
+
