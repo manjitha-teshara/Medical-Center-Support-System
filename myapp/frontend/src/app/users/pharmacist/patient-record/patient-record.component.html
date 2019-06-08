@@ -1,3 +1,5 @@
+
+
 <div class ="container">
   
      <div fxLayout="row" fxLayoutAlign="center center" class="content">
@@ -7,9 +9,9 @@
           </mat-card-title>
           <mat-card-content>
               <div class="search-div">
-                  <button mat-raised-button>
+                  <!-- <button mat-raised-button>
                     <mat-icon>add</mat-icon>Create
-                  </button>
+                  </button> -->
                  <mat-form-field>
                     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
                  </mat-form-field>
@@ -58,15 +60,17 @@
 
 
                     <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                  -->
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
                   <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
                  </table>
               </div>
             </mat-card-content>
           </mat-card>
-      </div>
+    
     </div>
+ 
 
 
