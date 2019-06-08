@@ -6,45 +6,30 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { MedicineService } from '../../../shared/medicine.service';
 import { Medicine} from '../../../shared/medicine.model';
 import { MatTableDataSource } from '@angular/material/table';
-import { PatientRecordsService } from 'src/app/shared/patientRecords/patient-records.service';
-import { DatePipe } from '@angular/common';
 
 declare var M: any;
 @Component({
   selector: 'app-medicine-list',
   templateUrl: './medicine-list.component.html',
   styleUrls: ['./medicine-list.component.css'],
-  providers: [MedicineService, PatientRecordsService ,DatePipe]
+  providers: [MedicineService]
 })
 
 export class MedicineListComponent implements OnInit {
-  today:number=Date.now();
- patientRecords = {
-   records:[]
- }
- tableData;
-
- myDate = new Date();
+  public dataSource = new MatTableDataSource< Medicine >();
+ 
     
-  constructor(private medicineService: MedicineService, private patientsRecordService: PatientRecordsService ,private datePipe: DatePipe){
-
-  }
-   
+  constructor(private medicineService: MedicineService){}
+    displayedColumns: string[] = ['name','type','price','qty','dose','notes','actions'];
+    hiddenColumns: string[] = ['_id','unit'];
   
 
   ngOnInit(){
-   // this.resetForm();
-    this.refreshPatientsRecordList();
-    this.patientsRecordService.getPatientRecordList().subscribe(res => {
-      console.log(res);
-      this.tableData =res;
-      //this.resetForm();
-    });
-
+    this.resetForm();
+    this.refreshMedicineList();
   }
 
- 
- /* resetForm(form?:NgForm){
+  resetForm(form?:NgForm){
     if(form)
       form.reset();
     this.medicineService.selectedMedicine = {
@@ -57,7 +42,7 @@ export class MedicineListComponent implements OnInit {
       qty:null
     }
     
-  }*/
+  }
    
   onSubmit(form : NgForm){
     /** this.medicineService.postMedicine(form.value).subscribe(res => {
@@ -65,15 +50,13 @@ export class MedicineListComponent implements OnInit {
       //M.toast({html: 'Saved successfully', classes: 'rounded'});
     });*/
     this.medicineService.editMedicine(form.value).subscribe(res => {
-
-      //this.resetForm();
+      this.resetForm();
     });
   }
 
-  refreshPatientsRecordList(){
-    this.patientsRecordService.getPatientRecordList().subscribe(res=>{
-     // this.dataSource.data = res as Medicine[];
-    // this.resetForm();
+  refreshMedicineList(){
+    this.medicineService.getMedicineList().subscribe((res) => {
+      this.dataSource.data = res as Medicine[];
     });
   }
 
@@ -94,9 +77,23 @@ export class MedicineListComponent implements OnInit {
   }
   */
 
+  onDelete(elm) {
+    if(confirm('Are you sure to delete this record?')==true){
+      this.dataSource.data = this.dataSource.data.filter(i => i !== elm);
+      this.medicineService.deleteMedicine(elm._id).subscribe((res)=>{
+        this.refreshMedicineList();
+      });
+    }
+  }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   
 
 }
+
+
+
 
 
