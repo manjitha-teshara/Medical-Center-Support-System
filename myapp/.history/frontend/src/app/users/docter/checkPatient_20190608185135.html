@@ -1,19 +1,21 @@
 <div class="pdetail-container">
+    <h3>Patient Details</h3>
+  <form #checkedPatientForm="ngForm" (ngSubmit)="onSubmitPrecord(checkedPatientForm)">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
           <mat-form-field>
-              <input matInput placeholder="ID">
+              <input matInput type="text" name="id" #id="ngModel" [(ngModel)]="model.id" placeholder="ID">
             </mat-form-field>
       </div>
       <div class="col-md-4">
           <mat-form-field>
-              <input matInput placeholder="Name">
+              <input matInput type="text" name="name" #name="ngModel" [(ngModel)]="model.name" placeholder="Name">
             </mat-form-field>
       </div>
       <div class="col-md-4">
           <mat-form-field>
-              <input matInput placeholder="Age">
+              <input matInput type="text" name="age" #age="ngModel" [(ngModel)]="model.age" placeholder="Age">
             </mat-form-field>
       </div>
     </div>
@@ -21,31 +23,28 @@
     <div class="row">
       <div class="col-md-4">
         <mat-form-field>
-          <textarea matInput placeholder="Description"></textarea>
+          <textarea matInput type="text" name="description" #description="ngModel" [(ngModel)]="model.description" placeholder="Description"></textarea>
+        </mat-form-field>
+    </div>
+   
+    <div class="col-md-4">
+        <mat-form-field>
+          <input matInput type="text" name="cost" #cost="ngModel" [(ngModel)]="model.cost" placeholder="Cost">
         </mat-form-field>
     </div>
     <div class="col-md-4">
-        <mat-form-field>
-          <mat-select placeholder="Select">
-            <mat-option value="option">Option</mat-option>
-          </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="col-md-4">
-        <mat-form-field>
-          <input matInput placeholder="Cost">
-        </mat-form-field>
-    </div>
+       
+        </div>
   </div>
     </div>
-
+    <h3>Medicene</h3>
     <table class="table table-striped table-bordered">
       <thead>
           <tr>
               <th>Code</th>
               <th>Name</th>
-              <th>Quantity</th>
-              <th>Times</th>
+              <th>Dose</th>
+              <th>Action</th>
           </tr>
       </thead>
       <tbody>
@@ -57,7 +56,7 @@
                   <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" />
               </td>
               <td>
-                  <input [(ngModel)]="field.price" class="form-control" type="text" name="{{field.price}}" />
+                  <input [(ngModel)]="field.quantity" class="form-control" type="text" name="{{field.price}}" />
               </td>
               <td>
                   <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
@@ -71,7 +70,7 @@
                   <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newAttribute.name" name="newAttributeName" />
               </td>
               <td>
-                  <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newAttribute.price" name="newAttributePrice" />
+                  <input class="form-control" type="text" id="newAttributeQuantity" [(ngModel)]="newAttribute.price" name="newAttributeQuantity" />
               </td>
               <td>
                   <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
@@ -80,7 +79,8 @@
       </tbody>
   </table>
 
-
-
+        <button mat-button type="submit" value="Checked">Checked</button>
+        
+    </form>
   </div>
   

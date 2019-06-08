@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// tslint:disable-next-line:import-spacing
 import { NgForm }   from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 
