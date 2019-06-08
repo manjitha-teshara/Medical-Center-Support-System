@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="input-field col-md-9 ">
                                         <select class="dropdown" name="type" #name="ngModel"
-                                            [(ngModel)]="medicineService.selectedMedicine.type">
+                                            [(ngModel)]="medicineService.selectedMedicine.type" >
                                             <option>Tablet</option>
                                             <option>Capsule</option>
                                             <option>Drop</option>
@@ -45,8 +45,8 @@
                                     </div>
 
                                     <div class="input-field col-md-5 ">
-                                        <input type="text" name="dose" #name="ngModel"
-                                            [(ngModel)]="medicineService.selectedMedicine.dose" required>
+                                        <input type="number" name="dose" #name="ngModel"
+                                            [(ngModel)]="medicineService.selectedMedicine.dose" placeholder="Requires a number" required>
                                     </div>
                                     <div class="input-field col-md-3 ">
                                         <select class="dropdown" name="unit" #name="ngModel"
@@ -64,8 +64,8 @@
                                         <label>Price: </label>
                                     </div>
                                     <div class="input-field col-md-9 ">
-                                        <input type="text" name="price" #name="ngModel"
-                                            [(ngModel)]="medicineService.selectedMedicine.price" required>
+                                        <input type="number" name="price" #name="ngModel"
+                                            [(ngModel)]="medicineService.selectedMedicine.price" placeholder="Requires a number" required>
                                     </div>
                                 </div>
 
@@ -74,8 +74,8 @@
                                         <label>Quantity: </label>
                                     </div>
                                     <div class="input-field col-md-9 ">
-                                        <input type="text" name="qty" #name="ngModel"
-                                            [(ngModel)]="medicineService.selectedMedicine.qty" required>
+                                        <input type="number" name="qty" #name="ngModel"
+                                            [(ngModel)]="medicineService.selectedMedicine.qty" placeholder="Requires a number" required>
                                     </div>
                                 </div>
 
