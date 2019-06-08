@@ -38,9 +38,12 @@ export class IssueMedicineComponent implements OnInit {
         cost: res.cost,
         description: res.description,
         date: res.date,
-        medicenList: res.medicenList[0]
+        medicenList1: res.medicenList[0],
+        medicenList2: res.medicenList[1],
+        medicenList3: res.medicenList[2],
+        medicenList4: res.medicenList[3]
       }
-      console.log("DFGHJ", this.x.name);
+      console.log("DFGHJ", this.x.medicenList);
     });
   }
 

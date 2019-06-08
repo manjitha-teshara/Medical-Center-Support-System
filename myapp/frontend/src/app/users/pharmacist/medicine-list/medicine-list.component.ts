@@ -7,22 +7,28 @@ import { MedicineService } from '../../../shared/medicine.service';
 import { Medicine} from '../../../shared/medicine.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { PatientRecordsService } from 'src/app/shared/patientRecords/patient-records.service';
+import { DatePipe } from '@angular/common';
 
 declare var M: any;
 @Component({
   selector: 'app-medicine-list',
   templateUrl: './medicine-list.component.html',
   styleUrls: ['./medicine-list.component.css'],
-  providers: [MedicineService, PatientRecordsService]
+  providers: [MedicineService, PatientRecordsService ,DatePipe]
 })
 
 export class MedicineListComponent implements OnInit {
+  today:number=Date.now();
  patientRecords = {
    records:[]
  }
  tableData;
+
+ myDate = new Date();
     
-  constructor(private medicineService: MedicineService, private patientsRecordService: PatientRecordsService){}
+  constructor(private medicineService: MedicineService, private patientsRecordService: PatientRecordsService ,private datePipe: DatePipe){
+
+  }
    
   
 
