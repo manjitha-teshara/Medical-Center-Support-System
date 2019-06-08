@@ -13,7 +13,11 @@
   </div>
   <div class="column" >
 
-    <br><br><br>
+      <section style="background-color:#EBF5FB  ;">
+          <h3>View Patients' Records</h3>
+          <p>Go to view the patients' records.</p>
+          <button style="width:160px" mat-raised-button [routerLink]="['/records']">View</button>
+        </section>
 
     <section style="background-color:#EBF5FB  ;">
       <h3>View Prescription</h3>
@@ -24,7 +28,7 @@
     <section style="background-color:#EBF5FB  ;">
       <h3>Check Availability and Issue Medicine</h3>
       <p>Check whether the prescribed medicine is available at the moment and Issue.</p>
-      <button style="width:160px" mat-raised-button [routerLink] = "['/prescription']">Issue Medicine</button>
+      <button style="width:160px" mat-raised-button [routerLink] = "['/medList']">Issue Medicine</button>
     </section>
 
     <section style="background-color:#EBF5FB  ;">
@@ -40,9 +44,7 @@
     </section>
    
   </div>
-
-
-<!-- <app-patient-record></app-patient-record> -->
-
-
 </div>
+<br><br>
+<!-- <div ><app-patient-record></app-patient-record></div> -->
+
