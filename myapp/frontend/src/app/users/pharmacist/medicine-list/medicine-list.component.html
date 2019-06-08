@@ -1,0 +1,41 @@
+<div class= "row">
+  <div class="col-xs-12">
+    <div class="container">
+        <div class="row"><h2>Prescription</h2>
+           
+          
+          <div class="col-sm-12">
+            <table class="responsible-table highlight">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>ID</th>
+                  <th>Age</th>
+                  <th>Description</th>
+                  <th> </th>             
+                </tr>
+              </thead>
+              <tr *ngFor="let rec of tableData">
+                  <td>{{rec.name}}</td>
+                  <td>{{rec.id}}</td>
+                  <td>{{rec.age}}</td>
+                  <td>{{rec.description}}</td>
+                
+                  <td>
+
+                    <a class="action-btn"  [routerLink]=" ['/issueMed/'+rec._id] ">
+                      <i class="material-icons">edit</i>
+                    </a>
+
+                  </td>
+
+              
+              </tr>
+            </table>
+         </div>
+
+        </div>
+    </div>
+  </div>
+</div>
+<button  [routerLink] = "['/issueMed']">Issue Medicine</button>
