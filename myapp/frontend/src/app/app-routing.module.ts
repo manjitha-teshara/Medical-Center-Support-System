@@ -15,6 +15,8 @@ import { AdminComponent } from './users/admin/admin.component';
 import { MedicineComponent } from './users/admin/medicine/medicine.component';
 import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.component';
 import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
+import { BillComponent } from './users/pharmacist/bill/bill.component';
+import { MedicineListComponent } from './users/pharmacist/medicine-list/medicine-list.component';
 
 
 const routes: Routes = [
@@ -29,9 +31,12 @@ const routes: Routes = [
 { path: 'addMed' , component:AddMedicineComponent},
 { path: 'updateMed/:_id' , component:UpdateMedicineComponent},
 { path: 'pharmacist' , component:PharmacistComponent},
+{ path: 'issueMed/:_id' , component:IssueMedicineComponent},
+{ path: 'medList' , component:MedicineListComponent},
 { path: 'prescription' , component:IssueMedicineComponent},
 { path: 'records' , component:PatientRecordComponent},
 { path: 'restock' , component:RestockMedicineComponent},
+{ path: 'bill' , component:BillComponent },
 {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];
