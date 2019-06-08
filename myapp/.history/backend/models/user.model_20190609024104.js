@@ -20,7 +20,12 @@ var userSchema = new mongoose.Schema({
     },
     type:{
         type:String,
-        default:"doctor"
+        default:"patient"
+        
+    },
+    phone:{
+        type:String,
+       
         
     },
     saltSecret:String
@@ -52,7 +57,7 @@ userSchema.methods.verifyPassword=function(password){
 userSchema.methods.generateJwt=function(){
     return jwt.sign({
         _id:this._id,
-        userType:this.userType        
+        type:this.type        
     },
     process.env.JWT_SECRET,
     {

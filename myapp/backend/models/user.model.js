@@ -20,7 +20,7 @@ var userSchema = new mongoose.Schema({
     },
     type:{
         type:String,
-        default:"doctor"
+        default:"patient"
         
     },
     phone:{

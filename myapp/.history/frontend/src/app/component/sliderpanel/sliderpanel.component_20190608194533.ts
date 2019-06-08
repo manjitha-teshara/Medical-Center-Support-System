@@ -8,31 +8,39 @@ import { NgForm } from '@angular/forms';
 import { error } from '@angular/compiler/src/util';
 import Swal from 'sweetalert';
 import { Router } from '@angular/router';
+import { DoctorService } from '../../shared/doctor/doctor.service';
+import { Doctor } from '../../shared/doctor/doctor.model';
 
 
 export interface DialogData {
   animal: string;
   name: string;
+  doctor: Doctor;
+  Doctors: Doctor;
 }
+
+
+
 
 
 
 @Component({
   selector: 'app-sliderpanel',
   templateUrl: './sliderpanel.component.html',
-  styleUrls: ['./sliderpanel.component.css']
+  styleUrls: ['./sliderpanel.component.css'],
+  providers: [DoctorService]
 })
 export class SliderpanelComponent implements OnInit {
+  Doctors: Doctor[];
 
-
-usr =new User();
+usr = new User();
   ngOnInit() {
- 
 
+    this.refreshDoctors();
   }
 
-  constructor(public dialog: MatDialog,private userservce :UserService) {}
- 
+  constructor(public dialog: MatDialog, private userservce: UserService, private doctorservice: DoctorService) {}
+
 
   openDialogSignIn(): void {
     const dialogRef = this.dialog.open(LoginDialogInBox, {
@@ -52,24 +60,34 @@ usr =new User();
 
   openDialogBooking(): void {
     const dialogRef = this.dialog.open(BookingDialog, {
-      width: '800px',
+      // width: '800px',
     });
   }
 
-  openViewMore(): void {
-    const dialogRef = this.dialog.open(ViewMoreDialog, {
-      width: '800px',
+  openViewMore(dname: Doctor): void {
+    console.log(dname);
+    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {doctor : dname}, width: '500px'}); // , {data: {'dname': 'dname'}}
+  }
+
+  refreshDoctors() {
+    this.doctorservice.getDoctorsList().subscribe((res ) => {
+      this.Doctors = res as Doctor[];
+      console.log("*************refres");
+      console.log(res);
+      console.log("*************refres");
+
+
     });
   }
 
 
 
-  
+
 }
 
 
 
-//get loging loalog box
+// get loging loalog box
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'login-dialog',
@@ -78,7 +96,7 @@ usr =new User();
 })
 // tslint:disable-next-line:component-class-suffix
 export class LoginDialogInBox {
-  
+
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialogInBox>,
@@ -87,13 +105,28 @@ export class LoginDialogInBox {
     private userService: UserService,
     private router: Router) {}
 
+
+  // tslint:disable-next-line:max-line-length
+  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  serverErrorMessages: string;
+
+
+  model = {
+    email: '',
+    password: ''
+  };
+  // tslint:disable-next-line:member-ordering
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+
+  hide = true;
+
   onNoClickSignUp(): void {
     this.dialogRef.close();
     const dialogRef = this.dialog.open(SignupDialogInBox, {
       width: '500px',
     });
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
@@ -105,56 +138,65 @@ export class LoginDialogInBox {
     this.userService.login(form.value).subscribe(
       res => {
         this.userService.setToken(res['token']);
-        this.router.navigateByUrl('/docter'); /**set naviagation to doctor dash board mailnly */
+        console.log(this.userService.isDoctor());
+       if (this.userService.isDoctor()) {
+        this.router.navigateByUrl('/doctor'); /**set naviagation to doctor dash board mailnly */
+       } else if (this.userService.isPatient()) {
+        this.router.navigateByUrl('/patient'); /**set naviagation to patient dash board mailnly */
+       } else if (this.userService.isAdmin()) {
+        this.router.navigateByUrl('/admin'); /**set naviagation to admin dash board mailnly */
+       } else {
+         this.router.navigateByUrl('');
+       }
+
       },
       err => {
         this.serverErrorMessages = err.error.message;
       }
     );
   }
-
-
-  hide = true;
 }
 
 
 
-//get sign up dialog box
+// get sign up dialog box
 @Component({
   selector: 'signup-dialog',
   templateUrl: 'signup-dialog.html',
   styleUrls: ['./sliderpanel.component.css'],
-  providers:[UserService]
+  providers: [UserService]
 })
 
 
 export class SignupDialogInBox {
-usr =new User();
-emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-phone =/^(\+94)[0-9]{9,9}$/;
   constructor(
     public dialogRef: MatDialogRef<LoginDialogInBox>,
     public dialog: MatDialog,
-    private usersevice:UserService,
+    private usersevice: UserService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+usr = new User();
+emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+phone = /^(\+94)[0-9]{9,9}$/;
+  email = new FormControl('', [Validators.required, Validators.email]);
+  hide = true;
 
 
-    onSubmit(form: NgForm){
+    onSubmit(form: NgForm) {
       this.usersevice.postuser(form.value).subscribe(
-        res=>{
+        res => {
           Swal({
-            title: "Good job!",
-            text: "You Have Sussefully registered!",
-            icon: "success",
+            title: 'Good job!',
+            text: 'You Have Sussefully registered!',
+            icon: 'success',
           });
         },
-        err=>{
-         
-          swal ( "Oops" ,"",  "error" )
+        err => {
+
+          swal( "Oops" , "", "error" );
         }
-      )
+      );
     }
-  
+
   onNoClickSignIn(): void {
 
     this.dialogRef.close();
@@ -162,29 +204,29 @@ phone =/^(\+94)[0-9]{9,9}$/;
       width: '500px',
     });
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
         this.email.hasError('email') ? 'Not a valid email' :
             '';
   }
-  hide = true;
 
- 
+
 
 }
 
 
 
 
-//booking button
+// booking button
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'booking-dialog',
   templateUrl: 'booking-dialog.html',
-  styleUrls: ['./sliderpanel.component.css','./booking-dialog.css'],
+  styleUrls: ['./sliderpanel.component.css', './booking-dialog.css'],
 })
+// tslint:disable-next-line:component-class-suffix
 export class BookingDialog {
 
   constructor(
@@ -192,30 +234,58 @@ export class BookingDialog {
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-   
-   
+
+
   hide = true;
 }
 
 
 
-//view more button
+// view more button
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'viewMore-dialog',
   templateUrl: 'viewMore-dialog.html',
   styleUrls: ['./sliderpanel.component.css'],
+  providers: [DoctorService]
 })
+// tslint:disable-next-line:component-class-suffix
 export class ViewMoreDialog {
-
   constructor(
     public dialogRef: MatDialogRef<ViewMoreDialog>,
     public dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private doctorservice: DoctorService) {}
 
-   
-   
+  Doctors: Doctor;
+
+
+
   hide = true;
+
+
+    // tslint:disable-next-line:use-life-cycle-interface
+    ngOnInit() {
+      console.log('**********vm');
+      console.log(this.data.doctor);
+
+      console.log('**********vm');
+      // this.Doctors = this.data as Doctor[];
+
+    // this.doctorservice.getDoctorsList().subscribe((res ) => {
+    //   this.Doctors = res as Doctor[];
+    //   console.log(res);
+
+    // });
+
+    this.doctorservice.getSelectDoctor(this.data.doctor).subscribe((res) => {
+      this.Doctors = res as Doctor;
+      console.log('*************getselect');
+      console.log(res);
+      console.log('*************getselect');
+    });
+   }
 }
 
 
