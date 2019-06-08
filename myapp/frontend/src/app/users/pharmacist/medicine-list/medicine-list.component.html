@@ -59,12 +59,7 @@
         </mat-card-title>
         <mat-card-content>
           <div class="search-div">
-              <button mat-raised-button [routerLink] = "['/issueMedOutsiders']">
-                  <mat-icon>add</mat-icon>Issue Medicine
-              </button>    
-              <button mat-raised-button [routerLink] = "['/restock']">
-                <mat-icon>add</mat-icon>Restock Medicine
-            </button>
+              
               <mat-form-field>
                   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
               </mat-form-field>
