@@ -9,13 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 
 declare var M: any;
 @Component({
-  selector: 'app-issue-medicine',
-  templateUrl: './issue-medicine.component.html',
-  styleUrls: ['./issue-medicine.component.css'],
-  providers: [MedicineService, PatientRecordsService]
+  selector: 'app-issue-medicine-outsiders',
+  templateUrl: './issue-medicine-outsiders.component.html',
+  styleUrls: ['./issue-medicine-outsiders.component.css'],
+  providers: [MedicineService]
 })
-export class IssueMedicineComponent implements OnInit {
-
+export class IssueMedicineOutsidersComponent implements OnInit {
+  
   issuedMedicine = [];
   _id = "";
   name="";
@@ -120,5 +120,4 @@ export class IssueMedicineComponent implements OnInit {
   }
 
 }
-
 
