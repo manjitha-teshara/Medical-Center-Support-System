@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IssueMedicineComponent } from './issue-medicine.component';
+import { IssueMedicineComponent } from './issue-medicine.component
 //import { PharmacistComponent } from './../pharmacist.component';
 
 describe('PrescriptionComponent', () => {
