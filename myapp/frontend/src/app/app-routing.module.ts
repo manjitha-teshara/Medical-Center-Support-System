@@ -18,6 +18,8 @@ import { AddMedicineComponent } from './users/admin/add-medicine/add-medicine.co
 import { UpdateMedicineComponent } from './users/admin/update-medicine/update-medicine.component';
 import { BillComponent } from './users/pharmacist/bill/bill.component';
 import { MedicineListComponent } from './users/pharmacist/medicine-list/medicine-list.component';
+import { AboutUsComponent } from './component/footer/about-us/about-us.component';
+import { ContactUsComponent } from './component/footer/contact-us/contact-us.component';
 
 
 const routes: Routes = [
@@ -39,6 +41,8 @@ const routes: Routes = [
 { path: 'records' , component:PatientRecordComponent},
 { path: 'restock' , component:RestockMedicineComponent},
 { path: 'bill' , component:BillComponent },
+{ path: 'about-us' , component:AboutUsComponent },
+{ path: 'contact-us' , component:ContactUsComponent},
 {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]}
 
 ];
