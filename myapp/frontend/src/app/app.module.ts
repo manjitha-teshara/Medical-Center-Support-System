@@ -52,6 +52,8 @@ import { RestockMedicineComponent } from './users/pharmacist/restock-medicine/re
 import { BillComponent } from './users/pharmacist/bill/bill.component';
 import { MedicineListComponent } from './users/pharmacist/medicine-list/medicine-list.component';
 import { IssueMedicineOutsidersComponent } from './users/pharmacist/issue-medicine-outsiders/issue-medicine-outsiders.component';
+import { ContactUsComponent } from './component/footer/contact-us/contact-us.component';
+import { AboutUsComponent } from './component/footer/about-us/about-us.component';
 
 // for docter dash board
 // import { CheckPatient } from './users/docter/checkPatient';
@@ -96,7 +98,9 @@ import { IssueMedicineOutsidersComponent } from './users/pharmacist/issue-medici
     RestockMedicineComponent,
     BillComponent,
     MedicineListComponent,
-    IssueMedicineOutsidersComponent
+    IssueMedicineOutsidersComponent,
+    ContactUsComponent,
+    AboutUsComponent
     
 
 
