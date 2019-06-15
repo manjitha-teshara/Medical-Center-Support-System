@@ -2,16 +2,18 @@
   <div class="col-md-12">
     <div class="container">
       <div class="row">
-        <h1>Issue Medicine {{patientRecordService.selectedPatientRecordClass.name}} </h1>
+        <h1>Medicine </h1>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
+
+            <h3>Prescription</h3>
 
           <div class="row col-md-12">
             <div class="label col-md-4 ">
               <label>Name: </label>
             </div>
             <div class="label col-md-4 ">
-              <label>{{x.name}}</label>
+              <label style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-left:15px;">{{x.name}}</label>
             </div>
           </div>
 
@@ -20,22 +22,20 @@
               <label>Age: </label>
             </div>
             <div class="label col-md-4 ">
-              <label>{{x.age}}</label>
+              <label style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-left:15px;">{{x.age}}</label>
             </div>
           </div>
 
           <div class="row col-md-12">
             <div class="label col-md-4 ">
-              <label>Selected: </label>
+              <label style="margin-bottom: 5px;">Selected: </label>
             </div>
-          </div>
-          <div class="row col-md-12">
-
             <div class="label col-md-4 ">
-              <label
-                style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-left:150px; margin-top: 5px;margin-bottom: 5px;">{{x.medicenList1}}</label>
-            </div>
+                <label
+                  style="font-family: 'Roboto Medium', sans-serif; font-size: 15px; margin-bottom: 5px;">{{x.medicenList1}}</label>
+              </div>
           </div>
+        
           <div class="row col-md-12">
             <div class="label col-md-4 ">
               <label
@@ -63,20 +63,21 @@
 
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
+            <h3  style="margin-left:150px;" >Issue Medicine</h3>
 
           <div class="row col-md-12">
-            <div class="label col-md-4 ">
+            <div class="label col-md-5 ">
               <label>Select Medicine</label>
             </div>
-            <div class="input-field col-md-8 ">
+            <div class="input-field col-md-7 ">
               <input type="text" [(ngModel)]="serach">
             </div>
           </div>
 
           <ul>
             <li *ngFor="let med of medicineService.medi | filter:serach">
-              {{ med.name + ' '  + med.dose + med.unit + ' Rs:' + med.price}}
+              {{ med.name + ' '  + med.dose + med.unit + ' ' +med.type}}
               <a class="action-btn" (click)="onAdd(med)">
                 <i class="material-icons">add</i>
               </a>
@@ -86,19 +87,19 @@
 
 
           <div class="row col-md-12">
-            <div class="label col-md-4 ">
-              <label name="cur">Available Quantity </label>
+            <div class="label col-md-6 ">
+              <label name="cur">Selected Medicine</label>
             </div>
-            <div class="input-field col-md-8 ">
-              <label name="curQuantity"> {{medicineService.selectedMedicine.qty}} </label>
+            <div class="input-field col-md-6 ">
+              <label name="curQuantity"> {{medicineService.selectedMedicine.name +' '+ medicineService.selectedMedicine.dose + medicineService.selectedMedicine.unit}} </label>
             </div>
           </div>
 
           <div class="row col-md-12">
-            <div class="label col-md-4 ">
-              <label name="medList">{{medicineService.selectedMedicine.name}}</label>
-            </div>
-            <div class="input-field col-md-8 ">
+              <div class="label col-md-6 ">
+                  <label name="cur">Quantity </label>
+                </div>
+            <div class="input-field col-md-6 ">
               <input type="text" name="quantity" #name="ngModel" placeholder="Enter the quantity"
                 [(ngModel)]="medicineService.selectedMedicine.qty" required>
             </div>
@@ -112,13 +113,13 @@
 
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
           <ul>
-            <h2>Bill</h2>
+            <h3>Selected Medicine</h3>
             <li *ngFor="let med of issuedMedicine">
-              {{ med.name + ' '  + med.dose + med.unit + ' Rs:' + med.price + ' Qty: ' +med.qty}}
+              {{ med.name + ' '  + med.dose + med.unit + ' Qty: ' +med.qty}}
             </li>
-            <h5>{{'Total Price: '+total()}}</h5>
+           
           </ul>
 
           <!-- <button (click)="print()">Print</button> -->

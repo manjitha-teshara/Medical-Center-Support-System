@@ -43,7 +43,8 @@ export class IssueMedicineComponent implements OnInit {
         medicenList3: res.medicenList[2],
         medicenList4: res.medicenList[3]
       }
-      console.log("DFGHJ", this.x.medicenList);
+      var docFee= this.x.cost;
+      console.log("DFGHJ", docFee);
     });
   }
 
@@ -109,6 +110,13 @@ export class IssueMedicineComponent implements OnInit {
     }
     return tot;
 
+  }
+
+  fee(){
+    this._id = this.route.snapshot.params['_id'];
+    var tot=0;
+
+      
   }
 
 }
