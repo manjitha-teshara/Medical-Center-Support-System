@@ -56,7 +56,7 @@
                     <ul>
                         <h3>Selected Medicine List</h3>
                         <li *ngFor=" let med of issuedMedicine ">
-                            {{ med.name + ' ' + med.dose + med.unit + ' Rs:' + med.price + ' Qty: ' +med.qty}}
+                            {{ med.name + ' ' + med.dose + med.unit + ' Unit Price = Rs:' + med.price + ' Qty: ' +med.qty}}
                         </li>
                         <h4>{{'Total Price: '+total()}}</h4>
                     </ul>

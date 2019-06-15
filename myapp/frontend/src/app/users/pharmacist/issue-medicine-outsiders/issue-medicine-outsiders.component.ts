@@ -21,7 +21,7 @@ export class IssueMedicineOutsidersComponent implements OnInit {
   name="";
   x;
   serach = "";
-  blah: string = "dsfsdffsdfs";
+  //blah: string = "dsfsdffsdfs";
   constructor(private medicineService: MedicineService, public patientRecordService: PatientRecordsService, public route: ActivatedRoute) { }
 
 
