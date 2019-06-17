@@ -9,7 +9,6 @@
 
 **IN SCOPE**
 - Full featured web application for handling medicale center information.
-
     -Registration of doctors.
     -Manage doctor details.
     -Registration of patients.
