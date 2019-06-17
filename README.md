@@ -5,23 +5,6 @@
 
 ### Introduction
 
-### Screenshots
-![Capture01](./readme-assets/capture01.jpg)
-
-<br>
-
-![Capture02](./readme-assets/capture02.jpg)
-
-<br>
-
-![Capture03](./readme-assets/capture03.jpg)
-
-<br>
-
-![Capture04](./readme-assets/capture04.jpg)
-
-<br>
-
 ### Project Scope
 
 **IN SCOPE**
