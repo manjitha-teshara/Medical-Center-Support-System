@@ -126,6 +126,7 @@ export class LoginDialog {
         this.serverErrorMessages = err.error.message;
       }
     );
+    this.dialogRef.close();
   }
 }
 
@@ -172,6 +173,7 @@ serverErrorMessages: string;
           swal ( 'Oops ' , '',  'error' );
         }
       );
+      this.dialogRef.close();
     }
 
   onNoClickSignIn(): void {

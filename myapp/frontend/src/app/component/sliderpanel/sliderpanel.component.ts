@@ -154,6 +154,7 @@ export class LoginDialogInBox {
         this.serverErrorMessages = err.error.message;
       }
     );
+    this.dialogRef.close();
   }
 }
 
@@ -195,6 +196,7 @@ phone = /^(\+94)[0-9]{9,9}$/;
           swal( "Oops" , "", "error" );
         }
       );
+      this.dialogRef.close();
     }
 
   onNoClickSignIn(): void {
