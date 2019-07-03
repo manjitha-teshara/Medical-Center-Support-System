@@ -117,8 +117,8 @@ export class LoginDialog {
         this.router.navigateByUrl('/patient');
        }       else if (this.userService.isAdmin()){
         this.router.navigateByUrl('/admin');
-       }       else {
-         this.router.navigateByUrl('');
+       }       else if(this.userService.isPharmacist()){
+         this.router.navigateByUrl('/pharmacist');
        }
 
       },
