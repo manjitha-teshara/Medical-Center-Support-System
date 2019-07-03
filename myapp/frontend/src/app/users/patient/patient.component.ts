@@ -3,6 +3,8 @@ import { DoctorService } from '../../shared/doctor/doctor.service';
 import { Doctor } from '../../shared/doctor/doctor.model';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { User } from 'src/app/shared/user.model';
+import { NgForm } from '@angular/forms';
+
 
 
 export interface DialogData {
@@ -86,6 +88,14 @@ export class BookingDialog {
 
     Doctors: Doctor;
 
+    model = {
+      _id: '',
+      f_name: '',
+      l_name: '',
+      mobile: '',
+      date: ''
+    };
+
 
 
 
@@ -110,6 +120,36 @@ export class BookingDialog {
       console.log('*************getselect');
     });
    }
+
+   onSubmit(form: NgForm) {
+
+    console.log(form.value._id);
+    console.log(form.value.f_name);
+
+    //  console.log("inonSubmitPrecord");
+    // const patientRecords = new PatientRecordClass();
+    
+    // patientRecords.name = form.value.name;
+    // patientRecords.id = form.value.id;
+    // patientRecords.age = form.value.age;
+    // patientRecords.cost = form.value.cost;
+    // patientRecords.description = form.value.description;
+    // patientRecords.medicenList = this.sheduleArray;
+    //  this.patientRecordsService.postPatientRecord(patientRecords).subscribe(
+    //    res => {
+    //      this.resetForm(form);
+    //      swal({
+    //        title: 'checked !',
+    //        text: 'You have Sussefully submit report !',
+    //        icon: 'success',
+    //      });
+    //    },
+    //    err => {
+    //      swal ('Oops', '', 'error');
+    //    }
+    //  );
+     this.dialogRef.close();
+    }
 
     
 
