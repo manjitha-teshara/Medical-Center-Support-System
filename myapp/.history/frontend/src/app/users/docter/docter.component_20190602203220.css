@@ -1,0 +1,9 @@
+.pdetail-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pdetail-container > * {
+    width: 100%;
+  }
+  

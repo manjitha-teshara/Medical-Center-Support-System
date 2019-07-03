@@ -15,6 +15,8 @@ import { Doctor } from '../../shared/doctor/doctor.model';
 export interface DialogData {
   animal: string;
   name: string;
+  doctor: Doctor;
+  Doctors: Doctor;
 }
 
 
@@ -38,7 +40,7 @@ usr = new User();
   }
 
   constructor(public dialog: MatDialog, private userservce: UserService, private doctorservice: DoctorService) {}
- 
+
 
   openDialogSignIn(): void {
     const dialogRef = this.dialog.open(LoginDialogInBox, {
@@ -62,15 +64,18 @@ usr = new User();
     });
   }
 
-  openViewMore(dname): void {
+  openViewMore(dname: Doctor): void {
     console.log(dname);
-    const dialogRef = this.dialog.open(ViewMoreDialog);
+    const dialogRef = this.dialog.open(ViewMoreDialog, {data: {doctor : dname}, width: '500px'}); // , {data: {'dname': 'dname'}}
   }
 
   refreshDoctors() {
     this.doctorservice.getDoctorsList().subscribe((res ) => {
       this.Doctors = res as Doctor[];
+      console.log("*************refres");
       console.log(res);
+      console.log("*************refres");
+
 
     });
   }
@@ -105,11 +110,16 @@ export class LoginDialogInBox {
   emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   serverErrorMessages: string;
 
-  
+
   model = {
     email: '',
     password: ''
   };
+  // tslint:disable-next-line:member-ordering
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+
+  hide = true;
 
   onNoClickSignUp(): void {
     this.dialogRef.close();
@@ -117,8 +127,6 @@ export class LoginDialogInBox {
       width: '500px',
     });
   }
-  // tslint:disable-next-line:member-ordering
-  email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
@@ -146,50 +154,51 @@ export class LoginDialogInBox {
         this.serverErrorMessages = err.error.message;
       }
     );
+    this.dialogRef.close();
   }
-
-
-  hide = true;
 }
 
 
 
-//get sign up dialog box
+// get sign up dialog box
 @Component({
   selector: 'signup-dialog',
   templateUrl: 'signup-dialog.html',
   styleUrls: ['./sliderpanel.component.css'],
-  providers:[UserService]
+  providers: [UserService]
 })
 
 
 export class SignupDialogInBox {
-usr =new User();
-emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-phone =/^(\+94)[0-9]{9,9}$/;
   constructor(
     public dialogRef: MatDialogRef<LoginDialogInBox>,
     public dialog: MatDialog,
-    private usersevice:UserService,
+    private usersevice: UserService,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+usr = new User();
+emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+phone = /^(\+94)[0-9]{9,9}$/;
+  email = new FormControl('', [Validators.required, Validators.email]);
+  hide = true;
 
 
-    onSubmit(form: NgForm){
+    onSubmit(form: NgForm) {
       this.usersevice.postuser(form.value).subscribe(
-        res=>{
+        res => {
           Swal({
-            title: "Good job!",
-            text: "You Have Sussefully registered!",
-            icon: "success",
+            title: 'Good job!',
+            text: 'You Have Sussefully registered!',
+            icon: 'success',
           });
         },
-        err=>{
-         
-          swal ( "Oops" ,"",  "error" )
+        err => {
+
+          swal( "Oops" , "", "error" );
         }
-      )
+      );
+      this.dialogRef.close();
     }
-  
+
   onNoClickSignIn(): void {
 
     this.dialogRef.close();
@@ -197,29 +206,29 @@ phone =/^(\+94)[0-9]{9,9}$/;
       width: '500px',
     });
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
         this.email.hasError('email') ? 'Not a valid email' :
             '';
   }
-  hide = true;
 
- 
+
 
 }
 
 
 
 
-//booking button
+// booking button
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'booking-dialog',
   templateUrl: 'booking-dialog.html',
-  styleUrls: ['./sliderpanel.component.css','./booking-dialog.css'],
+  styleUrls: ['./sliderpanel.component.css', './booking-dialog.css'],
 })
+// tslint:disable-next-line:component-class-suffix
 export class BookingDialog {
 
   constructor(
@@ -227,42 +236,58 @@ export class BookingDialog {
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-   
-   
+
+
   hide = true;
 }
 
 
 
-//view more button
+// view more button
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'viewMore-dialog',
   templateUrl: 'viewMore-dialog.html',
   styleUrls: ['./sliderpanel.component.css'],
   providers: [DoctorService]
 })
+// tslint:disable-next-line:component-class-suffix
 export class ViewMoreDialog {
-
-  Doctors: Doctor[];
   constructor(
     public dialogRef: MatDialogRef<ViewMoreDialog>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private doctorservice: DoctorService) {}
 
+  Doctors: Doctor;
 
-    ngOnInit() {
-      
-    this.doctorservice.getDoctorsList().subscribe((res ) => {
-      this.Doctors = res as Doctor[];
-      console.log(res);
 
-    });}
 
-   
-   
   hide = true;
+
+
+    // tslint:disable-next-line:use-life-cycle-interface
+    ngOnInit() {
+      console.log('**********vm');
+      console.log(this.data.doctor);
+
+      console.log('**********vm');
+      // this.Doctors = this.data as Doctor[];
+
+    // this.doctorservice.getDoctorsList().subscribe((res ) => {
+    //   this.Doctors = res as Doctor[];
+    //   console.log(res);
+
+    // });
+
+    this.doctorservice.getSelectDoctor(this.data.doctor).subscribe((res) => {
+      this.Doctors = res as Doctor;
+      console.log('*************getselect');
+      console.log(res);
+      console.log('*************getselect');
+    });
+   }
 }
 
 

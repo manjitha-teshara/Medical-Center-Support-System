@@ -1,0 +1,124 @@
+<div class="pdetail-container">
+  <form #manageDoctorView="ngForm" (ngSubmit)="onSubmitDoctorView(manageDoctorView)">
+  <div class="container">
+    <div class="row">
+    
+      <div class="col-md-4">
+          <mat-form-field>
+              <input matInput type="text" name="fullname" #name="ngModel" [(ngModel)]="model.fullname" (change)="getDoctorRealTime()" placeholder="Name">
+            </mat-form-field>
+      </div>
+      <div class="col-md-4">
+          <mat-form-field>
+              <input matInput type="text" name="checkuptype" #checkuptype="ngModel" [(ngModel)]="model.checkuptype" placeholder="Checkup type">
+            </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field>
+          <input matInput type="text" name="price" #price="ngModel" [(ngModel)]="model.price" placeholder="Price">
+        </mat-form-field>
+    </div>
+    <div class="col-md-4">
+       
+    </div>
+    <div class="col-md-4">
+        <mat-form-field>
+          <input matInput type="text" name="image" #image="ngModel" [(ngModel)]="model.image" placeholder="Image">
+        </mat-form-field>
+    </div>
+  </div>
+    </div>
+
+    <table class="table table-striped table-bordered">
+      <thead>
+          <tr>
+              <th>Day</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let field of fieldArray; let i = index">
+              <td>
+                  <input [(ngModel)]="field.day" class="form-control" type="text" name="{{field.day}}" />
+              </td>
+              <td>
+                  <input [(ngModel)]="field.startTime" class="form-control" type="text" name="{{field.startTime}}" />
+              </td>
+              <td>
+                  <input [(ngModel)]="field.endTime" class="form-control" type="text" name="{{field.endTime}}" />
+              </td>
+              <td>
+                  <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <input class="form-control" type="text" id="newAttributeDay" [(ngModel)]="newAttribute.day" name="newAttributeDay" />
+              </td>
+              <td>
+                  <input class="form-control" type="text" id="newAttributestartTime" [(ngModel)]="newAttribute.startTime" name="newAttributestartTime" />
+              </td>
+              <td>
+                  <input class="form-control" type="text" id="newAttributeendTime" [(ngModel)]="newAttribute.endTime" name="newAttributeendTime" />
+              </td>
+              <!-- <td>
+                    <input value='{{newAttribute.day + newAttribute.startTime + newAttribute.endTime}}', [(ngModel)]="dshedule", style="display:none">
+              </td> -->
+              <td>
+                  <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+
+        <input type="submit" value="Checked">
+        
+    </form>
+    <div class="row">
+            <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <div class="card row">
+                          <div class="col-md-3">
+                            <div class="row"></div>
+                            <div class="row"></div>
+                          </div>
+                          <div class="col-md-4"></div>
+                          <div class="col-md-2"></div>
+                          <div class="col-md-3">
+                            
+                            <div class="row"></div>
+                            <div class="row"></div>
+                          </div>
+                        </div>
+                      </tr>
+                    </thead>
+                    <!-- {{Doctors[0].fullname}} -->
+                    <!-- <tr *ngFor="let  doctor of Doctors">
+                      <td><img src={{doctor.image}}></td>
+                      <td>{{doctor.fullname}}</td>
+                      <td>{{doctor.checkuptype}}</td>
+                      <td>{{doctor.price}}</td>
+                    </tr> -->
+          
+                    <tr *ngFor="let  doctor of Doctors">
+                      <div class="card row" style="padding:5px">
+                        <div class="col-md-3">{{doctor.fullname}}</div>
+                        <div class="col-md-4">{{doctor.checkuptype}}</div>
+                        <div class="col-md-2">{{doctor.price}}</div>
+                        <div class="col-md-3" >
+                         
+                          <div class="row"><button mat-button color="primary"  style="margin:10px">View More</button></div>
+                        </div>
+                      </div>
+                    </tr>
+                    
+                  </table>
+    </div>
+  </div>
+  

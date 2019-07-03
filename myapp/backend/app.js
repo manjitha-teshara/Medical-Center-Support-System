@@ -15,10 +15,12 @@ const rtsIndex=require('./routes/index.routers');
 var app=express();
 
 var patientRecord=require('./controllers/patientRecord.controller');
+//var patientRecord=require('./controllers/patientRecord.controller');
 
-//middlewair
+//middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(bodyParser.urlencoded());
+app.use(cors({origin: 'http://localhost:4200'}));
 app.use(passport.initialize());
 app.use('/api',rtsIndex);
 

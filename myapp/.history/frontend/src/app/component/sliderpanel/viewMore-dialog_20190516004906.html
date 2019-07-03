@@ -1,0 +1,15 @@
+<h1>Doctor Clinic Times</h1>
+<div class="container">
+    <h1>{{Doctors.fullname}}</h1>
+    <!-- <li>{{Doctors.doctorshedule}}</li> -->
+
+    <table>
+        <thead>
+            <tr></tr>
+        </thead>
+        <tr  *ngFor="let  dsh of Doctors.doctorshedule">
+            <h4>{{dsh}}</h4>
+        </tr>
+    </table>
+
+</div>

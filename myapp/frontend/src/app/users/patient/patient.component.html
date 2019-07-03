@@ -1,3 +1,32 @@
-<p>
-  patient works!
-</p>
+<div class="container">
+    <!-- <div class="row">
+           <img src="../../../assets/row.jpg" style="width:100% ;height: 200px;">
+      </div> -->
+      <div class="row">
+          <img src="../../../assets/b2.jpg" style="width:100% ;height: 520px;">
+     </div>
+   
+    <table class="table table-striped">
+      <thead>
+          <tr>
+            <th>Doctor Name</th>
+            <th>Checkup type</th>
+            <th>Price</th>
+            <th>Schedule</th>
+            <th>Appointment</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let  doctor of Doctors">
+          <td><h5>{{ doctor.fullname }}</h5></td>
+          <td> {{ doctor.checkuptype }} </td>
+          <td> {{ doctor.price}} </td>
+          <td> {{ doctor.doctorshedule }} </td>
+          <td> <button type="button"  (click)="openDialogBooking(doctor)" class="btn btn-success">Book</button></td>
+           <!-- <div class="row"><button mat-raised-button color="primary" (click)="openDialogBooking()" style="margin:10px">Book</button></div> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+      

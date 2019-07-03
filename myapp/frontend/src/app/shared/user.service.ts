@@ -9,13 +9,14 @@ import{User} from './user.model';
 
 export class UserService {
  
-  selectedUser:User={
+  selectedUser: User = {
     
-    userName:'',
-    email:'',
-    phonenumber:'',
-    password:''
-     }
+    userName: '',
+    email: '',
+    phonenumber: '',
+    password: '',
+    phone: ''
+     };
 
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
@@ -102,6 +103,13 @@ export class UserService {
 
   postuser(user:User){
   return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
+  }
+
+  getPatientDetails() {
+    return this.http.get(environment.apiBaseUrl + '/getPatientDetails');
+  }
+  getPharmasictstDetails() {
+    return this.http.get(environment.apiBaseUrl + '/getpharmacistDetails');
   }
 
 

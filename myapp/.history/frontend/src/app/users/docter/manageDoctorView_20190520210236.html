@@ -1,0 +1,80 @@
+<div class="pdetail-container">
+  <form #manageDoctorView="ngForm" (ngSubmit)="onSubmitDoctorView(manageDoctorView)">
+  <div class="container">
+    <div class="row">
+    
+      <div class="col-md-4">
+          <mat-form-field>
+              <input matInput type="text" name="name" #name="ngModel" [(ngModel)]="model.name" placeholder="Name">
+            </mat-form-field>
+      </div>
+      <div class="col-md-4">
+          <mat-form-field>
+              <input matInput type="text" name="checkuptype" #checkuptype="ngModel" [(ngModel)]="model.checkuptype" placeholder="Checkup type">
+            </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field>
+          <textarea matInput type="text" name="price" #price="ngModel" [(ngModel)]="model.price" placeholder="Price"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="col-md-4">
+       
+    </div>
+    <div class="col-md-4">
+        <mat-form-field>
+          <input matInput type="text" name="image" #image="ngModel" [(ngModel)]="model.image" placeholder="Image">
+        </mat-form-field>
+    </div>
+  </div>
+    </div>
+<!-- 
+    <table class="table table-striped table-bordered">
+      <thead>
+          <tr>
+              <th>Day</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let field of fieldArray; let i = index">
+              <td>
+                  <input [(ngModel)]="field.day" class="form-control" type="text" name="{{field.day}}" />
+              </td>
+              <td>
+                  <input [(ngModel)]="field.startTime" class="form-control" type="text" name="{{field.startTime}}" />
+              </td>
+              <td>
+                  <input [(ngModel)]="field.endTime" class="form-control" type="text" name="{{field.endTime}}" />
+              </td>
+              <td>
+                  <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <input class="form-control" type="text" id="newAttributeDay" [(ngModel)]="newAttribute.day" name="newAttributeDay" />
+              </td>
+              <td>
+                  <input class="form-control" type="text" id="newAttributestartTime" [(ngModel)]="newAttribute.startTime" name="newAttributestartTime" />
+              </td>
+              <td>
+                  <input class="form-control" type="text" id="newAttributeendTime" [(ngModel)]="newAttribute.endTime" name="newAttributeendTime" />
+              </td>
+              <td>
+                  <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+              </td>
+          </tr>
+      </tbody>
+  </table> -->
+
+        <input type="submit" value="Checked">
+        
+    </form>
+  </div>
+  

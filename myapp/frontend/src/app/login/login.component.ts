@@ -9,6 +9,7 @@ import { error } from '@angular/compiler/src/util';
 import Swal from 'sweetalert';
 import { Router } from '@angular/router';
 
+
 export interface DialogData {
   animal: string;
   name: string;
@@ -29,8 +30,8 @@ usr = new User();
 
   }
 
-  constructor(public dialog: MatDialog,private userservce :UserService) {}
- 
+  constructor(public dialog: MatDialog, private userservce: UserService, private router: Router) {}
+
 
   openDialogSignIn(): void {
     const dialogRef = this.dialog.open(LoginDialog, {
@@ -47,11 +48,20 @@ usr = new User();
       width: '500px',
     });
   }
+/**onLogout(){
+    this.userService.deleteToken();
+    this.router.navigate(['/login']);
+  } */
+  onLogout(){
+    this.userservce.deleteToken();
+    this.router.navigate(['']);
+  }
+
 }
 
 
 
-//get loging loalog box
+// get loging loalog box
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'login-dialog',
@@ -79,7 +89,7 @@ export class LoginDialog {
   };
   // tslint:disable-next-line:member-ordering
   email = new FormControl('', [Validators.required, Validators.email]);
-  
+
   /*****/
   hide = true;
 
@@ -101,16 +111,13 @@ export class LoginDialog {
       res => {
         this.userService.setToken(res['token']);
         console.log(this.userService.isDoctor());
-       if(this.userService.isDoctor()){
+       if (this.userService.isDoctor()){
         this.router.navigateByUrl('/doctor'); /**set naviagation to doctor dash board mailnly */
-       }
-       else if(this.userService.isPatient()){
+       } else if (this.userService.isPatient()){
         this.router.navigateByUrl('/patient');
-       }
-       else if(this.userService.isAdmin()){
+       }       else if (this.userService.isAdmin()){
         this.router.navigateByUrl('/admin');
-       }
-       else{
+       }       else {
          this.router.navigateByUrl('');
        }
 
@@ -119,6 +126,7 @@ export class LoginDialog {
         this.serverErrorMessages = err.error.message;
       }
     );
+    this.dialogRef.close();
   }
 }
 
@@ -137,6 +145,7 @@ export class LoginDialog {
 // tslint:disable-next-line:component-class-suffix
 export class SignupDialog {
 usr = new User();
+// tslint:disable-next-line:max-line-length
 emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 phone = /^(\+94)[0-9]{9,9}$/;
 showSucessMessage: boolean;
@@ -164,6 +173,7 @@ serverErrorMessages: string;
           swal ( 'Oops ' , '',  'error' );
         }
       );
+      this.dialogRef.close();
     }
 
   onNoClickSignIn(): void {
@@ -202,15 +212,16 @@ serverErrorMessages: string;
 
     resetForm(form: NgForm) {
       this.usersevice.selectedUser = {
-        userName:'',
-      email:'',
-      phonenumber:'',
-      password:''
+      userName: '',
+      email: '',
+      phonenumber: '',
+      password: '',
+      phone: ''
       };
       form.resetForm();
       this.serverErrorMessages = '';
 
-    
+
   }
 
  

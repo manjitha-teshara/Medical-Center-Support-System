@@ -1,54 +1,116 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+    div.a {
+      text-align: center;
+    }
+</style>
+
 <mdb-carousel [isControls]="true" class="carousel slide" [animation]="'slide'">
   <mdb-carousel-item>
-    <div class="view">
-      <video class="video-fluid" autoplay loop>
-          <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
-      </video>
-      <div class="mask rgba-indigo-light waves-light" mdbWavesEffect></div>
-    </div>
+
+      <div class="container" style="width: 1500px ; height :600px">
+
+          <div class="a" style="font-family: 'Comic Sans MS', cursive, sans-serif ;"><h1>Be Healthy and Be Happy</h1><br><br></div>
+
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+              <li data-target="#myCarousel" data-slide-to="4"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="../../../assets/01.jpg" alt="01" style="width:100%;">
+              </div>
+
+              <div class="item">
+                <img src="../../../assets/02.jpg" alt="02" style="width:100%;">
+              </div>
+
+              <div class="item">
+                  <img src="../../../assets/03.jpg" alt="03" style="width:100%;">
+                </div>
+
+              <div class="item">
+                <img src="../../../assets/04.jpg" alt="04" style="width:100%;">
+              </div>
+
+              <div class="item">
+                  <img src="../../../assets/05.jpg" alt="05" style="width:100%;">
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
     <div class="carousel-caption">
-      <h1 style="font-family: 'Times New Roman', Times, serif;">Be Healthy Be Happy</h1>
-      <br><br>
+      <!-- <h1 style="font-family: 'Times New Roman', Times, serif;">We Care Always</h1> -->
+
       <div class="row">
         <div class="col-md-3">
         </div>
-        <div class="col-md-6">
-          <div style="border-style:solid; border-radius:5px;background:ghostwhite;">
-            <img src="assets/img/logo.png">
+        <div class="col-md-6 style:height=200px;">
+          <div style="border-style:solid; border-radius:10px; border-color:beige; ">
+            <h1 style="font-family: 'Times New Roman', Times, serif;font-weight: bolder;font-size:40px; color: rgb(234, 234, 241);text-shadow: 2px 2px 8px rgb(12, 1, 1);">We Care Always</h1>
+            <img style=" border:2px 2px 2px 2px  black" src="assets/img/logo.png">
             <br><br>
           </div>
         </div>
         <div class="col-md-3"></div>
       </div>
       <br>
-      <ul>
+      <!-- <ul> -->
           <li class="btn">
-            <button mat-raised-button color="primary" (click)="openDialogSignIn()">Sign in</button>
+            <button mat-raised-button color="primary" style="width:120px"(click)="openDialogSignIn()">Sign in</button>
           </li>
           <li class="btn">
-            <button mat-raised-button color="primary" (click)="openDialogSignUp()">Sign Up</button>
+            <button mat-raised-button color="primary" style="width:120px"(click)="openDialogSignUp()">Sign Up</button>
           </li>
-      </ul>
+      <!-- </ul> -->
     </div>
   </mdb-carousel-item>
 </mdb-carousel>
 
 <div class="container">
+  
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
+        <div class = "a" style="font-family: 'Times New Roman', Times, serif;"><h2>Available Doctor's Details</h2><br></div>
         <table class="responsive-table highlight">
           <thead>
             <tr>
               <div class="card row">
                 <div class="col-md-3">
                   <div class="row"></div>
-                  <div class="row">Doctor Name</div>
+                  <div class="row"></div>
                 </div>
-                <div class="col-md-4">CheckUp Type</div>
-                <div class="col-md-2">Price</div>
+                <div class="col-md-4"></div>
+                <div class="col-md-2"></div>
                 <div class="col-md-3">
-                  Action
+
                   <div class="row"></div>
                   <div class="row"></div>
                 </div>
@@ -64,26 +126,23 @@
           </tr> -->
 
           <tr *ngFor="let  doctor of Doctors">
-            <div class="card row" style="padding:20px">
+            <div class="card row" style="padding:20px" >
               <div class="col-md-3">
-                <div class="row"><img style="width:80pxx;height:100px;" src={{doctor.image}}></div>
+                <div class="row"><img style="width:80px;height:100px;" src={{doctor.image}}></div>
                 <div class="row">{{doctor.fullname}}</div>
               </div>
               <div class="col-md-4">{{doctor.checkuptype}}</div>
               <div class="col-md-2">{{doctor.price}}</div>
               <div class="col-md-3" >
                 <!-- <div class="row"><button mat-raised-button color="primary" (click)="openDialogBooking()" style="margin:10px">Book</button></div> -->
-                <div class="row"><button mat-button color="primary" (click)="openViewMore(doctor.fullname)" style="margin:10px">View More</button></div>
+                <div class="row"><button mat-button color="primary" (click)="openViewMore(doctor)" style="margin:10px">View More</button></div>
               </div>
             </div>
           </tr>
-          
+
         </table>
 
       </div>
-      <div class="col-md-3"></div>        
-
-
-
-    </div>        
+      <div class="col-md-3"></div>
+    </div>
 </div>
