@@ -94,6 +94,7 @@ export class BookingDialog {
     Doctors: Doctor;
 
     model = {
+
       
       _id: '',
       doctorsName:'',
@@ -185,7 +186,7 @@ resetForm(form: NgForm) {
     });
    }
 
- 
+
 
    hide = true;
  
