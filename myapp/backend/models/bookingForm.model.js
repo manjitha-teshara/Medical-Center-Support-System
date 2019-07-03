@@ -6,6 +6,7 @@ var Booking=new mongoose.Schema({
     mobie:{type:String},
     date:{type:String},
     timeSlots:{type:String},
+    doctorsName:{type:String},
     saltSecret:String
 });
 
