@@ -100,6 +100,18 @@ export class UserService {
     }
   }
 
+  isPharmacist(){
+    var payload = this.getUserPayload()
+    if(payload){
+      if(payload.type=="pharmacist"){
+        return true
+      }
+    }
+    else{
+      return false
+    }
+  }
+
 
   postuser(user:User){
   return this.http.post(environment.apiBaseUrl+'/register',user,this.noAuthHeader);
