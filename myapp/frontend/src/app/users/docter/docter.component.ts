@@ -136,6 +136,7 @@ patientRecords.medicenList = this.sheduleArray;
      swal ('Oops', '', 'error');
    }
  );
+ this.dialogRef.close();
 }
 
 resetForm(form: NgForm) {
@@ -285,6 +286,7 @@ onSubmitDoctorView(form: NgForm) {
       swal ('Oops', '', 'error');
     }
   );
+  this.dialogRef.close();
  }
 
  resetForm(form: NgForm) {
