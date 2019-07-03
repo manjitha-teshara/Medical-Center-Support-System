@@ -25,6 +25,7 @@ module.exports.postBooking=(req,res,next)=>{
     booking.dob=req.body.dob;
     booking.mobile=req.body.mobile;
     booking.date=req.body.date;
+    booking.doctorsName=req.body.doctorsName
     booking.timeSlots=req.body.timeSlots;
     
     booking.save((err,doc)=>{
