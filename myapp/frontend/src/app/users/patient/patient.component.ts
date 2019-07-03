@@ -4,6 +4,10 @@ import { Doctor } from '../../shared/doctor/doctor.model';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { User } from 'src/app/shared/user.model';
 import { NgForm } from '@angular/forms';
+import { BookingForm } from 'src/app/shared/booking-form.model';
+import { BookingService } from 'src/app/shared/booking.service';
+
+import swal from 'sweetalert';
 
 
 
@@ -79,22 +83,82 @@ export class PatientComponent implements OnInit {
 })
 export class BookingDialog {
 
-  
+  showSucessMessage: boolean;
+  serverErrorMessages: string;
   constructor(
     public dialogRef: MatDialogRef<BookingDialog>,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private doctorservice: DoctorService) {}
+    private doctorservice: DoctorService , private bookingservice: BookingService) {}
 
     Doctors: Doctor;
 
     model = {
+      
       _id: '',
+      doctorsName:'',
       f_name: '',
       l_name: '',
       mobile: '',
-      date: ''
+      date: '',
+      timeSlots: '',
     };
+
+
+    
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+ 
+
+
+
+  onSubmit(form: NgForm) {
+
+    // console.log(form.value._id);
+    // console.log(form.value.f_name);
+    // console.log("inonSubmitPrecord");
+
+const bookingForm = new BookingForm();
+
+bookingForm.firstName = form.value. f_name;
+bookingForm.lastName = form.value.l_name;
+bookingForm.mobie= form.value.mobile;
+bookingForm.doctorsName = form.value.doctorsName;
+bookingForm.date = form.value.date;
+bookingForm.timeSlots = form.value.timeSlots;
+ this.bookingservice.postBooking(bookingForm).subscribe(
+   res => {
+     this.resetForm(form);
+     swal({
+       title: 'checked !',
+       text: 'You have Sussefully submit report !',
+       icon: 'success',
+     });
+   },
+   err => {
+     swal ('Oops', '', 'error');
+   }
+ );
+}
+
+resetForm(form: NgForm) {
+  this.bookingservice.selectedBooking = {
+    _id: '',
+    doctorsName:'',
+    firstName: '',
+    lastName:'',
+    mobie: '',
+    date: '',
+    timeSlots: '',
+  };
+  form.resetForm();
+  this.serverErrorMessages = '';
+
+
+}
 
 
 
@@ -121,37 +185,7 @@ export class BookingDialog {
     });
    }
 
-   onSubmit(form: NgForm) {
-
-    console.log(form.value._id);
-    console.log(form.value.f_name);
-
-    //  console.log("inonSubmitPrecord");
-    // const patientRecords = new PatientRecordClass();
-    
-    // patientRecords.name = form.value.name;
-    // patientRecords.id = form.value.id;
-    // patientRecords.age = form.value.age;
-    // patientRecords.cost = form.value.cost;
-    // patientRecords.description = form.value.description;
-    // patientRecords.medicenList = this.sheduleArray;
-    //  this.patientRecordsService.postPatientRecord(patientRecords).subscribe(
-    //    res => {
-    //      this.resetForm(form);
-    //      swal({
-    //        title: 'checked !',
-    //        text: 'You have Sussefully submit report !',
-    //        icon: 'success',
-    //      });
-    //    },
-    //    err => {
-    //      swal ('Oops', '', 'error');
-    //    }
-    //  );
-     this.dialogRef.close();
-    }
-
-    
+ 
 
    hide = true;
  
