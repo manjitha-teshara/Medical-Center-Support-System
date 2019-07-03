@@ -145,7 +145,9 @@ export class LoginDialogInBox {
         this.router.navigateByUrl('/patient');
        } else if (this.userService.isAdmin()) {
         this.router.navigateByUrl('/admin');
-       } else {
+       } else if (this.userService.isPharmacist()){
+        this.router.navigateByUrl('/pharmacist');
+      }       else {
          this.router.navigateByUrl('');
        }
 
