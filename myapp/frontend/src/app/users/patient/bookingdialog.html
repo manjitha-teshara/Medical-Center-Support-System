@@ -2,12 +2,12 @@
         <h1 mat-dialog-title>Get Appointment</h1>
         <div mat-dialog-content>
             <form #BookingForm="ngForm"  (ngSubmit)="onSubmit(BookingForm)"> 
-                    <!-- <form #checkedPatientForm="ngForm" (ngSubmit)="onSubmitPrecord(checkedPatientForm)"> -->
-     
+
+                   
                 <div class="">
                     <div class ="row">
                         <input matInput type="text" name="_id" #_id="ngModel" [(ngModel)]="model._id">
-                        <!-- <input matInput type="text" name="id" #id="ngModel" [(ngModel)]="model.id" placeholder="ID"> -->
+                        
 
                          <div class="col-md-4">        
                        
@@ -29,16 +29,20 @@
                                 <div class="col-md-4">  
                                 <mat-form-field >
                                         <input matInput placeholder="Mobile"  name="mobile" type="text" [(ngModel)]="model.mobile" required>
+
                                 </mat-form-field>
                                 
                             </div>
                     </div>
-                        <!-- <mat-form-field >
-                                <input matInput placeholder="Doctor"  >
-                                
-                        </mat-form-field> -->
+                 <div class ="row">
+                    <div class="col-md-4">  
+                        <mat-form-field >
+                                <input matInput placeholder="Doctors name"  name="doctorsName" type="text" [(ngModel)]="model.doctorsName" required>
+                        </mat-form-field>
                         
-
+                    </div>
+                        
+                    <div class="col-md-4">  
                                 <mat-form-field>
                                         <input matInput [matDatepicker]="picker" placeholder="Choose a date " formControlName="dateOfApp" id="dateOfApp" 
                                                     readonly (click)="picker.open()"  name="date" type="text" [(ngModel)]="model.date">
@@ -46,39 +50,25 @@
                                                 <mat-datepicker #picker></mat-datepicker>
                                 </mat-form-field>
 
-
+                    </div>
                                 <mat-form-field>
                                         <mat-label>Select Time</mat-label>
-                                        <mat-select >
-                                        <mat-option *ngFor="let  dsh of Doctors.doctorshedule" [value]="dsh.id">
+                                        <mat-select name="timeSlots" type="text" [(ngModel)]="model.timeSlots" >
+                                        <mat-option *ngFor="let  dsh of Doctors.doctorshedule" [value]="dsh">
                                             {{dsh}}
                                         </mat-option>
                                         </mat-select>
                                 </mat-form-field>
                                 
-                        <!-- <mat-form-field>
-                                        <mat-select placeholder="Select Time">
-                                          <mat-option value="option">Option</mat-option>
-                                            <option value="option1"> 08.00-10.00:</option>
-                                            <option value="option2"> 16.00-22.00</option>
-                                            <option value="option3"> 15.00 22.00</option>
-                                            <option value="option4">13.00 22.00</option>
-                                            
-                                        </mat-select>
-                        </mat-form-field> -->
-                        <!-- <mat-form-field>
-                                <input matInput [matDatepicker]="picker" placeholder="Choose a date of birth" formControlName="dateOfBirth" id="dateOfBirth" 
-                                    readonly (click)="picker.open()">
-                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field >                                     -->
-                  
-             
+                        
                 </div>
+
+             </div>
             <button mat-button  type="submit" value="Submit">Submit</button> 
 
-            </form>  
-        </div>
-        <div mat-dialog-actions>
+        </form>  
+     </div>
+ <div mat-dialog-actions>
+
             
-        </div>  
+</div>  
