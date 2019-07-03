@@ -2,11 +2,13 @@
         <h1 mat-dialog-title>Get Appointment</h1>
         <div mat-dialog-content>
             <form #BookingForm="ngForm"  (ngSubmit)="onSubmit(BookingForm)"> 
+
                    
                 <div class="">
                     <div class ="row">
                         <input matInput type="text" name="_id" #_id="ngModel" [(ngModel)]="model._id">
                         
+
                          <div class="col-md-4">        
                        
                              <label>{{Doctors.fullname}}</label>  
@@ -27,7 +29,7 @@
                                 <div class="col-md-4">  
                                 <mat-form-field >
                                         <input matInput placeholder="Mobile"  name="mobile" type="text" [(ngModel)]="model.mobile" required>
-                                        
+
                                 </mat-form-field>
                                 
                             </div>
@@ -60,11 +62,13 @@
                                 
                         
                 </div>
+
              </div>
             <button mat-button  type="submit" value="Submit">Submit</button> 
 
         </form>  
      </div>
  <div mat-dialog-actions>
+
             
 </div>  
